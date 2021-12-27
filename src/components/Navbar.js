@@ -31,7 +31,7 @@ function Navbar() {
         <div className="navbar-container container">
           <Link to="/" className="navbar-logo">
             <GiKeyring className="navbar-icon" />
-            Maison d'hôtes
+            Domaine de BSM
           </Link>
           <div className="menu-icon" onClick={handleClick}>
             {click ? <FaTimes /> : <HiOutlineMenuAlt3 />}

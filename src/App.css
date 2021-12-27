@@ -2,7 +2,10 @@
   margin: 0;
   /* padding: 0; */
   font-family: 'Jost', sans-serif;
-  background-image: url("../public/images/background_paper.jpg");
+}
+
+body{
+  background-image: url("../public/images/background_paper_40p.jpg");
   background-repeat:no-repeat;
   background-size: cover;
 }

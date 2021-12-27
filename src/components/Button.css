@@ -43,8 +43,8 @@
   font-size: 24px;
 
   background-color: transparent;
-  color: var(--primary);
-  border: 1px solid var(--primary);
+  color: var(--secondary);
+  border: 1px solid var(--secondary);
   border-radius: 4px;
 
   text-align: center;
@@ -62,8 +62,8 @@
 .btn--medium:hover,
 .btn--mobile:hover {
   transition: all 0.3s ease-out;
-  background-color: var(--secondary);
-  color: var(--primary);
+  background-color: var(--primary);
+  color: var(--secondary);
 }
 
 .btn--wide:hover {
@@ -96,4 +96,14 @@
   background-color: green;
   color: var(--secondary);
   border: none;
+}
+
+.btn-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  padding: 8px 16px;
+  height: 100%;
+  width: 100%;
 }
