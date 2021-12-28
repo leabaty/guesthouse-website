@@ -1,10 +1,9 @@
 import React from 'react';
+
 import "./Button.css";
 
 const STYLE = ["btn--full", "btn--outline"];
-
 const SIZE = ["btn--medium", "btn--large", "btn--mobile"];
-
 const COLOR = ["primary", "red", "green"]; 
 
 export const Button =({
@@ -24,8 +23,8 @@ export const Button =({
     return (
         <button 
         /*1*/ className={`btn ${checkButtonStyle} ${checkButtonSize} ${checkButtonColor}`} 
-        /*2*/onClick={onClick} type={type}
-        /*3*/>{children}</button>
+        /*2*/ onClick={onClick} type={type}
+        /*3*/> {children}</button>
         )
 
         // 1 - Il ajoute les classes par défaut (position 0 du tableau) si il n'y a pas de classe de définie spécifiquement.
