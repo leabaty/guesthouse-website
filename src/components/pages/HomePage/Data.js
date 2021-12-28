@@ -4,7 +4,7 @@ export const homeObject1 = {
     lightText: true,
     lightTextDesc : true,
     topLine: "",
-    headLine: "Votre maison d’hôtes au coeur d’un domaine privilégié.",
+    headLine: "Votre maison d’hôtes vous accueille au coeur d’un domaine privilégié.",
     description : "Pellentesque vel iaculis eros. Maecenas sed felis id dui suscipit tristique eu id risus. Etiam luctus nisi lacus, id mattis sapien vestibulum ac.",
     buttonLabel : "Voir plus",
     img: "https://i.ibb.co/tsy7Kvc/house-picture.jpg",

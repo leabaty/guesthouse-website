@@ -37,12 +37,12 @@
 
 .footer-subscription-heading {
   margin-bottom: 24px;
-  font-size: 24px;
+  font-size: 1.5rem;
 }
 
 .footer-subscription-text {
   margin-bottom: 24px;
-  font-size: 20px;
+  font-size: 1rem;
 }
 
 .footer-input {
@@ -107,7 +107,7 @@
 /* Social Icons */
 .social-icon-link {
   color: var(--secondary);
-  font-size: 24px;
+  font-size: 1.5rem;
 }
 
 .social-media {
@@ -157,11 +157,11 @@
   }
 
   .footer-input {
-    width: 100%;
+    width: 80%;
   }
 
   .btn {
-    width: 100%;
+    width: 80%;
   }
 
   .footer-link-wrapper {
@@ -170,5 +170,14 @@
 
   .social-media-wrap {
     flex-direction: column;
+  }
+
+  .footer-content{
+    flex-direction: column;
+    max-width: 90%;
+}
+
+.footer-links {
+    border-left: none;
   }
 }
