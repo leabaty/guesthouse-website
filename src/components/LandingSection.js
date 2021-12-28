@@ -1,7 +1,9 @@
 import React from "react";
-import { Button } from "./Button";
 import { Link } from "react-router-dom";
+
 import "./LandingSection.css";
+
+import { Button } from "./Button";
 
 function LandingSection({
   lightBg,
@@ -47,22 +49,24 @@ function LandingSection({
                   {description}
                 </p>
 
-              {/*TODO La section bouton doit pouvoir changer ou être optionnelle*/}
+                {/*TODO La section bouton doit pouvoir changer ou être optionnelle*/}
                 <Link to="/contact">
-                  <Button buttonSize="btn--wide" buttonColor="green">
+                  <Button buttonSize="btn--wide" buttonColor="primary">
                     {buttonLabel}
                   </Button>
                 </Link>
-
               </div>
             </div>
 
             <div className="col">
               <div className="home__landing-img-wrapper">
-                <img src={img} alt={alt} className="home__landing-img" />
+                <img
+                  src={img}
+                  alt={alt}
+                  className="home__landing-img"
+                />
               </div>
             </div>
-            
           </div>
         </div>
       </div>

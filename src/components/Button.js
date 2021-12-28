@@ -1,10 +1,9 @@
 import React from 'react';
+
 import "./Button.css";
 
 const STYLE = ["btn--full", "btn--outline"];
-
 const SIZE = ["btn--medium", "btn--large", "btn--mobile"];
-
 const COLOR = ["primary", "red", "green"]; 
 
 export const Button =({

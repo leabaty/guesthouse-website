@@ -34,7 +34,7 @@ function Navbar() {
         <div className="navbar-container container">
           <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
             <GiKeyring className="navbar-icon" />
-            Domaine de BSM
+            Domaine de Bernay
           </Link>
           <div className="menu-icon" onClick={handleClick}>
             {click ? <FaTimes /> : <HiOutlineMenuAlt3 />}
