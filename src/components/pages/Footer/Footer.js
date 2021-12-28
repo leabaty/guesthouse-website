@@ -16,6 +16,8 @@ function Footer() {
   return (
     <div className='footer-container'>
 
+    <div className='footer-content'>
+        
       <section className='footer-subscription'>
         <p className='footer-subscription-heading'>
           Restez à l'écoute de nos actualités
@@ -31,12 +33,12 @@ function Footer() {
               type='email'
               placeholder='Votre adresse email'
             />
-            <Button buttonStyle='btn--outline'>Je m'abonne !</Button>
+            <Button buttonStyle='btn--full'>Je m'abonne !</Button>
           </form>
         </div>
       </section>
 
-      <div className='footer-links'>
+      <section className='footer-links'>
         <div className='footer-link-wrapper'>
 
           <div className='footer-link-items'>
@@ -59,6 +61,8 @@ function Footer() {
           </div>
 
         </div>
+      </section>
+
       </div>
 
       <section className='social-media'>
