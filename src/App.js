@@ -6,14 +6,16 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Home from "./components/pages/HomePage/Home";
 import Footer from "./components/pages/Footer/Footer";
+import Rooms from "./components/pages/Rooms/Rooms";
 
 function App() {
   return (
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home/>}></Route>
+        <Route path="/" element={<Home />}></Route>
       </Routes>
+      <Rooms />
       <Footer />
     </Router>
   );
