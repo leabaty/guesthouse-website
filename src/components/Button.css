@@ -17,8 +17,9 @@
 .btn--full {
   background-color: var(--primary);
   color: var(--secondary);
-  border: 1px solid var(--primary);
+  border: 1px solid var(--secondary);
 }
+
 
 .btn--outline {
   padding: 8px 20px;
@@ -71,6 +72,13 @@
   background-color: darkred;
   color: var(--secondary);
 }
+
+.btn--full:hover {
+  background-color: var(--secondary);
+  color: var(--primary);
+  border: 1px solid var(--secondary);
+}
+
 
 /* BUTTON COLORS */
 
