@@ -21,7 +21,6 @@
   align-items: center;
 }
 
-
 .col {
   margin-bottom: 15px;
   padding: 0 15px;
@@ -89,13 +88,17 @@ img {
   background-color: var(--primary);
 }
 
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 1250px) {
     .container {
         padding: 0 30px;
     }
 
     .heading {
-      font-size: 2.5em;
+      font-size: 2em;
+    }
+
+    .home__landing-row {
+      max-width: 95%; 
     }
 }
 
@@ -109,12 +112,12 @@ img {
         flex-basis: 100%;
     }
 
-    .heading {
-      font-size: 2em;
-    }
-
     .home__landing-section {
       padding: 40px 0;
+    }
+
+    .row {
+      justify-content: center; 
     }
 
 }
