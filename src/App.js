@@ -8,14 +8,18 @@ import Home from "./components/pages/HomePage/Home";
 import Footer from "./components/pages/Footer/Footer";
 import Rooms from "./components/pages/Rooms/Rooms";
 
+import roomData from "./data/roomData";
+
 function App() {
+
+
   return (
     <Router>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />}></Route>
       </Routes>
-      <Rooms />
+      <Rooms rooms={roomData} />
       <Footer />
     </Router>
   );

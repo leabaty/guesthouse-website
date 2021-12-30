@@ -1,13 +1,11 @@
 import React from "react";
-import { useState } from "react";
+
 import Slider from "react-slick";
 import "./Rooms.css";
 
-import roomData from "../../../data/roomData";
-
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 
-function Rooms() {
+function Rooms({rooms}) {
 
   const NextArrow = ({ onClick }) => {
     return (
@@ -40,7 +38,7 @@ function Rooms() {
     <>
       <div className="rooms-container">
         <Slider {...settings}>
-          <div className="room-item">
+          {/* <div className="room-item">
             <h1 className="room-name">Chambre Jeanne</h1>
             <img
               src="https://images.unsplash.com/photo-1616627686733-122fec9d87b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
@@ -83,16 +81,17 @@ function Rooms() {
               euismod nulla, id laoreet ipsum mauris id tortor. Integer interdum
               mollis venenatis.
             </p>
-          </div>
+          </div> */}
 
-          {/* {roomData.map((room, index) => {
+          {rooms.map((room) => {
             return (
-              <div className="room-item">
-                <img src={room.img_url} alt={room.name} className="room-img" />
-                <p key={room.id}>{room.description}</p>
+              <div className="room-item" key={room.id}>
+                <h1 className="room-name">{room.name}</h1>
+                <img className="room-img" src={room.img_url} alt={room.name} />
+                <p className="room-description" >{room.description}</p>
               </div>
             );
-          })} */}
+          })}
         </Slider>
       </div>
     </>
