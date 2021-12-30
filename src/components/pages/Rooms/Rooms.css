@@ -1,3 +1,9 @@
 @import "~slick-carousel/slick/slick.css"; 
 @import "~slick-carousel/slick/slick-theme.css";
 
+.rooms-container {
+    width: 50%;
+    margin: 2rem auto;
+    height: 550px;
+}
+
