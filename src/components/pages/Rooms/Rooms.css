@@ -57,3 +57,27 @@
     font-family: "Italiana", serif;
     font-size: 2.3rem;
 }
+
+.room-characteristics{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 16px;
+}
+
+.room-characteristics-item{
+font-size: 1.1rem;
+}
+
+.room-characteristics-item-info{
+    display:inline-block;
+    font-size: 0.9rem;
+    padding:0 3px 0 2px;
+    margin-bottom: 5px;
+}
+
+.child {
+    font-size: 0.9rem;
+    position: relative;
+    bottom:-3px
+}
