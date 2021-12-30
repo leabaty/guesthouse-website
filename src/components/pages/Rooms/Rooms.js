@@ -1,12 +1,21 @@
 import React from "react";
+import { useState } from "react";
 
 import Slider from "react-slick";
 import "./Rooms.css";
 
-import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
+import {
+  FaArrowRight,
+  FaArrowLeft,
+//   FaChild,
+//   FaAccessibleIcon,
+//   FaRegCompass,
+} from "react-icons/fa";
+// import { BiBed } from "react-icons/bi";
+// import { IoResize, IoIosMan } from "react-icons/Io";
+// import { BiLandscape } from "react-icons/Bi";
 
-function Rooms({rooms}) {
-
+function Rooms({ rooms }) {
   const NextArrow = ({ onClick }) => {
     return (
       <div className="arrow next" onClick={onClick}>
@@ -23,72 +32,58 @@ function Rooms({rooms}) {
     );
   };
 
+  const [imageIndex, setImageIndex] = useState(0);
+
   const settings = {
-    className: "center",
-    centerMode: true,
     infinite: true,
-    centerPadding: "60px",
-    slidesToShow: 1,
-    speed: 500,
+    lazyLoad: true,
+    centerMode: true,
+    speed: 300,
+    slidesToShow: 3,
+    centerPadding: 0,
+
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
+    beforeChange: (current, next) => setImageIndex(next),
   };
 
   return (
     <>
       <div className="rooms-container">
         <Slider {...settings}>
-          {/* <div className="room-item">
-            <h1 className="room-name">Chambre Jeanne</h1>
-            <img
-              src="https://images.unsplash.com/photo-1616627686733-122fec9d87b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
-              alt="Chambre Jeanne"
-              className="room-img"
-            />
-            <p>
-              Phasellus vehicula odio urna, consectetur pharetra neque consequat
-              quis. Phasellus feugiat, massa non consequat accumsan, nisl magna
-              euismod nulla, id laoreet ipsum mauris id tortor. Integer interdum
-              mollis venenatis.
-            </p>
-          </div>
-
-          <div className="room-item">
-            <h1 className="room-name">Chambre Clara</h1>
-            <img
-              src="https://images.unsplash.com/photo-1529518189823-e18dc00cfd0a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80"
-              alt="Chambre Joséphine"
-              className="room-img"
-            />
-            <p>
-              Phasellus vehicula odio urna, consectetur pharetra neque consequat
-              quis. Phasellus feugiat, massa non consequat accumsan, nisl magna
-              euismod nulla, id laoreet ipsum mauris id tortor. Integer interdum
-              mollis venenatis.
-            </p>
-          </div>
-
-          <div className="room-item">
-            <h1 className="room-name">Chambre Joséphine</h1>
-            <img
-              src="https://images.unsplash.com/photo-1532344214108-1b6d425db572?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80"
-              alt="Chambre Clara"
-              className="room-img"
-            />
-            <p>
-              Phasellus vehicula odio urna, consectetur pharetra neque consequat
-              quis. Phasellus feugiat, massa non consequat accumsan, nisl magna
-              euismod nulla, id laoreet ipsum mauris id tortor. Integer interdum
-              mollis venenatis.
-            </p>
-          </div> */}
-
-          {rooms.map((room) => {
+          {rooms.map((room, index) => {
             return (
-              <div className="room-item" key={room.id}>
+              <div
+                className={index === imageIndex ? "slide activeSlide" : "slide"}
+                //ce qu'on veut ici c'est mettre en valeur l'image courante.
+                // Si l'index de l'image dans le tableau d'objets matche avec l'index du
+                // tableau, ça veut dire qu'elle est l'image courante et qu'on peut donc
+                // lui appliquer un style pour la mettre en valeur.
+                key={room.id}
+              >
                 <h1 className="room-name">{room.name}</h1>
                 <img className="room-img" src={room.img_url} alt={room.name} />
-                <p className="room-description" >{room.description}</p>
+                {/* <div className="room-characteristics">
+                  <div className="room-characteristics-item">
+                    <IoIosMan />
+                  </div>
+                  <div className="room-characteristics-item">
+                    <FaChild />
+                  </div>
+                  <div className="room-characteristics-item">
+                    <IoResize />
+                  </div>
+                  <div className="room-characteristics-item">
+                    <BiBed />
+                  </div>
+                  <div className="room-characteristics-item">
+                    <FaRegCompass />
+                  </div>
+                  <div className="room-characteristics-item">
+                    <BiLandscape />
+                  </div>
+                </div> */}
+                <p className="room-description">{room.description}</p>
               </div>
             );
           })}
