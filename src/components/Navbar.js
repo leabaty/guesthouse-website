@@ -39,6 +39,7 @@ function Navbar() {
           <div className="menu-icon" onClick={handleClick}>
             {click ? <FaTimes /> : <HiOutlineMenuAlt3 />}
           </div>
+          
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-item">
               <Link
@@ -52,7 +53,7 @@ function Navbar() {
 
             <li className="nav-item">
               <Link to="/table" className="nav-links" onClick={closeMobileMenu}>
-                Table
+                Services
               </Link>
             </li>
 

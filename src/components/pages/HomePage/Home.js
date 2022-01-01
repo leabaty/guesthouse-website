@@ -1,6 +1,6 @@
 import React from 'react';
 import LandingSection from '../../LandingSection';
-import {homeObject1, homeObject2, homeObject3} from './Data';
+import {homeObject1, homeObject2, homeObject3} from '../../../data/homeData';
 
 function Home() {
     return (
