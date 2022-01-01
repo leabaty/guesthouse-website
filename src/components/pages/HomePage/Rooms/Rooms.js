@@ -1,7 +1,9 @@
 import React from "react";
 import { useState } from "react";
-
+import { Link } from "react-router-dom";
 import Slider from "react-slick";
+import { Button } from "../../../Button";
+
 import "./Rooms.css";
 
 import {
@@ -12,7 +14,6 @@ import {
   FaRegCompass,
 } from "react-icons/fa";
 import { BiBed, BiLandscape } from "react-icons/bi";
-import { IoResize } from "react-icons/io5";
 import { GiResize } from "react-icons/gi";
 
 function Rooms({ rooms }) {
@@ -50,7 +51,7 @@ function Rooms({ rooms }) {
   return (
     <>
       <div className="rooms-container">
-        <Slider {...settings}>
+        <Slider className="rooms-slider" {...settings}>
           {rooms.map((room, index) => {
             return (
               <div
@@ -66,31 +67,54 @@ function Rooms({ rooms }) {
 
                 <div className="room-characteristics">
                   <div className="room-characteristics-item">
-                    <FaChild /><p className="room-characteristics-item-info">{room.max_pax_adults}</p>
+                    <FaChild />
+                    <p className="room-characteristics-item-info">
+                      {room.max_pax_adults}
+                    </p>
                   </div>
                   <div className="room-characteristics-item child">
-                    <FaChild /><p className="room-characteristics-item-info">{room.max_pax_children}</p>
+                    <FaChild />
+                    <p className="room-characteristics-item-info">
+                      {room.max_pax_children}
+                    </p>
                   </div>
                   <div className="room-characteristics-item">
-                    <GiResize /><p className="room-characteristics-item-info">{room.square_meters}m²</p>
+                    <GiResize />
+                    <p className="room-characteristics-item-info">
+                      {room.square_meters}m²
+                    </p>
                   </div>
                   <div className="room-characteristics-item">
-                    <BiBed /><p className="room-characteristics-item-info">{room.bed_type}</p>
+                    <BiBed />
+                    <p className="room-characteristics-item-info">
+                      {room.bed_type}
+                    </p>
                   </div>
 
                   <div className="room-characteristics-item">
-                    <FaRegCompass /><p className="room-characteristics-item-info">{room.cardinalities}</p>
+                    <FaRegCompass />
+                    <p className="room-characteristics-item-info">
+                      {room.cardinalities}
+                    </p>
                   </div>
                   <div className="room-characteristics-item">
-                    <BiLandscape /><p className="room-characteristics-item-info">{room.view}</p>
+                    <BiLandscape />
+                    <p className="room-characteristics-item-info">
+                      {room.view}
+                    </p>
                   </div>
-
                 </div>
                 <p className="room-description">{room.description}</p>
               </div>
             );
           })}
         </Slider>
+
+        <Link to="/chambres">
+          <Button buttonSize="btn--wide" buttonColor="primary">
+            Voir toutes les chambres
+          </Button>
+        </Link>
       </div>
     </>
   );

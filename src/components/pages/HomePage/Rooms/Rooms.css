@@ -7,9 +7,15 @@
 
     border-top: 1px solid;
     padding: 120px 0;
+
+    text-align: center;
 }
 
 /* IMAGE SLIDER */
+
+.rooms-slider{
+    padding-bottom: 1rem;
+}
 
 .slide img {
     margin : 0 auto;
