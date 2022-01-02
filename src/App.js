@@ -8,6 +8,7 @@ import Home from "./components/pages/HomePage/Home";
 import Footer from "./components/pages/Footer/Footer";
 import Rooms from "./components/pages/HomePage/Rooms/Rooms";
 import RoomPage from "./components/pages/RoomPage/RoomPage";
+import RoomDetails from "./components/pages/RoomPage/RoomDetails";
 
 import roomData from "./data/roomData";
 
@@ -20,14 +21,11 @@ function App() {
       <Navbar />
 
       <Routes>
-        <Route path="/" exact element={<Home />}></Route>
-        <Route path="/chambres" element={<RoomPage />}></Route>
+        <Route path="/" exact element={<> <Home/> <Rooms rooms={roomData}/> </>}></Route>
+        <Route path="/chambres" element={<> <RoomPage rooms={roomData} /> <RoomDetails/> </>} rooms={roomData}></Route>
       </Routes>
 
-      <Rooms rooms={roomData} />
-      //TODO : Bouger les roomData dans la section des rooms (car sinon ça s'affiche sur chaque page)
-
-      <Footer />
+     <Footer />
 
     </Router>
   );
