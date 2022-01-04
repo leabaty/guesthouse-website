@@ -22,7 +22,7 @@ function App() {
 
       <Routes>
         <Route path="/" exact element={<> <Home/> <Rooms rooms={roomData}/> </>}></Route>
-        <Route path="/chambres" element={<> <RoomPage rooms={roomData} /> <RoomDetails/> </>} rooms={roomData}></Route>
+        <Route path="/chambres" element={<> <RoomDetails/> <RoomPage rooms={roomData} /> </>} rooms={roomData}></Route>
       </Routes>
 
      <Footer />

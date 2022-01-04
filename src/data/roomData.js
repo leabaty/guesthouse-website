@@ -12,7 +12,10 @@ export default [
     "bed_type": "king-size",
     "view": "jardin",
     "cardinalities": "sud-ouest",
-    "amenities": "wifi gratuit, air conditionné, sèche-cheveux, serviettes et produits d’accueil, lit bébé sur demande."
+    "amenities": "wifi gratuit, air conditionné, sèche-cheveux, serviettes et produits d’accueil, lit bébé sur demande.",
+    "min_price":45,
+    "max_price":60,
+
 }, 
 {
     "id": 2,
@@ -26,7 +29,9 @@ export default [
     "bed_type": "king-size",
     "view": "cour",
     "cardinalities": "sud-ouest",
-    "amenities": "wifi gratuit, air conditionné, sèche-cheveux, serviettes et produits d’accueil, lit bébé sur demande."
+    "amenities": "wifi gratuit, air conditionné, sèche-cheveux, serviettes et produits d’accueil, lit bébé sur demande.",
+    "min_price":50,
+    "max_price":65,
 }, 
 {
     "id": 3,
@@ -40,7 +45,9 @@ export default [
     "bed_type": "king-size",
     "view": "cour",
     "cardinalities": "sud-est",
-    "amenities": "wifi gratuit, air conditionné, sèche-cheveux, serviettes et produits d’accueil, lit bébé sur demande."
+    "amenities": "wifi gratuit, air conditionné, sèche-cheveux, serviettes et produits d’accueil, lit bébé sur demande.",
+    "min_price":70,
+    "max_price":85,
 }, 
 {
     "id": 4,
@@ -54,7 +61,9 @@ export default [
     "bed_type": "king-size",
     "view": "cour",
     "cardinalities": "nord",
-    "amenities": "wifi gratuit, air conditionné, sèche-cheveux, serviettes et produits d’accueil, lit bébé sur demande."
+    "amenities": "wifi gratuit, air conditionné, sèche-cheveux, serviettes et produits d’accueil, lit bébé sur demande.",
+    "min_price":75,
+    "max_price":95,
 }, 
 {
     "id": 5,
@@ -68,7 +77,9 @@ export default [
     "bed_type": "king-size",
     "view": "cour",
     "cardinalities": "nord-ouest",
-    "amenities": "wifi gratuit, air conditionné, sèche-cheveux, serviettes et produits d’accueil, lit bébé sur demande."
+    "amenities": "wifi gratuit, air conditionné, sèche-cheveux, serviettes et produits d’accueil, lit bébé sur demande.",
+    "min_price":90,
+    "max_price":110,
 }
 
 ]

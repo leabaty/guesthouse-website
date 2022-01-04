@@ -4,9 +4,10 @@
 .rooms-container {
     width: 90%;
     margin: 2rem auto;
+    padding: 60px 0;
 
     border-top: 1px solid;
-    padding: 120px 0;
+
 
     text-align: center;
 }
@@ -15,6 +16,7 @@
 
 .rooms-slider{
     padding-bottom: 1rem;
+    padding: 60px 0;
 }
 
 .slide img {
@@ -61,7 +63,12 @@
 
 .room-name {
     font-family: "Italiana", serif;
-    font-size: 2.3rem;
+    font-size: 2rem;
+}
+
+.room-name {
+    font-family: "Italiana", serif;
+    font-size: 2rem;
 }
 
 .room-characteristics{
