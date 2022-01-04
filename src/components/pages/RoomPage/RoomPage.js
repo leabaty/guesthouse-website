@@ -4,8 +4,7 @@ import { Button } from "../../Button";
 
 import "./RoomPage.css";
 
-import { FaChild, FaAccessibleIcon, FaRegCompass } from "react-icons/fa";
-import { BiBed, BiLandscape } from "react-icons/bi";
+import { FaChild, FaAccessibleIcon } from "react-icons/fa";
 import { GiResize } from "react-icons/gi";
 
 function RoomPage({ rooms }) {
@@ -41,30 +40,11 @@ function RoomPage({ rooms }) {
                 </div>
                 </div>
 
-                {/* <div className="room-characteristics">
-                <div className="room-characteristics-item">
-                  <BiBed />
-                  <p className="room-characteristics-item-info">
-                    {room.bed_type}
-                  </p>
-                </div>
-
-                <div className="room-characteristics-item">
-                  <FaRegCompass />
-                  <p className="room-characteristics-item-info">
-                    {room.cardinalities}
-                  </p>
-                </div>
-
-                <div className="room-characteristics-item">
-                  <BiLandscape />
-                  <p className="room-characteristics-item-info">{room.view}</p>
-                </div>
-              </div> */}
+              <p className="room-pricing"> {room.min_price}€ à {room.max_price}€ par nuit, selon période, pour deux personnes avec petit-déjeuner inclus.  </p>
 
               <Link to="/chambres">
                 <Button className="room-card-btn" buttonSize="btn--medium" buttonColor="primary">
-                  Détails
+                  Voir la chambre
                 </Button>
               </Link>
             </div>

@@ -51,6 +51,7 @@ function Rooms({ rooms }) {
   return (
     <>
       <div className="rooms-container">
+      <h1 className="heading"> Nos Chambres </h1>
         <Slider className="rooms-slider" {...settings}>
           {rooms.map((room, index) => {
             return (
