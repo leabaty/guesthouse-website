@@ -1,3 +1,7 @@
 .roomdetails-container{
     padding: 5% 12%;
 }
+
+.hidden {
+    display: none;
+}

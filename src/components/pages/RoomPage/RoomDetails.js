@@ -7,22 +7,18 @@ import { FaChild, FaAccessibleIcon, FaRegCompass } from "react-icons/fa";
 import { BiBed, BiLandscape } from "react-icons/bi";
 import { GiResize } from "react-icons/gi";
 
-function RoomDetails( rooms ) {
+function RoomDetails( rooms, roomId ) {
 
-  const getRoomsById = (category/*ça c'est la valeur qu'on doit récupérér du eventlistener*/, rooms /*ça c'est les données qu'on récupère*/) => {
-    // if (category === 'Accueil') {
-    //   return postsList;
-    // }
+  // const getRoomById = (roomId, rooms) => {
+  //   const filteredRoom = rooms.filter((room) => room.id === roomId);
+  //   return filteredRoom;
+  // };
 
-    const filteredRoom = rooms.filter((room) => room.id === category/*ça c'est la valeur qu'on doit récupérér du eventlistener*/);
-/* en gros donne moi la chambre dont l'id correspond à l'id cliqué */
-
-    return filteredRoom;
-  };
+  // getRoomById();
 
   return (
     <>
-      <div className="roomdetails-container" /*key={room.id}*/>
+      <div className="roomdetails-container" /*key={filteredRoom.id}*/>
         <h1 className="heading">Chambre xyz</h1>
         <img className="room-img" /*src={room.img_url} alt={room.name}*/ />
 
