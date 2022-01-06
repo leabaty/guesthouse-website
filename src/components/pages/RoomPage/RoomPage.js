@@ -54,12 +54,11 @@ function RoomPage({ rooms }) {
       >
         <h1 className="heading">{roomInfo?.name}</h1>
 
-        <RoomPicSlider roomsObj={rooms} />
-        
+        <RoomPicSlider targetedRoom={roomInfo} />
 
         {/* <img
           className="room-img"
-          src={roomInfo?.img_url}
+          src={roomInfo?.cover_img}
           alt={roomInfo?.name}
         /> */}
 
@@ -116,7 +115,11 @@ function RoomPage({ rooms }) {
           return (
             <div className="room-card" key={room.id}>
               <h1 className="room-card-name">{room.name}</h1>
-              <img className="room-img" src={room.img.img_url} alt={room.name} />
+              <img
+                className="room-img"
+                src={room.cover_img}
+                alt={room.name}
+              />
 
               <div className="room-characteristics">
                 <div className="room-characteristics-item">

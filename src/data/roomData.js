@@ -3,13 +3,12 @@ export default [
 {
     "id": 1,
     "name": "Chambre Jeanne",
-    "img":{
-        "img_url": "https://images.unsplash.com/photo-1616627686733-122fec9d87b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
-        "img_url_2": "https://images.unsplash.com/photo-1616627686826-7aa1d7b6df00?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1175&q=80",
-        "img_url_3": "https://images.unsplash.com/photo-1616627687285-a0dec970e4fd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1145&q=80",
-        "img_url_4": "",
-        "img_url_5": "",
-    },
+    "cover_img": "https://images.unsplash.com/photo-1616627686733-122fec9d87b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+    "imgs":[
+        {"img_url": "https://images.unsplash.com/photo-1616627686733-122fec9d87b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"},
+        {"img_url": "https://images.unsplash.com/photo-1616627686826-7aa1d7b6df00?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1175&q=80"},
+        {"img_url": "https://images.unsplash.com/photo-1616627687285-a0dec970e4fd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1145&q=80"},
+    ],
     "description": "Phasellus vehicula odio urna, consectetur pharetra neque consequat quis. Phasellus feugiat, massa non consequat accumsan, nisl magna euismod nulla, id laoreet ipsum mauris id tortor. Integer interdum mollis venenatis.",
     "square_meters": 25,
     "min_pax_adults": 2,
@@ -26,13 +25,12 @@ export default [
 {
     "id": 2,
     "name": "Chambre Clara",
-    "img":{     
-        "img_url": "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80",
-        "img_url_2": "https://images.unsplash.com/photo-1544582207-de01083ea41a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-        "img_url_3": "",
-        "img_url_4": "",
-        "img_url_5": "",
-    },
+    "cover_img": "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80",
+    "imgs":[
+        {"img_url": "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80"},
+        {"img_url": "https://images.unsplash.com/photo-1544582207-de01083ea41a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"},
+        
+    ],
     "description": "Nunc euismod nulla eget faucibus lacinia. Ut et volutpat tellus. Aliquam vulputate, enim ac vulputate ultrices, ipsum ipsum accumsan massa, at imperdiet turpis risus vel est. Nam pulvinar ullamcorper orci et vulputate. Pellentesque ultrices laoreet libero id tristique. Nullam feugiat sollicitudin tincidunt. ",
     "square_meters": 30,
     "min_pax_adults": 2,
@@ -48,13 +46,14 @@ export default [
 {
     "id": 3,
     "name": "Chambre Joséphine",
-    "img":{
-        "img_url": "https://images.unsplash.com/photo-1612152842505-f075576e6fee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-        "img_url_2": "https://images.unsplash.com/photo-1612152605347-f93296cb657d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-        "img_url_3": "https://images.unsplash.com/photo-1612152677874-8160b1e347f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-        "img_url_4": "https://images.unsplash.com/photo-1612152636960-edcc3ff72865?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-        "img_url_5": "https://images.unsplash.com/photo-1612152754790-92638e4667bd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-    },
+    "cover_img": "https://images.unsplash.com/photo-1612152842505-f075576e6fee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+    "imgs":[
+        {"img_url": "https://images.unsplash.com/photo-1612152842505-f075576e6fee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"},
+        {"img_url": "https://images.unsplash.com/photo-1612152605347-f93296cb657d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"},
+        {"img_url": "https://images.unsplash.com/photo-1612152677874-8160b1e347f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"},
+        {"img_url": "https://images.unsplash.com/photo-1612152636960-edcc3ff72865?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"},
+        {"img_url": "https://images.unsplash.com/photo-1612152754790-92638e4667bd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"},
+    ],
     "description": "Phasellus vehicula odio urna, consectetur pharetra neque consequat quis. Phasellus feugiat, massa non consequat accumsan, nisl magna euismod nulla, id laoreet ipsum mauris id tortor. Integer interdum mollis venenatis.",
     "square_meters": 20,
     "min_pax_adults": 2,
@@ -70,13 +69,14 @@ export default [
 {
     "id": 4,
     "name": "Chambre Brigitte",
-    "img":{
-        "img_url": "https://images.unsplash.com/photo-1532344214108-1b6d425db572?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80",
-        "img_url_2": "https://images.unsplash.com/photo-1532344090165-2cb055097021?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80",
-        "img_url_3": "https://images.unsplash.com/photo-1531312541157-d77c224ca7db?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80",
-        "img_url_4": "https://images.unsplash.com/photo-1572374985879-d2a6bfd8f979?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80",
-        "img_url_5": "https://images.unsplash.com/photo-1572375125504-fa78a44122f0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1567&q=80",    
-    },
+    "cover_img": "https://images.unsplash.com/photo-1532344214108-1b6d425db572?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+    "imgs":[
+        {"img_url": "https://images.unsplash.com/photo-1532344214108-1b6d425db572?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80"},
+        {"img_url": "https://images.unsplash.com/photo-1532344090165-2cb055097021?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80"},
+        {"img_url": "https://images.unsplash.com/photo-1531312541157-d77c224ca7db?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80"},
+        {"img_url": "https://images.unsplash.com/photo-1572374985879-d2a6bfd8f979?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80"},
+        {"img_url": "https://images.unsplash.com/photo-1572375125504-fa78a44122f0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1567&q=80"},    
+    ],
     "description": "Curabitur tempor mollis egestas. Etiam condimentum euismod eros ac sodales. Praesent neque metus, pretium vel tempus id, pellentesque lobortis est. Pellentesque commodo tellus ante, non facilisis quam placerat quis. Praesent vulputate eros nec auctor sodales. Nam sed dictum sapien.",
     "square_meters": 30,
     "min_pax_adults": 2,
@@ -92,13 +92,14 @@ export default [
 {
     "id": 5,
     "name": "Chambre Zoé",
-    "img":{
-        "img_url": "https://images.unsplash.com/photo-1574643156929-51fa098b0394?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80",
-        "img_url_2": "https://images.unsplash.com/photo-1574643065625-9fd28c660fa8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80",
-        "img_url_3": "https://images.unsplash.com/photo-1574643065560-ecd9fabc36c3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1168&q=80",
-        "img_url_4": "https://images.unsplash.com/photo-1574643065523-5e53d0145e40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-        "img_url_5": "https://images.unsplash.com/photo-1574643065846-ec509eb59972?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80",  
-    },
+    "cover_img": "https://images.unsplash.com/photo-1574643156929-51fa098b0394?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+    "imgs":[
+        {"img_url": "https://images.unsplash.com/photo-1574643156929-51fa098b0394?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80"},
+        {"img_url": "https://images.unsplash.com/photo-1574643065625-9fd28c660fa8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80"},
+        {"img_url": "https://images.unsplash.com/photo-1574643065560-ecd9fabc36c3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1168&q=80"},
+        {"img_url": "https://images.unsplash.com/photo-1574643065523-5e53d0145e40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"},
+        {"img_url": "https://images.unsplash.com/photo-1574643065846-ec509eb59972?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"},  
+    ],
     "description": "Phasellus vehicula odio urna, consectetur pharetra neque consequat quis. Phasellus feugiat, massa non consequat accumsan, nisl magna euismod nulla, id laoreet ipsum mauris id tortor. Integer interdum mollis venenatis.",
     "square_meters": 20,
     "min_pax_adults": 2,

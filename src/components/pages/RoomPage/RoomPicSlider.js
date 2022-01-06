@@ -6,7 +6,7 @@ import "./RoomPicSlider.css";
 
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 
-function RoomPicSlider({ roomsObj }) {
+function RoomPicSlider({ targetedRoom }) {
 
   const NextArrow = ({ onClick }) => {
     return (
@@ -31,7 +31,7 @@ function RoomPicSlider({ roomsObj }) {
     lazyLoad: true,
     centerMode: true,
     speed: 300,
-    slidesToShow: 3,
+    slidesToShow: 1,
     centerPadding: 0,
 
     nextArrow: <NextArrow />,
@@ -40,24 +40,21 @@ function RoomPicSlider({ roomsObj }) {
   };
 
   return (
-    // the key is the room.id
-    // we want to display every item in the img object that is nested in the room object
-
-    // we have a bigger object that is the roomsObj.
-    // we want to map roomsObj.img, but it needs to correspond to the current room.id
-
+//TODO : Put a useffect with useref preventing the map to render before something is clicked !
     <>
       <Slider className="rooms-slider" {...settings}>
-        {/* {roomsObj.map((room, index) => {
+        
+        {targetedRoom.imgs.map((image, index) => {
           return (
             <div
               className={index === imageIndex ? "slide activeSlide" : "slide"}
-              key={roomImgs.id}
+              key={image.id}
             >
-              <img className="room-img" src={roomImg.img} alt="" />
+              <img className="room-img" src={image.img_url} alt="" />
             </div>
           );
-        })} */}
+        })}
+
       </Slider>
     </>
   );
