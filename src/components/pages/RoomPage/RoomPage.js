@@ -43,7 +43,6 @@ function RoomPage({ rooms }) {
     // console.log("3 - useEffect is working, getOneRoombyId is triggered");
     setRoomClick(true);
     // console.log("5 - useEffect is working, setRoomClick:true is triggered");
-
   }, [roomId]);
 
   return (
@@ -55,7 +54,8 @@ function RoomPage({ rooms }) {
       >
         <h1 className="heading">{roomInfo?.name}</h1>
 
-        <RoomPicSlider rooms={rooms} />
+        <RoomPicSlider roomsObj={rooms} />
+        
 
         {/* <img
           className="room-img"
@@ -67,16 +67,16 @@ function RoomPage({ rooms }) {
           <div className="room-characteristics-item">
             <FaChild />
             <p className="room-characteristics-item-info">
-               {roomInfo?.max_pax_adults}
+              {roomInfo?.max_pax_adults}
             </p>
           </div>
 
           <div className="room-characteristics-item child">
             <FaChild />
             <p className="room-characteristics-item-info">
-             {roomInfo?.max_pax_children} 
-             </p>
-        </div>
+              {roomInfo?.max_pax_children}
+            </p>
+          </div>
 
           <div className="room-characteristics-item">
             <GiResize />
@@ -106,8 +106,8 @@ function RoomPage({ rooms }) {
         </div>
         <p className="room-description">{roomInfo?.description}</p>
         <p className="room-pricing">
-          {roomInfo?.min_price}€ à {roomInfo?.max_price}€ par nuit, selon période,
-          pour deux personnes avec petit-déjeuner inclus.
+          {roomInfo?.min_price}€ à {roomInfo?.max_price}€ par nuit, selon
+          période, pour deux personnes avec petit-déjeuner inclus.
         </p>
       </div>
 
@@ -116,7 +116,7 @@ function RoomPage({ rooms }) {
           return (
             <div className="room-card" key={room.id}>
               <h1 className="room-card-name">{room.name}</h1>
-              <img className="room-img" src={room.img_url} alt={room.name} />
+              <img className="room-img" src={room.img.img_url} alt={room.name} />
 
               <div className="room-characteristics">
                 <div className="room-characteristics-item">

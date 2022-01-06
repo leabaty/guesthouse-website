@@ -6,8 +6,8 @@ import "./RoomPicSlider.css";
 
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 
-function RoomPicSlider({ rooms }) {
-  
+function RoomPicSlider({ roomsObj }) {
+
   const NextArrow = ({ onClick }) => {
     return (
       <div className="arrow next" onClick={onClick}>
@@ -40,18 +40,24 @@ function RoomPicSlider({ rooms }) {
   };
 
   return (
+    // the key is the room.id
+    // we want to display every item in the img object that is nested in the room object
+
+    // we have a bigger object that is the roomsObj.
+    // we want to map roomsObj.img, but it needs to correspond to the current room.id
+
     <>
       <Slider className="rooms-slider" {...settings}>
-        {rooms.map((room, index) => {
+        {/* {roomsObj.map((room, index) => {
           return (
             <div
               className={index === imageIndex ? "slide activeSlide" : "slide"}
-              key={room.id}
+              key={roomImgs.id}
             >
-              <img className="room-img" src={room.img_url} alt={room.name} />
+              <img className="room-img" src={roomImg.img} alt="" />
             </div>
           );
-        })}
+        })} */}
       </Slider>
     </>
   );
