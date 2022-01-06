@@ -23,8 +23,8 @@ export const Button =({
     return (
         <button 
         /*1*/ className={`btn ${checkButtonStyle} ${checkButtonSize} ${checkButtonColor}`} 
-        /*2*/ onClick={onClick} type={type}
-        /*3*/> {children}</button>
+        /*2*/ onClick={onClick} type={type}>
+        {/*3*/} {children}</button>
         )
 
         // 1 - Il ajoute les classes par défaut (position 0 du tableau) si il n'y a pas de classe de définie spécifiquement.

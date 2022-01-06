@@ -1,0 +1,96 @@
+@import "~slick-carousel/slick/slick.css"; 
+@import "~slick-carousel/slick/slick-theme.css";
+
+.rooms-container {
+    width: 90%;
+    margin: 2rem auto;
+    padding: 60px 0;
+
+    border-top: 1px solid;
+
+
+    text-align: center;
+}
+
+/* IMAGE SLIDER */
+
+.rooms-slider{
+    padding-bottom: 1rem;
+    padding: 60px 0;
+}
+
+.slide img {
+    margin : 0 auto;
+}
+
+.slide {
+    transform: scale(0.6); 
+    transition: transform 300ms;
+    opacity: 0.5;
+}
+
+.activeSlide {
+    transform: scale(1);
+    opacity: 1
+}
+
+.arrow {
+    background-color: white;
+    position: absolute;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.arrow svg {
+    transition: color 300ms;
+}
+
+.arrow svg:hover{
+    color:black;
+}
+
+.next {
+    right: 0%;
+    top: 50%
+}
+
+.prev {
+    left: 0%;
+    top: 50%
+}
+
+/* TEXT STYLING */
+
+.room-name {
+    font-family: "Italiana", serif;
+    font-size: 2rem;
+}
+
+.room-name {
+    font-family: "Italiana", serif;
+    font-size: 2rem;
+}
+
+.room-characteristics{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 16px;
+}
+
+.room-characteristics-item{
+font-size: 1.1rem;
+}
+
+.room-characteristics-item-info{
+    display:inline-block;
+    font-size: 0.9rem;
+    padding:0 3px 0 2px;
+    margin-bottom: 5px;
+}
+
+.child {
+    font-size: 0.9rem;
+    position: relative;
+    bottom:-3px
+}
