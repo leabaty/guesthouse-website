@@ -35,7 +35,6 @@
 }
 
 .arrow {
-    background-color: white;
     position: absolute;
     cursor: pointer;
     z-index: 10;

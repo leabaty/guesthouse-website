@@ -48,7 +48,7 @@ function RoomPicSlider({ targetedRoom }) {
   
     return (
       <>
-        <Slider className="rooms-slider" {...settings}>
+        <Slider className="rooms-picture-slider" {...settings}>
           {Object.values(targetedRoom.imgs).map((image, index) => {
             return (
               <div

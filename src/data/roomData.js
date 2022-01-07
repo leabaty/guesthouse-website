@@ -19,6 +19,7 @@ export default [
         "amenities": "wifi gratuit, air conditionné, sèche-cheveux, serviettes et produits d’accueil, lit bébé sur demande.",
         "min_price":45,
         "max_price":60,
+        "accessibility":true,
     
     }, 
     {
@@ -39,6 +40,7 @@ export default [
         "amenities": "wifi gratuit, air conditionné, sèche-cheveux, serviettes et produits d’accueil, lit bébé sur demande.",
         "min_price":50,
         "max_price":65,
+        "accessibility":false,
     }, 
     {
         "id": 3,
@@ -61,6 +63,7 @@ export default [
         "amenities": "wifi gratuit, air conditionné, sèche-cheveux, serviettes et produits d’accueil, lit bébé sur demande.",
         "min_price":70,
         "max_price":85,
+        "accessibility":false,
     }, 
     {
         "id": 4,
@@ -83,6 +86,7 @@ export default [
         "amenities": "wifi gratuit, air conditionné, sèche-cheveux, serviettes et produits d’accueil, lit bébé sur demande.",
         "min_price":75,
         "max_price":95,
+        "accessibility":true,
     }, 
     {
         "id": 5,
@@ -105,6 +109,7 @@ export default [
         "amenities": "wifi gratuit, air conditionné, sèche-cheveux, serviettes et produits d’accueil, lit bébé sur demande.",
         "min_price":90,
         "max_price":110,
+        "accessibility":true,
     }
     
     ]

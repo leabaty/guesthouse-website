@@ -10,7 +10,6 @@ import {
   FaArrowRight,
   FaArrowLeft,
   FaChild,
-  FaAccessibleIcon,
   FaRegCompass,
 } from "react-icons/fa";
 import { BiBed, BiLandscape } from "react-icons/bi";
