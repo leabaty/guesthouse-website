@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 import RoomPicSlider from "./RoomPicSlider";
 import "./RoomPage.css";
 
+import { AiOutlineEuro } from "react-icons/ai";
 import { FaChild, FaAccessibleIcon, FaRegCompass } from "react-icons/fa";
 import { BiBed, BiLandscape } from "react-icons/bi";
 import { GiResize } from "react-icons/gi";
+import { BsCheck2Circle } from "react-icons/bs";
 
 function RoomPage({ rooms }) {
   const [roomClicked, setRoomClick] = useState(false);
@@ -52,63 +54,71 @@ function RoomPage({ rooms }) {
           roomClicked ? "roomdetails-container" : "roomdetails-container hidden"
         }
       >
-        <h1 className="heading">{roomInfo?.name}</h1>
-
-        <RoomPicSlider roomsObj={rooms} />
-        
-
+        <h1 id="room-details" className="roomdetail-name">{roomInfo?.name}</h1>
+        <RoomPicSlider targetedRoom={roomInfo} />
         {/* <img
           className="room-img"
-          src={roomInfo?.img_url}
+          src={roomInfo?.imgs.img_url}
           alt={roomInfo?.name}
         /> */}
-
         <div className="room-characteristics">
-          <div className="room-characteristics-item">
+          <div className="roomdetail-characteristics-item">
             <FaChild />
-            <p className="room-characteristics-item-info">
+            <p className="roomdetail-characteristics-item-info">
               {roomInfo?.max_pax_adults}
             </p>
           </div>
 
-          <div className="room-characteristics-item child">
+          <div className="roomdetail-characteristics-item-child">
             <FaChild />
-            <p className="room-characteristics-item-info">
+            <p className="roomdetail-characteristics-item-info">
               {roomInfo?.max_pax_children}
             </p>
           </div>
 
-          <div className="room-characteristics-item">
+          <div className="roomdetail-characteristics-item">
             <GiResize />
-            <p className="room-characteristics-item-info">
+            <p className="roomdetail-characteristics-item-info">
               {roomInfo?.square_meters}m²
             </p>
           </div>
 
-          <div className="room-characteristics-item">
+          <div className="roomdetail-characteristics-item">
             <BiBed />
-            <p className="room-characteristics-item-info">
+            <p className="roomdetail-characteristics-item-info">
               {roomInfo?.bed_type}
             </p>
           </div>
 
-          <div className="room-characteristics-item">
+          <div className="roomdetail-characteristics-item">
             <FaRegCompass />
-            <p className="room-characteristics-item-info">
+            <p className="roomdetail-characteristics-item-info">
               {roomInfo?.cardinalities}
             </p>
           </div>
 
-          <div className="room-characteristics-item">
+          <div className="roomdetail-characteristics-item">
             <BiLandscape />
-            <p className="room-characteristics-item-info">{roomInfo?.view}</p>
+            <p className="roomdetail-characteristics-item-info">
+              {roomInfo?.view}
+            </p>
           </div>
         </div>
-        <p className="room-description">{roomInfo?.description}</p>
-        <p className="room-pricing">
-          {roomInfo?.min_price}€ à {roomInfo?.max_price}€ par nuit, selon
-          période, pour deux personnes avec petit-déjeuner inclus.
-        </p>
+        <p className="roomdetail-description">{roomInfo?.description}</p>
+        <div className="roomdetail-characteristics-item">
+          <BsCheck2Circle />
+          <p className="roomdetail-characteristics-item-info">
+            Inclus : {roomInfo?.amenities}
+          </p>
+        </div>
+        <div className="roomdetail-characteristics-item">
+          <AiOutlineEuro />
+          <p className="roomdetail-characteristics-item-info">
+            {roomInfo?.min_price}€ à {roomInfo?.max_price}€ par nuit, selon
+            période, pour deux personnes avec petit-déjeuner inclus.
+          </p>
+        </div>
+        {/*TODO : Faire l'accessibilité : Petit picto avec phrase, hidden si pas accessible, visible sinon (utiliser state)*/}
       </div>
 
       <div className="roompage-cards-container">
@@ -116,7 +126,11 @@ function RoomPage({ rooms }) {
           return (
             <div className="room-card" key={room.id}>
               <h1 className="room-card-name">{room.name}</h1>
-              <img className="room-img" src={room.img.img_url} alt={room.name} />
+              <img
+                className="room-img"
+                src={room.imgs.img_url}
+                alt={room.name}
+              />
 
               <div className="room-characteristics">
                 <div className="room-characteristics-item">
@@ -141,19 +155,21 @@ function RoomPage({ rooms }) {
                 </div>
               </div>
 
-              <p className="room-pricing">
+              <p className="room-card-pricing">
                 {room.min_price}€ à {room.max_price}€ par nuit, selon période,
                 pour deux personnes avec petit-déjeuner inclus.{" "}
               </p>
 
               <Link to="/chambres">
+                <a href="#room-details">
                 <button
                   id={room.id}
                   onClick={handleRoomClick}
-                  className="room-card-btn"
+                  className="btn btn--full btn--medium primary"
                 >
                   Voir la chambre
                 </button>
+                </a>
 
                 {/* <Button
                   id={room.id}

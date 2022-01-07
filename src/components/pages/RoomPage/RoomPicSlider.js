@@ -6,11 +6,11 @@ import "./RoomPicSlider.css";
 
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 
-function RoomPicSlider({ roomsObj }) {
+function RoomPicSlider({ targetedRoom }) {
 
   const NextArrow = ({ onClick }) => {
     return (
-      <div className="arrow next" onClick={onClick}>
+      <div className="arrow next arrows-room" onClick={onClick}>
         <FaArrowRight />
       </div>
     );
@@ -18,7 +18,7 @@ function RoomPicSlider({ roomsObj }) {
 
   const PrevArrow = ({ onClick }) => {
     return (
-      <div className="arrow prev" onClick={onClick}>
+      <div className="arrow prev arrows-room" onClick={onClick}>
         <FaArrowLeft />
       </div>
     );
@@ -31,7 +31,7 @@ function RoomPicSlider({ roomsObj }) {
     lazyLoad: true,
     centerMode: true,
     speed: 300,
-    slidesToShow: 3,
+    slidesToShow: 1,
     centerPadding: 0,
 
     nextArrow: <NextArrow />,
@@ -39,28 +39,32 @@ function RoomPicSlider({ roomsObj }) {
     beforeChange: (current, next) => setImageIndex(next),
   };
 
-  return (
-    // the key is the room.id
-    // we want to display every item in the img object that is nested in the room object
 
-    // we have a bigger object that is the roomsObj.
-    // we want to map roomsObj.img, but it needs to correspond to the current room.id
+  if (targetedRoom.length === 0) {
+    return(
+      <div/>
+        )
+  } else {
+  
+    return (
+      <>
+        <Slider className="rooms-picture-slider" {...settings}>
+          {Object.values(targetedRoom.imgs).map((image, index) => {
+            return (
+              <div
+                className={index === imageIndex ? "slide activeSlide" : "slide"}
+                key={image.id}
+              >
+                <img className="room-img" src={image} alt="" />
+              </div>
+            );
+          })}
+        </Slider>
+      </>
+    );
+  }
 
-    <>
-      <Slider className="rooms-slider" {...settings}>
-        {/* {roomsObj.map((room, index) => {
-          return (
-            <div
-              className={index === imageIndex ? "slide activeSlide" : "slide"}
-              key={roomImgs.id}
-            >
-              <img className="room-img" src={roomImg.img} alt="" />
-            </div>
-          );
-        })} */}
-      </Slider>
-    </>
-  );
+
 }
 
 export default RoomPicSlider;
