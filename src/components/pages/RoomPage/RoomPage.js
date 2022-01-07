@@ -58,7 +58,7 @@ function RoomPage({ rooms }) {
 
         {/* <img
           className="room-img"
-          src={roomInfo?.cover_img}
+          src={roomInfo?.imgs.img_url}
           alt={roomInfo?.name}
         /> */}
 
@@ -117,7 +117,7 @@ function RoomPage({ rooms }) {
               <h1 className="room-card-name">{room.name}</h1>
               <img
                 className="room-img"
-                src={room.cover_img}
+                src={room.imgs.img_url}
                 alt={room.name}
               />
 

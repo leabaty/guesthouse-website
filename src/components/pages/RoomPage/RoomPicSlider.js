@@ -10,7 +10,7 @@ function RoomPicSlider({ targetedRoom }) {
 
   const NextArrow = ({ onClick }) => {
     return (
-      <div className="arrow next" onClick={onClick}>
+      <div className="arrow next arrows-room" onClick={onClick}>
         <FaArrowRight />
       </div>
     );
@@ -18,7 +18,7 @@ function RoomPicSlider({ targetedRoom }) {
 
   const PrevArrow = ({ onClick }) => {
     return (
-      <div className="arrow prev" onClick={onClick}>
+      <div className="arrow prev arrows-room" onClick={onClick}>
         <FaArrowLeft />
       </div>
     );
@@ -39,25 +39,32 @@ function RoomPicSlider({ targetedRoom }) {
     beforeChange: (current, next) => setImageIndex(next),
   };
 
-  return (
-//TODO : Put a useffect with useref preventing the map to render before something is clicked !
-    <>
-      <Slider className="rooms-slider" {...settings}>
-        
-        {targetedRoom.imgs.map((image, index) => {
-          return (
-            <div
-              className={index === imageIndex ? "slide activeSlide" : "slide"}
-              key={image.id}
-            >
-              <img className="room-img" src={image.img_url} alt="" />
-            </div>
-          );
-        })}
 
-      </Slider>
-    </>
-  );
+  if (targetedRoom.length === 0) {
+    return(
+      <div/>
+        )
+  } else {
+  
+    return (
+      <>
+        <Slider className="rooms-slider" {...settings}>
+          {Object.values(targetedRoom.imgs).map((image, index) => {
+            return (
+              <div
+                className={index === imageIndex ? "slide activeSlide" : "slide"}
+                key={image.id}
+              >
+                <img className="room-img" src={image} alt="" />
+              </div>
+            );
+          })}
+        </Slider>
+      </>
+    );
+  }
+
+
 }
 
 export default RoomPicSlider;

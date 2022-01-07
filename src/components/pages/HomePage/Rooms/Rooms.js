@@ -64,7 +64,7 @@ function Rooms({ rooms }) {
                 key={room.id}
               >
                 <h1 className="room-name">{room.name}</h1>
-                <img className="room-img" src={room.cover_img} alt={room.name} />
+                <img className="room-img" src={room.imgs.img_url} alt={room.name} />
 
                 <div className="room-characteristics">
                   <div className="room-characteristics-item">
