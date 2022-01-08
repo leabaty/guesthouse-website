@@ -2,16 +2,20 @@
 @import "~slick-carousel/slick/slick-theme.css";
 
 
-.rooms-picture-slider{
-    /* padding-bottom: 1rem; */
-    /* padding: 60px 0; */
-}
-
 .room-img {
     max-height: 500px;
 }
 
 .arrows-room{
     font-size: 30px;
+}
+
+.roomdetail-slide img {
+    margin : 0 auto;
+}
+
+.activeSlide {
+    transform: scale(1);
+    opacity: 1
 }
 

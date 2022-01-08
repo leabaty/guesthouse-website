@@ -2,12 +2,11 @@ import React from "react";
 import { useState } from "react";
 import Slider from "react-slick";
 
-import "./RoomPicSlider.css";
+import "./RoomDetailSlider.css";
 
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 
-function RoomPicSlider({ targetedRoom }) {
-
+function RoomDetailSlider({ targetedRoom }) {
   const NextArrow = ({ onClick }) => {
     return (
       <div className="arrow next arrows-room" onClick={onClick}>
@@ -27,10 +26,13 @@ function RoomPicSlider({ targetedRoom }) {
   const [imageIndex, setImageIndex] = useState(0);
 
   const settings = {
+    /*https://react-slick.neostack.com/docs/example/custom-paging*/
+
+    dots: true,
     infinite: true,
-    lazyLoad: true,
-    centerMode: true,
-    speed: 300,
+    fade: true,
+    // centerMode: true,
+    speed: 500,
     slidesToShow: 1,
     centerPadding: 0,
 
@@ -39,20 +41,20 @@ function RoomPicSlider({ targetedRoom }) {
     beforeChange: (current, next) => setImageIndex(next),
   };
 
-
   if (targetedRoom.length === 0) {
-    return(
-      <div/>
-        )
+    return <div />;
   } else {
-  
     return (
       <>
         <Slider className="rooms-picture-slider" {...settings}>
           {Object.values(targetedRoom.imgs).map((image, index) => {
             return (
               <div
-                className={index === imageIndex ? "slide activeSlide" : "slide"}
+                className={
+                  index === imageIndex
+                    ? "roomdetail-slide activeSlide"
+                    : "roomdetail-slide"
+                }
                 key={image.id}
               >
                 <img className="room-img" src={image} alt="" />
@@ -63,8 +65,6 @@ function RoomPicSlider({ targetedRoom }) {
       </>
     );
   }
-
-
 }
 
-export default RoomPicSlider;
+export default RoomDetailSlider;

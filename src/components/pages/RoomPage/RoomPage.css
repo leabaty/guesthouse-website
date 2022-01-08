@@ -32,14 +32,16 @@
   padding: 0 0 1rem 0;
 }
 
-.room-card-btn {
-
-}
-
 /* ROOM DETAILS */
 
 .roomdetails-container {
-  padding: 5% 12%;
+  padding: 3% 12%;
+}
+
+.roomdetail-name {
+  font-family: "Italiana", serif;
+  font-size: 2rem;
+  padding-bottom: 1rem;
 }
 
 .roomdetails-container:after{
@@ -51,40 +53,4 @@
     border-bottom:1px solid black;
 }
 
-/* TEXT STYLING */
-.roomdetail-name {
-  font-family: "Italiana", serif;
-  font-size: 2rem;
-  padding-bottom: 1rem;
-}
 
-.roomdetail-characteristics {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  padding: 16px;
-}
-
-.roomdetail-characteristics-item {
-  font-size: 1.4rem;
-}
-
-.roomdetail-characteristics-item-child {
-  font-size: 1rem;
-}
-
-.roomdetail-characteristics-item-info {
-  display: inline-block;
-  font-size: 1.1rem;
-  padding: 0 3px 0 8px;
-}
-
-.roomdetail-description {
-  font-size: 1.2rem;
-  padding: 15px 0;
-}
-
-.roomdetail-pricing {
-  font-size: 1.1rem;
-  padding: 15px 0 0 0;
-}
