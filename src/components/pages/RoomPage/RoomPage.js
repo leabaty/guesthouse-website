@@ -1,14 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
 
-import RoomPicSlider from "./RoomPicSlider";
+import RoomDetailSlider from "./RoomDetailSlider";
+import RoomDetailText from "./RoomDetailText";
 import "./RoomPage.css";
 
-import { AiOutlineEuro } from "react-icons/ai";
-import { FaChild, FaAccessibleIcon, FaRegCompass } from "react-icons/fa";
-import { BiBed, BiLandscape } from "react-icons/bi";
+import { FaChild } from "react-icons/fa";
 import { GiResize } from "react-icons/gi";
-import { BsCheck2Circle } from "react-icons/bs";
 
 function RoomPage({ rooms }) {
   const [roomClicked, setRoomClick] = useState(false);
@@ -45,6 +42,7 @@ function RoomPage({ rooms }) {
     // console.log("3 - useEffect is working, getOneRoombyId is triggered");
     setRoomClick(true);
     // console.log("5 - useEffect is working, setRoomClick:true is triggered");
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [roomId]);
 
   return (
@@ -54,71 +52,11 @@ function RoomPage({ rooms }) {
           roomClicked ? "roomdetails-container" : "roomdetails-container hidden"
         }
       >
-        <h1 id="room-details" className="roomdetail-name">{roomInfo?.name}</h1>
-        <RoomPicSlider targetedRoom={roomInfo} />
-        {/* <img
-          className="room-img"
-          src={roomInfo?.imgs.img_url}
-          alt={roomInfo?.name}
-        /> */}
-        <div className="room-characteristics">
-          <div className="roomdetail-characteristics-item">
-            <FaChild />
-            <p className="roomdetail-characteristics-item-info">
-              {roomInfo?.max_pax_adults}
-            </p>
-          </div>
-
-          <div className="roomdetail-characteristics-item-child">
-            <FaChild />
-            <p className="roomdetail-characteristics-item-info">
-              {roomInfo?.max_pax_children}
-            </p>
-          </div>
-
-          <div className="roomdetail-characteristics-item">
-            <GiResize />
-            <p className="roomdetail-characteristics-item-info">
-              {roomInfo?.square_meters}m²
-            </p>
-          </div>
-
-          <div className="roomdetail-characteristics-item">
-            <BiBed />
-            <p className="roomdetail-characteristics-item-info">
-              {roomInfo?.bed_type}
-            </p>
-          </div>
-
-          <div className="roomdetail-characteristics-item">
-            <FaRegCompass />
-            <p className="roomdetail-characteristics-item-info">
-              {roomInfo?.cardinalities}
-            </p>
-          </div>
-
-          <div className="roomdetail-characteristics-item">
-            <BiLandscape />
-            <p className="roomdetail-characteristics-item-info">
-              {roomInfo?.view}
-            </p>
-          </div>
-        </div>
-        <p className="roomdetail-description">{roomInfo?.description}</p>
-        <div className="roomdetail-characteristics-item">
-          <BsCheck2Circle />
-          <p className="roomdetail-characteristics-item-info">
-            Inclus : {roomInfo?.amenities}
-          </p>
-        </div>
-        <div className="roomdetail-characteristics-item">
-          <AiOutlineEuro />
-          <p className="roomdetail-characteristics-item-info">
-            {roomInfo?.min_price}€ à {roomInfo?.max_price}€ par nuit, selon
-            période, pour deux personnes avec petit-déjeuner inclus.
-          </p>
-        </div>
-        {/*TODO : Faire l'accessibilité : Petit picto avec phrase, hidden si pas accessible, visible sinon (utiliser state)*/}
+        <h1 className="roomdetail-name">
+          {roomInfo?.name}
+        </h1>
+        <RoomDetailSlider targetedRoom={roomInfo} />
+        <RoomDetailText targetedRoomInfo={roomInfo} />
       </div>
 
       <div className="roompage-cards-container">
@@ -160,8 +98,7 @@ function RoomPage({ rooms }) {
                 pour deux personnes avec petit-déjeuner inclus.{" "}
               </p>
 
-              <Link to="/chambres">
-                <a href="#room-details">
+              <a href="#">
                 <button
                   id={room.id}
                   onClick={handleRoomClick}
@@ -169,18 +106,7 @@ function RoomPage({ rooms }) {
                 >
                   Voir la chambre
                 </button>
-                </a>
-
-                {/* <Button
-                  id={room.id}
-                  onClick={handleRoomClick}
-                  className="room-card-btn"
-                  buttonSize="btn--medium"
-                  buttonColor="primary"
-                >
-                  Voir la chambre {room.id}
-                </Button> */}
-              </Link>
+              </a>
             </div>
           );
         })}
