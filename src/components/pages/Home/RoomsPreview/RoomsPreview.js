@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import { Button } from "../../../Button";
 
-import "./Rooms.css";
+import "./RoomsPreview.css";
 
 import {
   FaArrowRight,
@@ -15,7 +15,7 @@ import {
 import { BiBed, BiLandscape } from "react-icons/bi";
 import { GiResize } from "react-icons/gi";
 
-function Rooms({ rooms }) {
+function RoomsPreview({ rooms }) {
   const NextArrow = ({ onClick }) => {
     return (
       <div className="arrow next" onClick={onClick}>
@@ -120,4 +120,4 @@ function Rooms({ rooms }) {
   );
 }
 
-export default Rooms;
+export default RoomsPreview;
