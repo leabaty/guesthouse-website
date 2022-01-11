@@ -52,7 +52,7 @@ function RoomPage({ rooms }) {
           roomClicked ? "roomdetails-container" : "roomdetails-container hidden"
         }
       >
-        <h1 className="roomdetail-name">
+        <h1 className="heading heading--medium">
           {roomInfo?.name}
         </h1>
         <RoomDetailSlider targetedRoom={roomInfo} />

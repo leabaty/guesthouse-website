@@ -62,7 +62,7 @@ function RoomsPreview({ rooms }) {
                 // lui appliquer un style pour la mettre en valeur.
                 key={room.id}
               >
-                <h1 className="room-name">{room.name}</h1>
+                <h1 className="heading heading--medium">{room.name}</h1>
                 <img className="room-img" src={room.imgs.img_url} alt={room.name} />
 
                 <div className="room-characteristics">
