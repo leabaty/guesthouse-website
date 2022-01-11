@@ -5,12 +5,24 @@ import { FiMail, FiPhone } from "react-icons/fi";
 
 import "./Contact.css";
 
-function Contact( rooms ) {
-
+function Contact(rooms) {
   const [infoClicked, setInfoClick] = useState(false);
   const [bookingClicked, setBookingClick] = useState(false);
 
-  console.log(rooms.rooms)
+  const handleInfoClick = (event) => {
+    event.preventDefault();
+    setInfoClick(true);
+    setBookingClick(false);
+  };
+
+  const handleBookingClick = (event) => {
+    event.preventDefault();
+    setBookingClick(true);
+    setInfoClick(false);
+  };
+
+  const adultPax = [1, 2, 3];
+  const childPax = [0, 1, 2, 3];
 
   return (
     <>
@@ -68,30 +80,52 @@ function Contact( rooms ) {
 
         <div className="contact-form__option">
           {/* <div className="contact-form__element"> */}
-            <div className="contact-form__row-block">
-              {" "}
-              <button className="btn btn--full btn--medium primary btn--option">
-                Demande de réservation
-              </button>
-              <button className="btn btn--full btn--medium primary btn--option --second-block-element">
-                Demande d'information
-              </button>
-            </div>
+          <div className="contact-form__row-block">
+            {" "}
+            <button
+              className={
+                bookingClicked
+                  ? "btn btn--selected btn--medium btn--option"
+                  : "btn btn--full btn--medium primary btn--option"
+              }
+              onClick={handleBookingClick}
+            >
+              Demande de réservation
+            </button>
+            <button
+              className={
+                infoClicked
+                  ? "btn btn--selected btn--medium btn--option --second-block-element"
+                  : "btn btn--full btn--medium primary btn--option --second-block-element"
+              }
+              onClick={handleInfoClick}
+            >
+              Demande d'information
+            </button>
           </div>
+        </div>
         {/* </div> */}
 
         {/*DEMANDE DE RESERVATION*/}
-        {console.log(rooms)}
-        <h2 className="heading heading--small">Demande de réservation </h2>
 
-        <div className="contact-form__booking">
+        <div
+          className={
+            bookingClicked
+              ? "contact-form__booking"
+              : "contact-form__booking hidden"
+          }
+        >
+          {/* <h2 className="heading heading--small">Demande de réservation </h2> */}
           <div className="contact-form__element">
             <p className="contact-form__item title">Hébergement</p>
-            <select
-              className="contact-form__input --room select-room"
-            >
+            <select className="contact-form__input --room select-room">
+              <option>Sélectionnez votre hébergement...</option>
               {rooms.rooms.map((room) => {
-                return <option value={room.id}>{room.name}</option>
+                return (
+                  <option key={room.id} value={room.id}>
+                    {room.name}
+                  </option>
+                );
               })}
             </select>
           </div>
@@ -125,8 +159,15 @@ function Contact( rooms ) {
                 className="contact-form__input --pax adult-pax"
                 id="adult-pax"
               >
-                {/* <option value={true}>Ouvert aux participants</option>
-              <option value={false}>Fermé aux participants</option> */}
+                <option>Sélectionnez</option>
+                {adultPax.map((numberOfPax) => {
+                  return (
+                    <option key={numberOfPax} value={numberOfPax}>
+                      {numberOfPax}
+                    </option>
+                  );
+                })}
+                ;
               </select>
             </div>
 
@@ -139,8 +180,15 @@ function Contact( rooms ) {
                 className="contact-form__input --pax child-pax"
                 id="child-pax"
               >
-                {/* <option value={true}>Ouvert aux participants</option>
-              <option value={false}>Fermé aux participants</option> */}
+                <option>Sélectionnez</option>
+                {childPax.map((numberOfPax) => {
+                  return (
+                    <option key={numberOfPax} value={numberOfPax}>
+                      {numberOfPax}
+                    </option>
+                  );
+                })}
+                ;
               </select>
             </div>
           </div>
@@ -159,8 +207,12 @@ function Contact( rooms ) {
 
         {/*DEMANDE D'INFORMATION*/}
 
-        <div className="contact-form__asking">
-          <h2 className="heading heading--small">Demande d'information</h2>
+        <div
+          className={
+            infoClicked ? "contact-form__asking" : "contact-form__asking hidden"
+          }
+        >
+          {/* <h2 className="heading heading--small">Demande d'information</h2> */}
 
           <div className="contact-form__information">
             <div className="contact-form__element">
@@ -171,7 +223,7 @@ function Contact( rooms ) {
             </div>
 
             <button className="btn btn--full btn--medium primary">
-              Envoyer
+              Envoyer ma demande
             </button>
           </div>
         </div>
