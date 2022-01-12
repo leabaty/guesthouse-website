@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 
 import { AiOutlineUser, AiFillWarning } from "react-icons/ai";
@@ -9,7 +9,10 @@ import "./Contact.css";
 function Contact(rooms) {
   const [infoClicked, setInfoClick] = useState(false);
   const [bookingClicked, setBookingClick] = useState(false);
+  const [selectedRoomId, setRoomIdBySelect] = useState();
+  const [selectedRoomData, setSelectedRoomData] = useState([]);
 
+  // BOOKING OR INFO BUTTONS
   const handleInfoClick = (event) => {
     event.preventDefault();
     setInfoClick(true);
@@ -22,16 +25,44 @@ function Contact(rooms) {
     setInfoClick(false);
   };
 
+  // PAX SELECT OPTIONS
+  const handleRoomSelect = (event) => {
+    setRoomIdBySelect(event.target.value);
+  };
+
+  const getRoomDataBySelect = (roomIdBySelect, roomDataBase) => {
+    const correspondingRoom = roomDataBase.find(
+      (room) => +room.id === +roomIdBySelect
+    );
+    setSelectedRoomData(correspondingRoom);
+  };
+
+  const setMinMaxOptions = (roomData) => {
+    console.log(roomData)  // ⚠️ OK only after first render !
+
+    const adultPax = Array.from({length:roomData.max_pax_adults-roomData.min_pax_adults+1},(v,k)=>k+roomData.min_pax_adults)
+    const childPax = Array.from({length:roomData.max_pax_children+1}, (v,k) =>k)
+
+    console.log(adultPax) // ✅
+    console.log(childPax) // ✅
+  };
+
+  useEffect(() => {
+    getRoomDataBySelect(selectedRoomId, rooms.rooms);
+    setMinMaxOptions(selectedRoomData);
+  }, [selectedRoomId]);
+
   const adultPax = [1, 2, 3];
   const childPax = [0, 1, 2, 3];
 
+  // REACT-HOOKS-FORM
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  console.log(errors);
+  // console.log(errors); // 🦄
 
   return (
     <>
@@ -55,7 +86,9 @@ function Contact(rooms) {
                 className="contact-form__input --base"
                 placeholder="Prénom"
               />
-              <p className="contact-form__warning">{errors.firstname?.message}</p>
+              <p className="contact-form__warning">
+                {errors.firstname?.message}
+              </p>
             </div>
           </div>
 
@@ -69,7 +102,9 @@ function Contact(rooms) {
                 className="contact-form__input --base"
                 placeholder="Nom"
               />
-              <p className="contact-form__warning">{errors.lastname?.message}</p>
+              <p className="contact-form__warning">
+                {errors.lastname?.message}
+              </p>
             </div>
           </div>
 
@@ -95,7 +130,9 @@ function Contact(rooms) {
             <div className="contact-form__item">
               <FiMail />
               <input
-                {...register("email", { required: "⚠ Ce champ est obligatoire" })}
+                {...register("email", {
+                  required: "⚠ Ce champ est obligatoire",
+                })}
                 className="contact-form__input --base"
                 placeholder="Adresse email"
               />
@@ -146,7 +183,10 @@ function Contact(rooms) {
           {/* <h2 className="heading heading--small">Demande de réservation </h2> */}
           <div className="contact-form__element">
             <p className="contact-form__item title">Hébergement</p>
-            <select className="contact-form__input --room select-room">
+            <select
+              className="contact-form__input --room select-room"
+              onChange={handleRoomSelect}
+            >
               <option>Sélectionnez votre hébergement...</option>
               {rooms.rooms.map((room) => {
                 return (

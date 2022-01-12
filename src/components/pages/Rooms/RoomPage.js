@@ -21,9 +21,9 @@ function RoomPage({ rooms }) {
   };
 
   // ensuite, on va chercher la chambre qui correspond à cet id
-  const getOneRoomById = (roomIdbyButton, roomDatabase) => {
+  const getOneRoomById = (roomIdByButton, roomDatabase) => {
     const filteredRoom = roomDatabase.find(
-      (room) => +room.id === +roomIdbyButton
+      (room) => +room.id === +roomIdByButton
     );
     // console.log("4 - func getOneRoombyId, the filteredRoom is " + filteredRoom);
     setRoomInfo(filteredRoom);
