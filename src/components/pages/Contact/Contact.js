@@ -1,4 +1,5 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 
 import { AiOutlineUser, AiFillWarning } from "react-icons/ai";
 import { FiMail, FiPhone } from "react-icons/fi";
@@ -24,10 +25,23 @@ function Contact(rooms) {
   const adultPax = [1, 2, 3];
   const childPax = [0, 1, 2, 3];
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  console.log(errors);
+
   return (
     <>
       {/*FORMULAIRE DE BASE*/}
-      <form className="contact-form">
+      <form
+        className="contact-form"
+        onSubmit={handleSubmit((data) => {
+          console.log(data);
+        })}
+      >
         <h2 className="heading heading--medium">Contact</h2>
 
         <div className="contact-form__base">
@@ -35,16 +49,27 @@ function Contact(rooms) {
             <div className="contact-form__item">
               <AiOutlineUser />
               <input
+                {...register("firstname", {
+                  required: "⚠ Ce champ est obligatoire",
+                })}
                 className="contact-form__input --base"
                 placeholder="Prénom"
               />
+              <p className="contact-form__warning">{errors.firstname?.message}</p>
             </div>
           </div>
 
           <div className="contact-form__element">
             <div className="contact-form__item">
               <AiOutlineUser />
-              <input className="contact-form__input --base" placeholder="Nom" />
+              <input
+                {...register("lastname", {
+                  required: "⚠ Ce champ est obligatoire",
+                })}
+                className="contact-form__input --base"
+                placeholder="Nom"
+              />
+              <p className="contact-form__warning">{errors.lastname?.message}</p>
             </div>
           </div>
 
@@ -52,9 +77,17 @@ function Contact(rooms) {
             <div className="contact-form__item ">
               <FiPhone />
               <input
+                {...register("phone", {
+                  required: "⚠ Ce champ est obligatoire",
+                  minLength: {
+                    value: 10,
+                    message: "⚠ Vérifiez votre numéro de téléphone",
+                  },
+                })}
                 className="contact-form__input --base"
                 placeholder="Numéro de téléphone"
               />
+              <p className="contact-form__warning">{errors.phone?.message}</p>
             </div>
           </div>
 
@@ -62,18 +95,13 @@ function Contact(rooms) {
             <div className="contact-form__item">
               <FiMail />
               <input
+                {...register("email", { required: "⚠ Ce champ est obligatoire" })}
                 className="contact-form__input --base"
                 placeholder="Adresse email"
               />
+              <p className="contact-form__warning">{errors.email?.message}</p>
             </div>
           </div>
-
-          {/* <div className="contact-form__element">
-            <p className="contact-form__warning">
-              <AiFillWarning /> Un moyen de contact est nécessaire afin de
-              pouvoir confirmer la réservation.
-            </p>
-          </div> */}
         </div>
 
         <h2 className="heading heading--small"> Je souhaite faire une...</h2>

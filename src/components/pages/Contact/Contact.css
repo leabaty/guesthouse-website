@@ -47,6 +47,7 @@
 
 .contact-form__warning {
   color: darkred;
+  text-align: center;
 }
 
 .contact-form__row-block {
