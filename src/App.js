@@ -12,6 +12,7 @@ import Home from "./components/pages/Home/Home";
 import RoomsPreview from "./components/pages/Home/RoomsPreview/RoomsPreview";
 import Rooms from "./components/pages/Rooms/RoomPage";
 import Contact from "./components/pages/Contact/Contact";
+import NotFound from "./components/pages/NotFound/NotFound"
 
 
 
@@ -27,6 +28,7 @@ function App() {
         <Route path="/" exact element={<> <Home/> <RoomsPreview rooms={roomData}/> </>}></Route>
         <Route path="/chambres" element={  <Rooms rooms={roomData} /> }></Route>
         <Route path="/contact" element={  <Contact rooms={roomData} /> }></Route>
+        <Route path='*' element={<NotFound/>}></Route>
       </Routes>
 
      <Footer />
