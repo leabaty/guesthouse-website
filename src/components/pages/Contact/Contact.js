@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
 
 import { AiOutlineUser, AiFillWarning } from "react-icons/ai";
@@ -9,10 +9,17 @@ import "./Contact.css";
 function Contact(rooms) {
   const [infoClicked, setInfoClick] = useState(false);
   const [bookingClicked, setBookingClick] = useState(false);
+
   const [selectedRoomId, setRoomIdBySelect] = useState();
   const [selectedRoomData, setSelectedRoomData] = useState([]);
 
-  // BOOKING OR INFO BUTTONS
+  const [adultPax, setAdultPax] = useState();
+  const [childPax, setChildPax] = useState();
+
+  // PREVENT FIRST RENDER
+  const firstRender = useRef(true);
+
+  // BOOKING OR INFO ? BUTTONS
   const handleInfoClick = (event) => {
     event.preventDefault();
     setInfoClick(true);
@@ -38,22 +45,26 @@ function Contact(rooms) {
   };
 
   const setMinMaxOptions = (roomData) => {
-    console.log(roomData)  // ⚠️ OK only after first render !
-
-    const adultPax = Array.from({length:roomData.max_pax_adults-roomData.min_pax_adults+1},(v,k)=>k+roomData.min_pax_adults)
-    const childPax = Array.from({length:roomData.max_pax_children+1}, (v,k) =>k)
-
-    console.log(adultPax) // ✅
-    console.log(childPax) // ✅
+    setAdultPax(
+      Array.from(
+        { length: roomData.max_pax_adults - roomData.min_pax_adults + 1 },
+        (v, k) => k + roomData.min_pax_adults
+      )
+    );
+    setChildPax(
+      Array.from({ length: roomData.max_pax_children + 1 }, (v, k) => k)
+    );
   };
 
   useEffect(() => {
+    // ❌ 1 select late, this is not correct !
+    if (firstRender.current) {
+      firstRender.current = false;
+      return;
+    }
     getRoomDataBySelect(selectedRoomId, rooms.rooms);
     setMinMaxOptions(selectedRoomData);
   }, [selectedRoomId]);
-
-  const adultPax = [1, 2, 3];
-  const childPax = [0, 1, 2, 3];
 
   // REACT-HOOKS-FORM
   const {
@@ -62,7 +73,7 @@ function Contact(rooms) {
     formState: { errors },
   } = useForm();
 
-  // console.log(errors); // 🦄
+  console.log(errors); // 🦄
 
   return (
     <>
@@ -228,7 +239,7 @@ function Contact(rooms) {
                 id="adult-pax"
               >
                 <option>Sélectionnez</option>
-                {adultPax.map((numberOfPax) => {
+                {adultPax?.map((numberOfPax) => {
                   return (
                     <option key={numberOfPax} value={numberOfPax}>
                       {numberOfPax}
@@ -249,7 +260,7 @@ function Contact(rooms) {
                 id="child-pax"
               >
                 <option>Sélectionnez</option>
-                {childPax.map((numberOfPax) => {
+                {childPax?.map((numberOfPax) => {
                   return (
                     <option key={numberOfPax} value={numberOfPax}>
                       {numberOfPax}
