@@ -12,37 +12,29 @@ function RoomPage({ rooms }) {
   const [roomId, setRoomId] = useState();
   const [roomInfo, setRoomInfo] = useState([]);
 
-  // on crée une variable pour vérifier quand notre rendu est effectué.
+  // PREVENT FIRST RENDER
   const firstRender = useRef(true);
 
-  // on donne l'id du bouton cliqué à notre roomId
+  // GETTING THE REQUIRED ROOM
   const handleRoomClick = (event) => {
     setRoomId(event.target.id);
   };
 
-  // ensuite, on va chercher la chambre qui correspond à cet id
   const getOneRoomById = (roomIdByButton, roomDatabase) => {
     const filteredRoom = roomDatabase.find(
       (room) => +room.id === +roomIdByButton
     );
-    // console.log("4 - func getOneRoombyId, the filteredRoom is " + filteredRoom);
     setRoomInfo(filteredRoom);
   };
 
-  //  on exécute ensuite les fonctions dans l'ordre : d'abord, trouver la chambre, puis afficher le composant si il y a bien eu un clic
   useEffect(() => {
-    // on va utiliser notre variable de vérification de rendu pour la mettre sur "faux" puis stopper le useEffect au premier rendu. Aux rendus suivants, elle sera déjà sur faux et le reste s'exécutera.
     if (firstRender.current) {
-      // console.log("1 - useEffect prevented");
       firstRender.current = false;
       return;
     }
     getOneRoomById(roomId, rooms);
-    // console.log("2 - func handleRoomClick, the roomId is " + roomId);
-    // console.log("3 - useEffect is working, getOneRoombyId is triggered");
     setRoomClick(true);
-    // console.log("5 - useEffect is working, setRoomClick:true is triggered");
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [roomId]);
 
   return (
@@ -52,9 +44,7 @@ function RoomPage({ rooms }) {
           roomClicked ? "roomdetails-container" : "roomdetails-container hidden"
         }
       >
-        <h1 className="heading heading--medium">
-          {roomInfo?.name}
-        </h1>
+        <h1 className="heading heading--medium">{roomInfo?.name}</h1>
         <RoomDetailSlider targetedRoom={roomInfo} />
         <RoomDetailText targetedRoomInfo={roomInfo} />
       </div>
