@@ -65,12 +65,14 @@
   font-size: 0.8rem;
 }
 
+
+
 @media screen and (max-width: 600px) {
   .contact-form__row-block {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
+  }npm 
 
   .--second-block-element {
     margin-left: 0px;

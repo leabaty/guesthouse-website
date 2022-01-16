@@ -8,7 +8,7 @@ import { AiOutlineUser, AiFillWarning } from "react-icons/ai";
 import { FiMail, FiPhone } from "react-icons/fi";
 
 import "./Contact.css";
-import "react-datepicker/dist/react-datepicker.css";
+import "./react-datepicker.css";
 
 function Contact(rooms) {
   const [infoClicked, setInfoClick] = useState(false);
