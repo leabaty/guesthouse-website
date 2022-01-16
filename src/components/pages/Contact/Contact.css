@@ -44,7 +44,6 @@
   height: 150px;
 }
 
-
 .contact-form__warning {
   color: darkred;
   text-align: center;
@@ -65,7 +64,13 @@
   font-size: 0.8rem;
 }
 
+.checkbox {
+  display: block;
+}
 
+label input {
+  margin-right:5px;
+}
 
 @media screen and (max-width: 600px) {
   .contact-form__row-block {

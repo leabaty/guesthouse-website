@@ -24,7 +24,7 @@ function NotFound() {
         </div>
 
         <div className="not-found__btn">
-          <Link to="/">
+          <Link to="/contact">
             <Button buttonSize="btn--large" buttonColor="primary">
               Contact
             </Button>
