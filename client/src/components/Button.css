@@ -1,0 +1,123 @@
+:root {
+  --primary: #242424;
+  --secondary: #fff;
+}
+
+/* BUTTON STYLES */
+
+.btn {
+  padding: 8px 20px;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn--full {
+  background-color: var(--primary);
+  color: var(--secondary);
+  border: 1px solid var(--secondary);
+}
+
+
+.btn--outline {
+  padding: 8px 20px;
+  background-color: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  transition: all 0.3s ease-out;
+}
+
+.btn--medium {
+  padding: 8px 20px;
+  font-size: 18px;
+}
+
+.btn--large {
+  padding: 12px 26px;
+  font-size: 20px;
+}
+
+.btn--mobile {
+  padding: 14px 20px;
+  font-size: 24px;
+
+  background-color: transparent;
+  color: var(--secondary);
+  border: 1px solid var(--secondary);
+  border-radius: 4px;
+
+  text-align: center;
+  text-decoration: none;
+  width: 80%;
+  transition: all 0.3s ease-out;
+}
+
+.btn--wide {
+  padding: 12px 64px;
+  font-size: 20px;
+}
+
+.btn--large:hover,
+.btn--medium:hover,
+.btn--mobile:hover {
+  transition: all 0.3s ease-out;
+  background-color: var(--primary);
+  color: var(--secondary);
+}
+
+.btn--wide:hover {
+  transition: all 0.2s ease-out;
+  background-color: darkred;
+  color: var(--secondary);
+}
+
+.btn--full:hover {
+  background-color: var(--secondary);
+  color: var(--primary);
+  border: 1px solid var(--secondary);
+}
+
+.btn--selected {
+  transition: all 0.3s ease-out;
+  background-color: var(--primary);
+  color: var(--secondary);
+}
+
+
+/* BUTTON COLORS */
+
+.primary {
+  background-color: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.primary:hover {
+  background-color: var(--primary);
+  color: var(--secondary);
+  border: none;
+}
+
+.red {
+  background-color: darkred;
+  color: var(--secondary);
+  border: none;
+}
+
+.green {
+  background-color: green;
+  color: var(--secondary);
+  border: none;
+}
+
+.btn-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  padding: 8px 16px;
+  height: 100%;
+  width: 100%;
+}
