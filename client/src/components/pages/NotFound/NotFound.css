@@ -1,0 +1,31 @@
+
+.not-found__container {
+  height: 600px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.not-found__img {
+  max-height: 100%;
+  margin-right: 25px;
+}
+
+.not-found__nav-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.not-found__nav-links:before {
+  content: "";
+  position: absolute;
+  top: 25%;
+  bottom: 35%;
+  border-left: 1px solid black;
+}
+
+.not-found__btn {
+  margin: 30px 0 0 50px;
+}

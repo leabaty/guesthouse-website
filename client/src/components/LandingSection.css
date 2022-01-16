@@ -1,0 +1,143 @@
+:root {
+  --primary: #242424;
+  --secondary: #fff;
+  --select: #555555;
+}
+
+.home__landing-section {
+  color: var(--primary);
+  padding: 80px 0 0 0;
+}
+
+.row {
+  margin: 0 -15px -15px -15px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* align-content: stretch; */
+}
+
+.home__landing-row {
+  align-items: center;
+}
+
+.col {
+  margin-bottom: 15px;
+  padding: 0 15px;
+  flex: 1;
+  /* max-width: 50%;
+  flex-basis: 50%; */
+}
+
+.home__landing-text-wrapper {
+  max-width: 540px;
+  padding: 0 0 60px 0;
+}
+
+.top-line {
+  color: darkred;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.heading {
+  /* margin: 0 0 24px 0; */
+  font-size: 2.5em;
+  font-family: "Italiana", serif;
+  letter-spacing: 1.2px;
+  line-height: 1.1;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.heading--medium{
+  font-size: 2em;
+}
+
+.heading--small{
+  font-size: 1.5em;
+  /* margin: 0 0 15px 0; */
+}
+
+
+.home__landing-subtitle {
+  max-width: 440px;
+  margin: 0 0 35px 0;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.home__landing-img-wrapper {
+  max-width: 555px;
+}
+
+.home__landing-img {
+/*TODO:Maybe insert code here to draw the frame*/
+}
+
+img {
+  border: 0;
+  max-width: 95%;
+  padding: 15px;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+/*Définition des couleurs d'une section*/
+
+.dark {
+  color: var(--primary);
+}
+
+.darkBg {
+  background-color: var(--primary);
+}
+
+@media screen and (max-width: 1250px) {
+    .container {
+        padding: 0 30px;
+    }
+
+    .heading {
+      font-size: 2em;
+    }
+
+
+    .heading--medium{
+      font-size: 1.8em;
+    }
+    
+    .heading--small{
+      font-size: 1.4em;
+    }
+
+
+    .home__landing-row {
+      max-width: 95%; 
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .home__landing-text-wrapper {
+        padding: 0 0 40px 0;
+    }
+
+    .col {
+        max-width: 80%;
+        flex-basis: 100%;
+    }
+
+    .home__landing-section {
+      padding: 40px 0;
+    }
+
+    .row {
+      justify-content: center; 
+    }
+
+}
+
