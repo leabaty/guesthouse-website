@@ -23,6 +23,11 @@ function Contact(rooms) {
   const [adultPax, setAdultPax] = useState();
   const [childPax, setChildPax] = useState();
 
+  const [formData, setFormData] = useState({});
+
+  // const [sent, setSent] = useState(false);
+  // const [text, setText] = useState();
+
   // PREVENT FIRST RENDER
   const firstRender = useRef(true);
 
@@ -63,6 +68,36 @@ function Contact(rooms) {
     );
   };
 
+  // SENDING THE CONFIRMATION EMAIL
+  // const handleSend = async () => {
+  //   setSent(true)
+  //   try {
+  //     await axios.post("http://localhost:5000/send_mail", {
+  //      text
+  //     })
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
+
+  // REACT-HOOKS-FORM
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  console.log(errors); // 🦄
+
+  // REACT-DATE-PICKER
+  const onDateChange = (dates) => {
+    const [start, end] = dates;
+    setStartDate(start);
+    setEndDate(end);
+  };
+  registerLocale("fr", fr);
+
+  // AND... ACTION !
   useEffect(() => {
     if (firstRender.current) {
       firstRender.current = false;
@@ -79,33 +114,18 @@ function Contact(rooms) {
     setMinMaxOptions(selectedRoomData);
   }, [selectedRoomData]);
 
-  // REACT-HOOKS-FORM
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-
-  console.log(errors); // 🦄
-
-  // REACT-DATE-PICKER
-
-  const onChange = (dates) => {
-    const [start, end] = dates;
-    setStartDate(start);
-    setEndDate(end);
-  };
-  registerLocale("fr", fr);
-
   return (
     <>
       {/*FORMULAIRE DE BASE*/}
       <form
         className="contact-form"
         onSubmit={handleSubmit((data) => {
-          console.log(data);
-          console.log(startDate);
-          console.log(endDate);
+          setFormData({
+            ...data,
+            startdate: startDate,
+            endDate: endDate,
+          });
+          console.log(formData);
         })}
       >
         <h2 className="heading heading--medium">Contact</h2>
@@ -238,7 +258,7 @@ function Contact(rooms) {
 
           <DatePicker
             selected={startDate}
-            onChange={onChange}
+            onChange={onDateChange}
             startDate={startDate}
             endDate={endDate}
             minDate={new Date()}
@@ -293,21 +313,21 @@ function Contact(rooms) {
 
           <div className="contact-form__element">
             <textarea
-              {...register("booking_questions")}
+              {...register("booking_request")}
               className="contact-form__input --text"
               placeholder="Une question ? Une demande particulière ? Une option à réserver ? "
             />
           </div>
 
           <label className="contact-form__element checkbox">
-              <input
-                name="email-booking-confirmation"
-                type="checkbox"
-                // checked={}
-                // onChange={}
-              />
-              Envoyer une copie à mon adresse email
-            </label>
+            <input
+              name="email-booking-confirmation"
+              type="checkbox"
+              // checked={}
+              // onChange={}
+            />
+            Envoyer une copie à mon adresse email
+          </label>
 
           <button className="btn btn--full btn--medium primary">
             Envoyer ma demande
@@ -326,7 +346,7 @@ function Contact(rooms) {
           <div className="contact-form__information">
             <div className="contact-form__element">
               <textarea
-                {...register("information_questions")}
+                {...register("information_request")}
                 className="contact-form__input --text"
                 placeholder="Saisissez l'objet de votre demande ici... "
               />
