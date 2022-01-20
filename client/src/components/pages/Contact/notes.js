@@ -3,24 +3,14 @@
 // ❌ : doesn't work
 // 🦄 : part of the code
 
-
-// Old date picker 
-            {/* <div className="contact-form__element">
-              <p className="contact-form__item title">Du...</p>
-              <input
-                className="contact-form__input --date"
-                type="date"
-                id="booking-start-date"
-                name="booking-start-date"
-              />
-            </div>
-
-            <div className="contact-form__element --second-block-element">
-              <p className="contact-form__item title">Au...</p>
-              <input
-                className="contact-form__input --date"
-                type="date"
-                id="booking-end-date"
-                name="booking-end-date"
-              />
-            </div> */}
+  // SENDING THE CONFIRMATION EMAIL
+  // const handleSend = async () => {
+  //   setSent(true)
+  //   try {
+  //     await axios.post("http://localhost:5000/send_mail", {
+  //      text
+  //     })
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }

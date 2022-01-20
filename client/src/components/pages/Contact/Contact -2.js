@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
+import { useForm } from "react-hook-form";
 import DatePicker, { registerLocale } from "react-datepicker";
 import fr from "date-fns/locale/fr";
 
@@ -10,7 +11,6 @@ import "./Contact.css";
 import "./react-datepicker.css";
 
 function Contact(rooms) {
-  // STATE
   const [infoClicked, setInfoClick] = useState(false);
   const [bookingClicked, setBookingClick] = useState(false);
 
@@ -20,18 +20,12 @@ function Contact(rooms) {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
 
-  const [adultPaxOptions, setAdultPaxOptions] = useState();
-  const [childPaxOptions, setChildPaxOptions] = useState();
+  const [adultPax, setAdultPax] = useState();
+  const [childPax, setChildPax] = useState();
 
-  const [formData, setFormData] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    phone: "",
-  });
-  const [formErrors, setFormErrors] = useState({});
-  const [isSubmit, setIsSubmit] = useState(false);
   // const [sent, setSent] = useState(false);
+  // const [formData, setFormData] = useState({});
+
 
   // PREVENT FIRST RENDER
   const firstRender = useRef(true);
@@ -62,17 +56,39 @@ function Contact(rooms) {
   };
 
   const setMinMaxOptions = (roomData) => {
-    setAdultPaxOptions(
+    setAdultPax(
       Array.from(
         { length: roomData.max_pax_adults - roomData.min_pax_adults + 1 },
         (v, k) => k + roomData.min_pax_adults
       )
     );
-    setChildPaxOptions(
+    setChildPax(
       Array.from({ length: roomData.max_pax_children + 1 }, (v, k) => k)
     );
   };
 
+
+  // REACT-HOOKS-FORM
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+
+  console.log(errors); // 🦄
+
+  const formData = watch();
+
+  // REACT-DATE-PICKER
+  const onDateChange = (dates) => {
+    const [start, end] = dates;
+    setStartDate(start);
+    setEndDate(end);
+  };
+  registerLocale("fr", fr);
+
+  // AND... ACTION !
   useEffect(() => {
     if (firstRender.current) {
       firstRender.current = false;
@@ -89,78 +105,19 @@ function Contact(rooms) {
     setMinMaxOptions(selectedRoomData);
   }, [selectedRoomData]);
 
-  // REACT-DATE-PICKER
-  const onDateChange = (dates) => {
-    const [start, end] = dates;
-    setStartDate(start);
-    setEndDate(end);
-  };
-  registerLocale("fr", fr);
-
-  // SETTING THE FORM OBJECT
-  const handleChange = (event) => {
-    const value = event.target.value;
-
-    setFormData({
-      ...formData,
-      [event.target.name]: value,
-      //⚠️ si startDate, endDate et room ne sont pas les dernières entrées, c'est bon !
-    });
-  };
-
-  // SUBMITTING
-  const validate = (value) => {
-    const errors = {};
-
-    const regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$/;
-    const regexPhone = /^[0-9]{10,}$/;
-
-    if (!value.firstname) {
-      errors.firstname = "⚠ Ce champ est obligatoire";
-    }
-    if (!value.lastname) {
-      errors.lastname = "⚠ Ce champ est obligatoire";
-    }
-    if (!value.email) {
-      errors.email = "⚠ Ce champ est obligatoire";
-    } else if (!regexEmail.test(value.email)) {
-      errors.email =
-        "⚠ Merci de vérifier votre saisie, le format de l'email ne correspond pas";
-    }
-    if (!value.phone) {
-      errors.phone = "⚠ Ce champ est obligatoire";
-    }     else if (!regexPhone.test(value.phone)) {
-      errors.phone =
-        "⚠ Merci de vérifier votre saisie, le numéro doit comporter au minimum 10 chiffres";
-    }
-    return errors;
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setFormErrors(validate(formData));
-    setIsSubmit(true);
-    setFormData((prevState) => {
-      return {
-        ...prevState,
-        startDate,
-        endDate,
-        room: selectedRoomData.name,
-      };
-    });
-  };
-
-  useEffect(() => {
-    console.log(formErrors);
-    if (Object.keys(formErrors).length === 0 && isSubmit) {
-      console.log(formData);
-    }
-  }, [formErrors]);
-
   return (
     <>
       {/*FORMULAIRE DE BASE*/}
-      <form className="contact-form" onSubmit={handleSubmit}>
+      <form
+        className="contact-form"
+        onSubmit={handleSubmit((data) => {
+          setFormData({
+            ...data,
+            startdate: startDate,
+            endDate: endDate,
+          });
+        })}
+      >
         <h2 className="heading heading--medium">Contact</h2>
 
         <div className="contact-form__base">
@@ -168,14 +125,19 @@ function Contact(rooms) {
             <div className="contact-form__item">
               <AiOutlineUser />
               <input
+                {...register("firstname", {
+                  required: "⚠ Ce champ est obligatoire",
+                })}
+
                 className="contact-form__input --base"
                 placeholder="Prénom"
-                type="text"
                 name="firstname"
                 onChange={handleChange}
-                value={formData.firstname}
+
               />
-              <p className="contact-form__warning">{formErrors.firstname}</p>
+              <p className="contact-form__warning">
+                {errors.firstname?.message}
+              </p>
             </div>
           </div>
 
@@ -183,14 +145,15 @@ function Contact(rooms) {
             <div className="contact-form__item">
               <AiOutlineUser />
               <input
+                {...register("lastname", {
+                  required: "⚠ Ce champ est obligatoire",
+                })}
                 className="contact-form__input --base"
                 placeholder="Nom"
-                type="text"
-                name="lastname"
-                onChange={handleChange}
-                value={formData.lastname}
               />
-              <p className="contact-form__warning">{formErrors.lastname}</p>
+              <p className="contact-form__warning">
+                {errors.lastname?.message}
+              </p>
             </div>
           </div>
 
@@ -198,14 +161,17 @@ function Contact(rooms) {
             <div className="contact-form__item ">
               <FiPhone />
               <input
+                {...register("phone", {
+                  required: "⚠ Ce champ est obligatoire",
+                  minLength: {
+                    value: 10,
+                    message: "⚠ Vérifiez votre numéro de téléphone",
+                  },
+                })}
                 className="contact-form__input --base"
                 placeholder="Numéro de téléphone"
-                type="tel"
-                name="phone"
-                onChange={handleChange}
-                value={formData.phone}
               />
-              <p className="contact-form__warning">{formErrors.phone}</p>
+              <p className="contact-form__warning">{errors.phone?.message}</p>
             </div>
           </div>
 
@@ -213,14 +179,13 @@ function Contact(rooms) {
             <div className="contact-form__item">
               <FiMail />
               <input
+                {...register("email", {
+                  required: "⚠ Ce champ est obligatoire",
+                })}
                 className="contact-form__input --base"
                 placeholder="Adresse email"
-                type="text"
-                name="email"
-                onChange={handleChange}
-                value={formData.email}
               />
-              <p className="contact-form__warning">{formErrors.email}</p>
+              <p className="contact-form__warning">{errors.email?.message}</p>
             </div>
           </div>
         </div>
@@ -268,6 +233,7 @@ function Contact(rooms) {
           <div className="contact-form__element">
             <p className="contact-form__item title">Hébergement</p>
             <select
+              {...register("room")}
               className="contact-form__input --room select-room"
               onChange={handleRoomSelect}
             >
@@ -293,6 +259,7 @@ function Contact(rooms) {
             locale="fr"
             selectsRange
             inline
+            // {...register("dates")}
           />
 
           <div className="contact-form__row-block">
@@ -301,13 +268,10 @@ function Contact(rooms) {
               <select
                 className="contact-form__input --pax adult-pax"
                 id="adult-pax"
-                type="select"
-                name="adults"
-                onChange={handleChange}
-                value={formData.adults}
+                {...register("adults")}
               >
                 <option>Sélectionnez</option>
-                {adultPaxOptions?.map((numberOfPax) => {
+                {adultPax?.map((numberOfPax) => {
                   return (
                     <option key={numberOfPax} value={numberOfPax}>
                       {numberOfPax}
@@ -326,13 +290,10 @@ function Contact(rooms) {
               <select
                 className="contact-form__input --pax child-pax"
                 id="child-pax"
-                type="select"
-                name="children"
-                onChange={handleChange}
-                value={formData.children}
+                {...register("children")}
               >
                 <option>Sélectionnez</option>
-                {childPaxOptions?.map((numberOfPax) => {
+                {childPax?.map((numberOfPax) => {
                   return (
                     <option key={numberOfPax} value={numberOfPax}>
                       {numberOfPax}
@@ -346,17 +307,19 @@ function Contact(rooms) {
 
           <div className="contact-form__element">
             <textarea
+              {...register("booking_request")}
               className="contact-form__input --text"
               placeholder="Une question ? Une demande particulière ? Une option à réserver ? "
-              type="text"
-              name="booking_request"
-              onChange={handleChange}
-              value={formData.booking_request}
             />
           </div>
 
           <label className="contact-form__element checkbox">
-            <input name="email-booking-confirmation" type="checkbox" />
+            <input
+              name="email-booking-confirmation"
+              type="checkbox"
+              // checked={}
+              // onChange={}
+            />
             Envoyer une copie à mon adresse email
           </label>
 
@@ -377,12 +340,9 @@ function Contact(rooms) {
           <div className="contact-form__information">
             <div className="contact-form__element">
               <textarea
+                {...register("information_request")}
                 className="contact-form__input --text"
                 placeholder="Saisissez l'objet de votre demande ici... "
-                type="text"
-                name="information_request"
-                onChange={handleChange}
-                value={formData.information_request}
               />
             </div>
 
@@ -391,12 +351,6 @@ function Contact(rooms) {
             </button>
           </div>
         </div>
-
-        {Object.keys(formErrors).length === 0 && isSubmit ? (
-          <div >Formulaire validé</div>
-        ) : (
-          <div >e formulaire contient des erreurs, merci de vérifier votre saisie.</div>
-        )}
       </form>
     </>
   );
