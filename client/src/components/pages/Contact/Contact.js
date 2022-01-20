@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import axios from 'axios'; 
 
 import DatePicker, { registerLocale } from "react-datepicker";
 import fr from "date-fns/locale/fr";
@@ -31,7 +32,7 @@ function Contact(rooms) {
   });
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
-  // const [sent, setSent] = useState(false);
+  const [sent, setSent] = useState(false);
 
   // PREVENT FIRST RENDER
   const firstRender = useRef(true);
@@ -104,7 +105,6 @@ function Contact(rooms) {
     setFormData({
       ...formData,
       [event.target.name]: value,
-      //⚠️ si startDate, endDate et room ne sont pas les dernières entrées, c'est bon !
     });
   };
 
@@ -113,7 +113,7 @@ function Contact(rooms) {
     const errors = {};
 
     const regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$/;
-    const regexPhone = /^[0-9]{10,}$/;
+    const regexPhone = /^\d{10,}$/;
 
     if (!value.firstname) {
       errors.firstname = "⚠ Ce champ est obligatoire";
@@ -129,7 +129,7 @@ function Contact(rooms) {
     }
     if (!value.phone) {
       errors.phone = "⚠ Ce champ est obligatoire";
-    }     else if (!regexPhone.test(value.phone)) {
+    } else if (!regexPhone.test(value.phone)) {
       errors.phone =
         "⚠ Merci de vérifier votre saisie, le numéro doit comporter au minimum 10 chiffres";
     }
@@ -140,6 +140,7 @@ function Contact(rooms) {
     event.preventDefault();
     setFormErrors(validate(formData));
     setIsSubmit(true);
+
     setFormData((prevState) => {
       return {
         ...prevState,
@@ -148,6 +149,26 @@ function Contact(rooms) {
         room: selectedRoomData.name,
       };
     });
+
+    if (bookingClicked === true) {
+      sendEmail("send_booking_request");
+      sendEmail("send_booking_recap");
+    } else {
+      sendEmail("send_info_request");
+      sendEmail("send_info_recap");
+    }
+  };
+
+  // SENDING THE CONFIRMATION EMAIL
+  const sendEmail = async (emailURL) => {
+    setSent(true);
+    try {
+      await axios.post(`http://localhost:5000/${emailURL}`, {
+        formData,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
@@ -160,244 +181,254 @@ function Contact(rooms) {
   return (
     <>
       {/*FORMULAIRE DE BASE*/}
-      <form className="contact-form" onSubmit={handleSubmit}>
-        <h2 className="heading heading--medium">Contact</h2>
 
-        <div className="contact-form__base">
-          <div className="contact-form__element">
-            <div className="contact-form__item">
-              <AiOutlineUser />
-              <input
-                className="contact-form__input --base"
-                placeholder="Prénom"
-                type="text"
-                name="firstname"
-                onChange={handleChange}
-                value={formData.firstname}
-              />
-              <p className="contact-form__warning">{formErrors.firstname}</p>
-            </div>
-          </div>
+        <form className="contact-form" onSubmit={handleSubmit}>
+          <h2 className="heading heading--medium">Contact</h2>
 
-          <div className="contact-form__element">
-            <div className="contact-form__item">
-              <AiOutlineUser />
-              <input
-                className="contact-form__input --base"
-                placeholder="Nom"
-                type="text"
-                name="lastname"
-                onChange={handleChange}
-                value={formData.lastname}
-              />
-              <p className="contact-form__warning">{formErrors.lastname}</p>
-            </div>
-          </div>
-
-          <div className="contact-form__element">
-            <div className="contact-form__item ">
-              <FiPhone />
-              <input
-                className="contact-form__input --base"
-                placeholder="Numéro de téléphone"
-                type="tel"
-                name="phone"
-                onChange={handleChange}
-                value={formData.phone}
-              />
-              <p className="contact-form__warning">{formErrors.phone}</p>
-            </div>
-          </div>
-
-          <div className="contact-form__element">
-            <div className="contact-form__item">
-              <FiMail />
-              <input
-                className="contact-form__input --base"
-                placeholder="Adresse email"
-                type="text"
-                name="email"
-                onChange={handleChange}
-                value={formData.email}
-              />
-              <p className="contact-form__warning">{formErrors.email}</p>
-            </div>
-          </div>
-        </div>
-
-        <h2 className="heading heading--small"> Je souhaite faire une...</h2>
-
-        <div className="contact-form__option">
-          {/* <div className="contact-form__element"> */}
-          <div className="contact-form__row-block">
-            {" "}
-            <button
-              className={
-                bookingClicked
-                  ? "btn btn--selected btn--medium btn--option"
-                  : "btn btn--full btn--medium primary btn--option"
-              }
-              onClick={handleBookingClick}
-            >
-              Demande de réservation
-            </button>
-            <button
-              className={
-                infoClicked
-                  ? "btn btn--selected btn--medium btn--option --second-block-element"
-                  : "btn btn--full btn--medium primary btn--option --second-block-element"
-              }
-              onClick={handleInfoClick}
-            >
-              Demande d'information
-            </button>
-          </div>
-        </div>
-        {/* </div> */}
-
-        {/*DEMANDE DE RESERVATION*/}
-
-        <div
-          className={
-            bookingClicked
-              ? "contact-form__booking"
-              : "contact-form__booking hidden"
-          }
-        >
-          {/* <h2 className="heading heading--small">Demande de réservation </h2> */}
-          <div className="contact-form__element">
-            <p className="contact-form__item title">Hébergement</p>
-            <select
-              className="contact-form__input --room select-room"
-              onChange={handleRoomSelect}
-            >
-              <option value="Pas de chambre sélectionnée">
-                Sélectionnez votre hébergement...
-              </option>
-              {rooms.rooms.map((room) => {
-                return (
-                  <option key={room.id} value={room.id}>
-                    {room.name}
-                  </option>
-                );
-              })}
-            </select>
-          </div>
-
-          <DatePicker
-            selected={startDate}
-            onChange={onDateChange}
-            startDate={startDate}
-            endDate={endDate}
-            minDate={new Date()}
-            locale="fr"
-            selectsRange
-            inline
-          />
-
-          <div className="contact-form__row-block">
+          <div className="contact-form__base">
             <div className="contact-form__element">
-              <p className="contact-form__item title">Adultes</p>
-              <select
-                className="contact-form__input --pax adult-pax"
-                id="adult-pax"
-                type="select"
-                name="adults"
-                onChange={handleChange}
-                value={formData.adults}
-              >
-                <option>Sélectionnez</option>
-                {adultPaxOptions?.map((numberOfPax) => {
-                  return (
-                    <option key={numberOfPax} value={numberOfPax}>
-                      {numberOfPax}
-                    </option>
-                  );
-                })}
-                ;
-              </select>
+              <div className="contact-form__item">
+                <AiOutlineUser />
+                <input
+                  className="contact-form__input --base"
+                  placeholder="Prénom"
+                  type="text"
+                  name="firstname"
+                  onChange={handleChange}
+                  value={formData.firstname}
+                />
+                <p className="contact-form__warning">{formErrors.firstname}</p>
+              </div>
             </div>
 
-            <div className="contact-form__element --second-block-element">
-              <p className="contact-form__item title">
-                Enfants{" "}
-                <span className="contact-form__small-span">(-12 ans)</span>
-              </p>
-              <select
-                className="contact-form__input --pax child-pax"
-                id="child-pax"
-                type="select"
-                name="children"
-                onChange={handleChange}
-                value={formData.children}
-              >
-                <option>Sélectionnez</option>
-                {childPaxOptions?.map((numberOfPax) => {
-                  return (
-                    <option key={numberOfPax} value={numberOfPax}>
-                      {numberOfPax}
-                    </option>
-                  );
-                })}
-                ;
-              </select>
+            <div className="contact-form__element">
+              <div className="contact-form__item">
+                <AiOutlineUser />
+                <input
+                  className="contact-form__input --base"
+                  placeholder="Nom"
+                  type="text"
+                  name="lastname"
+                  onChange={handleChange}
+                  value={formData.lastname}
+                />
+                <p className="contact-form__warning">{formErrors.lastname}</p>
+              </div>
+            </div>
+
+            <div className="contact-form__element">
+              <div className="contact-form__item ">
+                <FiPhone />
+                <input
+                  className="contact-form__input --base"
+                  placeholder="Numéro de téléphone"
+                  type="tel"
+                  name="phone"
+                  onChange={handleChange}
+                  value={formData.phone}
+                />
+                <p className="contact-form__warning">{formErrors.phone}</p>
+              </div>
+            </div>
+
+            <div className="contact-form__element">
+              <div className="contact-form__item">
+                <FiMail />
+                <input
+                  className="contact-form__input --base"
+                  placeholder="Adresse email"
+                  type="text"
+                  name="email"
+                  onChange={handleChange}
+                  value={formData.email}
+                />
+                <p className="contact-form__warning">{formErrors.email}</p>
+              </div>
             </div>
           </div>
 
-          <div className="contact-form__element">
-            <textarea
-              className="contact-form__input --text"
-              placeholder="Une question ? Une demande particulière ? Une option à réserver ? "
-              type="text"
-              name="booking_request"
-              onChange={handleChange}
-              value={formData.booking_request}
+          <h2 className="heading heading--small"> Je souhaite faire une...</h2>
+
+          <div className="contact-form__option">
+            {/* <div className="contact-form__element"> */}
+            <div className="contact-form__row-block">
+              {" "}
+              <button
+                className={
+                  bookingClicked
+                    ? "btn btn--selected btn--medium btn--option"
+                    : "btn btn--full btn--medium primary btn--option"
+                }
+                onClick={handleBookingClick}
+              >
+                Demande de réservation
+              </button>
+              <button
+                className={
+                  infoClicked
+                    ? "btn btn--selected btn--medium btn--option --second-block-element"
+                    : "btn btn--full btn--medium primary btn--option --second-block-element"
+                }
+                onClick={handleInfoClick}
+              >
+                Demande d'information
+              </button>
+            </div>
+          </div>
+          {/* </div> */}
+
+          {/*DEMANDE DE RESERVATION*/}
+
+          <div
+            className={
+              bookingClicked
+                ? "contact-form__booking"
+                : "contact-form__booking hidden"
+            }
+          >
+            {/* <h2 className="heading heading--small">Demande de réservation </h2> */}
+            <div className="contact-form__element">
+              <p className="contact-form__item title">Hébergement</p>
+              <select
+                className="contact-form__input --room select-room"
+                onChange={handleRoomSelect}
+              >
+                <option value="Pas de chambre sélectionnée">
+                  Sélectionnez votre hébergement...
+                </option>
+                {rooms.rooms.map((room) => {
+                  return (
+                    <option key={room.id} value={room.id}>
+                      {room.name}
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
+
+            <DatePicker
+              selected={startDate}
+              onChange={onDateChange}
+              startDate={startDate}
+              endDate={endDate}
+              minDate={new Date()}
+              locale="fr"
+              selectsRange
+              inline
             />
-          </div>
 
-          <label className="contact-form__element checkbox">
-            <input name="email-booking-confirmation" type="checkbox" />
-            Envoyer une copie à mon adresse email
-          </label>
+            <div className="contact-form__row-block">
+              <div className="contact-form__element">
+                <p className="contact-form__item title">Adultes</p>
+                <select
+                  className="contact-form__input --pax adult-pax"
+                  id="adult-pax"
+                  type="select"
+                  name="adults"
+                  onChange={handleChange}
+                  value={formData.adults}
+                >
+                  <option>Sélectionnez</option>
+                  {adultPaxOptions?.map((numberOfPax) => {
+                    return (
+                      <option key={numberOfPax} value={numberOfPax}>
+                        {numberOfPax}
+                      </option>
+                    );
+                  })}
+                  ;
+                </select>
+              </div>
 
-          <button className="btn btn--full btn--medium primary">
-            Envoyer ma demande
-          </button>
-        </div>
+              <div className="contact-form__element --second-block-element">
+                <p className="contact-form__item title">
+                  Enfants{" "}
+                  <span className="contact-form__small-span">(-12 ans)</span>
+                </p>
+                <select
+                  className="contact-form__input --pax child-pax"
+                  id="child-pax"
+                  type="select"
+                  name="children"
+                  onChange={handleChange}
+                  value={formData.children}
+                >
+                  <option>Sélectionnez</option>
+                  {childPaxOptions?.map((numberOfPax) => {
+                    return (
+                      <option key={numberOfPax} value={numberOfPax}>
+                        {numberOfPax}
+                      </option>
+                    );
+                  })}
+                  ;
+                </select>
+              </div>
+            </div>
 
-        {/*DEMANDE D'INFORMATION*/}
-
-        <div
-          className={
-            infoClicked ? "contact-form__asking" : "contact-form__asking hidden"
-          }
-        >
-          {/* <h2 className="heading heading--small">Demande d'information</h2> */}
-
-          <div className="contact-form__information">
             <div className="contact-form__element">
               <textarea
                 className="contact-form__input --text"
-                placeholder="Saisissez l'objet de votre demande ici... "
+                placeholder="Une question ? Une demande particulière ? Une option à réserver ? "
                 type="text"
-                name="information_request"
+                name="booking_request"
                 onChange={handleChange}
-                value={formData.information_request}
+                value={formData.booking_request}
               />
             </div>
+
+            <label className="contact-form__element checkbox">
+              <input name="email-booking-confirmation" type="checkbox" />
+              Envoyer une copie à mon adresse email
+            </label>
 
             <button className="btn btn--full btn--medium primary">
               Envoyer ma demande
             </button>
           </div>
-        </div>
 
-        {Object.keys(formErrors).length === 0 && isSubmit ? (
-          <div >Formulaire validé</div>
-        ) : (
-          <div >e formulaire contient des erreurs, merci de vérifier votre saisie.</div>
-        )}
-      </form>
+          {/*DEMANDE D'INFORMATION*/}
+
+          <div
+            className={
+              infoClicked
+                ? "contact-form__asking"
+                : "contact-form__asking hidden"
+            }
+          >
+            {/* <h2 className="heading heading--small">Demande d'information</h2> */}
+
+            <div className="contact-form__information">
+              <div className="contact-form__element">
+                <textarea
+                  className="contact-form__input --text"
+                  placeholder="Saisissez l'objet de votre demande ici... "
+                  type="text"
+                  name="information_request"
+                  onChange={handleChange}
+                  value={formData.information_request}
+                />
+              </div>
+
+              <button className="btn btn--full btn--medium primary">
+                Envoyer ma demande
+              </button>
+            </div>
+          </div>
+
+          {Object.keys(formErrors).length === 0 && isSubmit ? (
+            <div>Formulaire validé</div>
+          ) : (
+            <div>
+              Le formulaire contient des erreurs, merci de vérifier votre
+              saisie.
+            </div>
+          )}
+
+          {!sent ? (<h1>The email hasn't been sent</h1>): (<h1>The email has been sent</h1>)}
+
+          </form>
+
     </>
   );
 }
