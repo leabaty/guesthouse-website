@@ -16,6 +16,8 @@ app.use(cors());
 
 app.post("/send_booking_request", cors(), async (req, res) => {
   let { formData } = req.body;
+
+  console.log(formData);
   
   const transport = nodemailer.createTransport({
     host: process.env.MAIL_HOST,
