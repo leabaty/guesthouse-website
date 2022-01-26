@@ -45,13 +45,13 @@
   padding-bottom: 1rem;
 }
 
-.roomdetails-container:after{
+/* .roomdetails-container:after{
     content : "";
     position: absolute;
     left    : 15%;
     bottom  : 0;
-    width   : 70%;  /* or 100px */
+    width   : 70%; 
     border-bottom:1px solid black;
-}
+} */
 
 

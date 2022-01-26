@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import "./LandingSection.css";
+import "./Article.css";
 
 import { Button } from "./Button";
 
-function LandingSection({
+function Article({
   lightBg,
   lightText,
   lightTextDesc,
@@ -50,11 +50,13 @@ function LandingSection({
                 </p>
 
                 {/*TODO La section bouton doit pouvoir changer ou être optionnelle*/}
-                <Link to="/contact">
+
+                {/* <Link to="/contact">
                   <Button buttonSize="btn--wide" buttonColor="primary">
                     {buttonLabel}
                   </Button>
-                </Link>
+                </Link> */}
+                
               </div>
             </div>
 
@@ -74,4 +76,4 @@ function LandingSection({
   );
 }
 
-export default LandingSection;
+export default Article;

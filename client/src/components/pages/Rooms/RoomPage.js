@@ -55,6 +55,7 @@ function RoomPage({ rooms }) {
           <h1 className="heading heading--medium">{roomInfo?.name}</h1>
           <RoomDetailSlider targetedRoom={roomInfo} />
           <RoomDetailText targetedRoomInfo={roomInfo} />
+          
         </div>
 
         <div className="roompage-cards-container">

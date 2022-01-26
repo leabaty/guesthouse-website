@@ -22,7 +22,7 @@ function Directions() {
               Le domaine est situé idéalement à 2h45 de train en direct de Paris
               puis à quinze minutes en voiture.{" "}
             </p>
-            <a href="https://www.oui.sncf/" target="_blank">
+            <a href="https://www.sncf-connect.com/" target="_blank">
               <Button buttonSize="btn--small" buttonColor="primary">
                 {" "}
                 Voir sur la SNCF
