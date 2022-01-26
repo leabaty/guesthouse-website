@@ -73,7 +73,7 @@ function Footer() {
               Domaine de Bernay
             </Link>
           </div>
-          <small className='website-rights'>Domaine de Bernay © 2020</small>
+          <small className='website-rights'>Domaine de Bernay © 2022</small>
           <div className='social-icons'>
             <Link
               className='social-icon-link'

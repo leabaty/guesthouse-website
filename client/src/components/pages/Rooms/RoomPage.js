@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect } from "react";
 import RoomDetailSlider from "./RoomDetailSlider";
 import RoomDetailText from "./RoomDetailText";
 import "./RoomPage.css";
+import "../../pages/Pages.css";
 
 import { FaChild } from "react-icons/fa";
 import { GiResize } from "react-icons/gi";
@@ -39,67 +40,75 @@ function RoomPage({ rooms }) {
 
   return (
     <>
-      <div
-        className={
-          roomClicked ? "roomdetails-container" : "roomdetails-container hidden"
-        }
-      >
-        <h1 className="heading heading--medium">{roomInfo?.name}</h1>
-        <RoomDetailSlider targetedRoom={roomInfo} />
-        <RoomDetailText targetedRoomInfo={roomInfo} />
-      </div>
+      <div className="page">
 
-      <div className="roompage-cards-container">
-        {rooms.map((room) => {
-          return (
-            <div className="room-card" key={room.id}>
-              <h1 className="room-card-name">{room.name}</h1>
-              <img
-                className="room-img"
-                src={room.imgs.img_url}
-                alt={room.name}
-              />
+        <h1 className="heading heading--medium">Chambres</h1>
+        <hr className="heading-rule" />
 
-              <div className="room-characteristics">
-                <div className="room-characteristics-item">
-                  <FaChild />
-                  <p className="room-characteristics-item-info">
-                    {room.max_pax_adults}
-                  </p>
+        <div
+          className={
+            roomClicked
+              ? "roomdetails-container"
+              : "roomdetails-container hidden"
+          }
+        >
+          <h1 className="heading heading--medium">{roomInfo?.name}</h1>
+          <RoomDetailSlider targetedRoom={roomInfo} />
+          <RoomDetailText targetedRoomInfo={roomInfo} />
+        </div>
+
+        <div className="roompage-cards-container">
+          {rooms.map((room) => {
+            return (
+              <div className="room-card" key={room.id}>
+                <h1 className="room-card-name">{room.name}</h1>
+                <img
+                  className="room-img"
+                  src={room.imgs.img_url}
+                  alt={room.name}
+                />
+
+                <div className="room-characteristics">
+                  <div className="room-characteristics-item">
+                    <FaChild />
+                    <p className="room-characteristics-item-info">
+                      {room.max_pax_adults}
+                    </p>
+                  </div>
+
+                  <div className="room-characteristics-item child">
+                    <FaChild />
+                    <p className="room-characteristics-item-info">
+                      {room.max_pax_children}
+                    </p>
+                  </div>
+
+                  <div className="room-characteristics-item">
+                    <GiResize />
+                    <p className="room-characteristics-item-info">
+                      {room.square_meters}m²
+                    </p>
+                  </div>
                 </div>
 
-                <div className="room-characteristics-item child">
-                  <FaChild />
-                  <p className="room-characteristics-item-info">
-                    {room.max_pax_children}
-                  </p>
-                </div>
+                <p className="room-card-pricing">
+                  {room.min_price}€ à {room.max_price}€ par nuit, selon période,
+                  pour deux personnes avec petit-déjeuner inclus.{" "}
+                </p>
 
-                <div className="room-characteristics-item">
-                  <GiResize />
-                  <p className="room-characteristics-item-info">
-                    {room.square_meters}m²
-                  </p>
-                </div>
+                <a href="#">
+                  <button
+                    id={room.id}
+                    onClick={handleRoomClick}
+                    className="btn btn--full btn--medium primary"
+                  >
+                    Voir la chambre
+                  </button>
+                </a>
               </div>
-
-              <p className="room-card-pricing">
-                {room.min_price}€ à {room.max_price}€ par nuit, selon période,
-                pour deux personnes avec petit-déjeuner inclus.{" "}
-              </p>
-
-              <a href="#">
-                <button
-                  id={room.id}
-                  onClick={handleRoomClick}
-                  className="btn btn--full btn--medium primary"
-                >
-                  Voir la chambre
-                </button>
-              </a>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </>
   );

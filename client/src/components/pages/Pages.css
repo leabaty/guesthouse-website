@@ -1,0 +1,15 @@
+.undertitle {
+    font-size: 1.3rem;
+}
+
+.heading-rule{
+    width:30%;
+    margin: 30px auto;
+}
+
+.page {
+    padding: 80px 0 0 0;
+    max-width: 80%;
+    text-align: center;
+    margin: 0 auto
+}
