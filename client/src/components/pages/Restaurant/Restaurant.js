@@ -1,4 +1,6 @@
 import React from "react";
+import { useParallax } from 'react-scroll-parallax';
+
 import Article from "../../Article";
 import menu from "./MenuPDF/carte-restaurant.pdf";
 
@@ -12,9 +14,11 @@ import {
 } from "../../../data/restaurantData";
 
 function Restaurant() {
+  const { ref } = useParallax({ speed: 10 });
+
   return (
     <>
-      <div className="page">
+      <div ref={ref} className="page">
         <h1 className="heading heading--medium">Table d'hôtes</h1>
         <hr className="heading-rule" />
 

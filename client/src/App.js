@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { ParallaxProvider } from "react-scroll-parallax";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // STYLING
@@ -31,34 +32,42 @@ function App() {
   // }, []);
 
   return (
-    <div
-      className="app"
-      // style={{ transform: `translateY(${offsetY * 0.5}px)` }}
-    >
-      <Router>
-        <Navbar />
+    <ParallaxProvider>
+      <div
+        className="app"
+        // style={{ transform: `translateY(${offsetY * 0.5}px)` }}
+      >
+        <Router>
+          <Navbar />
 
-        <Routes>
-          <Route
-            path="/"
-            exact
-            element={
-              <>
-                {" "}
-                <Home /> <RoomsPreview rooms={roomData} />{" "}
-              </>
-            }
-          ></Route>
-          <Route path="/chambres" element={<Rooms rooms={roomData} />}></Route>
-          <Route path="/table" element={<Restaurant />}></Route>
-          <Route path="/acces" element={<Directions />}></Route>
-          <Route path="/contact" element={<Contact rooms={roomData} />}></Route>
-          <Route path="*" element={<NotFound />}></Route>
-        </Routes>
+          <Routes>
+            <Route
+              path="/"
+              exact
+              element={
+                <>
+                  {" "}
+                  <Home /> <RoomsPreview rooms={roomData} />{" "}
+                </>
+              }
+            ></Route>
+            <Route
+              path="/chambres"
+              element={<Rooms rooms={roomData} />}
+            ></Route>
+            <Route path="/table" element={<Restaurant />}></Route>
+            <Route path="/acces" element={<Directions />}></Route>
+            <Route
+              path="/contact"
+              element={<Contact rooms={roomData} />}
+            ></Route>
+            <Route path="*" element={<NotFound />}></Route>
+          </Routes>
 
-        <Footer />
-      </Router>
-    </div>
+          <Footer />
+        </Router>
+      </div>
+    </ParallaxProvider>
   );
 }
 
