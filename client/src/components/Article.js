@@ -21,12 +21,12 @@ function Article({
     <>
       <div
         className={
-          lightBg ? "home__landing-section" : "home__landing-section dark Bg"
+          lightBg ? "article__section" : "article__section dark Bg"
         }
       >
         <div className="container">
           <div
-            className="row home__landing-row"
+            className="row article__row"
             style={{
               display: "flex",
               flexDirection: imgStart === "start" ? "row-reverse" : "row",
@@ -34,7 +34,7 @@ function Article({
             }}
           >
             <div className="col">
-              <div className="home__landing-text-wrapper">
+              <div className="article__text-wrapper">
                 <div className="top-line">{topLine}</div>
                 <h1 className={lightText ? "heading" : "heading dark"}>
                   {headLine}
@@ -42,8 +42,8 @@ function Article({
                 <p
                   className={
                     lightTextDesc
-                      ? "home__landing-subtitle"
-                      : "home__landing-subtitle dark"
+                      ? "article__text"
+                      : "article__text dark"
                   }
                 >
                   {description}
@@ -61,11 +61,11 @@ function Article({
             </div>
 
             <div className="col">
-              <div className="home__landing-img-wrapper">
+              <div className="article__img-wrapper">
                 <img
                   src={img}
                   alt={alt}
-                  className="home__landing-img"
+                  className="article__img"
                 />
               </div>
             </div>
