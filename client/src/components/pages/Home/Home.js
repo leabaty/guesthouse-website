@@ -1,26 +1,59 @@
-import React from 'react';
-import { useParallax } from 'react-scroll-parallax';
+import React from "react";
+import { useParallax } from "react-scroll-parallax";
+import { Background, Parallax } from "react-parallax";
 
-import Article from '../../Article';
-import {homeObject1, homeObject2, homeObject3} from '../../../data/homeData';
+import Article from "../../Article";
+import { homeObject1, homeObject2, homeObject3 } from "../../../data/homeData";
 
-import "./Home.css"
+import CoverPicture from "../../../assets/images/1a - house_picture - cropped.jpg";
+
+import "./Home.css";
 
 function Home() {
-    const { ref } = useParallax({ speed: 10 });
+    const { ref } = useParallax({ speed: 30 });
 
-    return (
-        <>
+  return (
+    <>
+      {/* <div className="home__image-container">
+        <img
+          className="home__image"
+          src={CoverPicture}
+          alt="Maison d'hôtes à Bernay-Saint-Martin"
+        />
+      </div> */}
 
-        <div className="home__image-container">
-            <img ref={ref} className="home__image"src="https://i.ibb.co/tsy7Kvc/house-picture.jpg" alt="Maison d'hôtes à Bernay-Saint-Martin"/>
+      <Parallax
+        bgImage={CoverPicture}
+        bgImageAlt="Maison"
+        strength={150}
+      >
+        <div className="home__cover-container">
         </div>
-        
-            <Article {...homeObject1} />
-            <Article {...homeObject2} />
-            <Article {...homeObject3} />
-        </>
-    );
+      </Parallax>
+
+      {/* <Parallax strength={500}>
+        <Background className="custom-bg">
+          <img
+            className="home__image"
+            src={CoverPicture}
+            alt="Maison d'hôtes à Bernay-Saint-Martin"
+          />
+        </Background>
+      </Parallax>
+
+      <Parallax strength={300}>
+        <Background className="custom-bg">
+          <img src={CoverPicture} alt="Maison d'hôtes à Bernay-Saint-Martin" />
+        </Background>
+      </Parallax> */}
+
+      <div         ref={ref}>
+        <Article {...homeObject1} />
+        <Article {...homeObject2} />
+        <Article {...homeObject3} />
+      </div>
+    </>
+  );
 }
 
-export default Home
+export default Home;

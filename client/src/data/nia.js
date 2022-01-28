@@ -1,0 +1,1 @@
+import photo from "../../src/assets/images"

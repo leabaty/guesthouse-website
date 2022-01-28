@@ -2,6 +2,11 @@
     font-size: 1.3rem;
 }
 
+.isolated-text{
+    font-size: 1.1rem;
+    margin:15px 0 0 0;
+}
+
 .heading-rule{
     width:30%;
     margin: 30px auto;

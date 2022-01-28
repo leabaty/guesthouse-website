@@ -188,6 +188,8 @@ function Contact(rooms) {
       <h1 className="heading heading--medium">Contact</h1>
       <hr className="heading-rule" />
 
+      <p className="isolated-text">Nous sommes également joignables au 06 12 34 56 78</p>
+
       <form className="contact-form" onSubmit={handleSubmit}>
 
 
@@ -383,10 +385,11 @@ function Contact(rooms) {
             />
           </div>
 
-          <label className="contact-form__element checkbox">
+          {/* <label className="contact-form__element checkbox">
             <input name="email-booking-confirmation" type="checkbox" />
             Envoyer une copie à mon adresse email
-          </label>
+          </label> */}
+
 
           <button className="btn btn--full btn--medium primary">
             Envoyer ma demande

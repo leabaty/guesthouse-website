@@ -1,5 +1,5 @@
 import React from "react";
-import { useParallax } from 'react-scroll-parallax';
+import { useParallax } from "react-scroll-parallax";
 
 import Article from "../../Article";
 import menu from "./MenuPDF/carte-restaurant.pdf";
@@ -28,6 +28,8 @@ function Restaurant() {
           </button>
         </a>
 
+        <p className="isolated-text">Réservation au 06 12 34 56 78</p>
+
         <Article {...restaurantObj1} />
         <Article {...restaurantObj2} />
         <Article {...restaurantObj3} />
@@ -38,6 +40,7 @@ function Restaurant() {
           </button>
         </a>
 
+        <p className="isolated-text">Réservation au 06 12 34 56 78</p>
       </div>
     </>
   );

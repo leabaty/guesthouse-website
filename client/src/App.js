@@ -47,7 +47,7 @@ function App() {
               element={
                 <>
                   {" "}
-                  <Home /> <RoomsPreview rooms={roomData} />{" "}
+                  <Home /> {/*<RoomsPreview rooms={roomData} />*/}{" "}
                 </>
               }
             ></Route>

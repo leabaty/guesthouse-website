@@ -8,7 +8,7 @@ export const homeObject1 = {
     description : "Pellentesque vel iaculis eros. Maecenas sed felis id dui suscipit tristique eu id risus. Etiam luctus nisi lacus, id mattis sapien vestibulum ac.",
     buttonLabel : "Voir plus",
     img: "https://i.ibb.co/tsy7Kvc/house-picture.jpg",
-    // img: "../../../public/images/house_picture.jpg",
+    // img: "../../src/assets/images/1b-house-backyard.jpg",
     alt: "Maison d'hôtes à Bernay-Saint-Martin",
 };
 
