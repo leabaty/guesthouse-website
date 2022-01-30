@@ -1,41 +1,70 @@
-.home__image-container{
-    margin: 0 auto;
-    text-align: center;
-    /* min-width:100%; */
+.home__image-container {
+  margin: 0 auto;
+  text-align: center;
+  /* min-width:100%; */
 }
 
-.home__image{
-    min-width:100%;
-    padding:0;
+.home__image {
+  min-width: 100%;
+  padding: 0;
 }
 
-.home__cover-container{
-    height:90%;
-    max-height:800px;
-    padding:0;
+.home__cover-container {
+  height: 90%;
+  max-height: 800px;
+  padding: 0;
+}
+
+.home__mobile-intro {
+  display: none;
 }
 
 /*PARALLAX EFFECT */
 .parallax-wrapper {
-    overflow-y: hidden;
-  }
-  
+  overflow-y: hidden;
+}
+
+.parallax {
+  background-image: url("../../../assets/images/1a - house_picture - cropped.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+}
+
+.parallax {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  color: #fff;
+}
+
+@media screen and (max-width: 1060px) {
   .parallax {
-    background-image: url("../../../assets/images/1a - house_picture - cropped.jpg");
-    background-size: cover;
-    background-position: center;
-    height: 80vh;
+    height: 60vh;
   }
-  
+}
+
+@media screen and (max-width: 768px) {
   .parallax {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
+    height: 50vh;
   }
-  
-  h1 {
-    margin: 0;
-    color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+  .parallax {
+    display: none;
   }
-  
+
+  .home__mobile-intro {
+    display: contents;
+  }
+
+  .home__desktop-intro {
+    display: none;
+  }
+}

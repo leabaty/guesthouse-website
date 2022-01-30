@@ -8,7 +8,6 @@ import CoverPicture from "../../../assets/images/1a - house_picture - cropped.jp
 import "./Home.css";
 
 function Home() {
-  
   // PARALLAX EFFECT
   const throttle = (fn, wait) => {
     var time = Date.now();
@@ -18,7 +17,7 @@ function Home() {
         time = Date.now();
       }
     };
-  }
+  };
 
   const parallax = () => {
     var scrolled = window.pageYOffset;
@@ -26,7 +25,7 @@ function Home() {
     // You can adjust the 0.4 to change the speed
     var coords = scrolled * 0.4 + "px";
     parallax.style.transform = "translateY(" + coords + ")";
-  }
+  };
 
   window.addEventListener("scroll", throttle(parallax, 14));
 
@@ -44,9 +43,26 @@ function Home() {
         <div class="parallax"></div>
       </header>
 
-      <main>
-        <div>
+      <main className="page">
+        
+        <div className="home__desktop-intro">
+          <h1 className="heading">
+            Votre maison d’hôtes vous accueille au coeur d’un domaine
+            privilégié.
+          </h1>
+          <p className="article__text">
+            Pellentesque vel iaculis eros. Maecenas sed felis id dui suscipit
+            tristique eu id risus. Etiam luctus nisi lacus, id mattis sapien
+            vestibulum ac.
+          </p>
+          .
+        </div>
+
+        <div className="home__mobile-intro">
           <Article {...homeObject1} />
+        </div>
+
+        <div>
           <Article {...homeObject2} />
           <Article {...homeObject3} />
         </div>
