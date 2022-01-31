@@ -423,18 +423,18 @@ function Contact(rooms) {
           </div>
         </div>
 
-        {Object.keys(formErrors).length === 0 && isSubmit ? (
+        {/* {Object.keys(formErrors).length === 0 && isSubmit ? (
           <div>Formulaire validé</div>
         ) : (
           <div>
             Le formulaire contient des erreurs, merci de vérifier votre saisie.
           </div>
-        )}
+        )} */}
 
         {!sent ? (
-          <h1>The email hasn't been sent</h1>
+          <p></p>
         ) : (
-          <h1>The email has been sent</h1>
+          <p>Merci, votre demande a bien été transmise au Domaine de Bernay. <br/>Une copie de votre demande vous a été adressée. <br/>Vous recevrez une réponse sous trois jours ouvrés à l'adresse mail indiquée.</p>
         )}
       </form>
       </div>
