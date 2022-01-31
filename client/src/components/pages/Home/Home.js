@@ -3,14 +3,14 @@ import React from "react";
 import Article from "../../Article";
 import { homeObject1, homeObject2, homeObject3 } from "../../../data/homeData";
 
-import CoverPicture from "../../../assets/images/1a - house_picture - cropped.jpg";
-
 import "./Home.css";
 
 function Home() {
-  // PARALLAX EFFECT
+
+  // PARALLAX EFFECT (from codepen https://codepen.io/Prachl/pen/jjKzEy)
   const throttle = (fn, wait) => {
     var time = Date.now();
+
     return function () {
       if (time + wait - Date.now() < 0) {
         fn();
@@ -21,30 +21,21 @@ function Home() {
 
   const parallax = () => {
     var scrolled = window.pageYOffset;
-    var parallax = document.querySelector(".parallax");
-    // You can adjust the 0.4 to change the speed
+    var parallaxItem = document.querySelector(".parallax");
+    // To adjust the speed, change the coords
     var coords = scrolled * 0.4 + "px";
-    parallax.style.transform = "translateY(" + coords + ")";
+    parallaxItem.style.transform = "translateY(" + coords + ")";
   };
 
   window.addEventListener("scroll", throttle(parallax, 14));
 
   return (
     <>
-      {/* <div className="home__image-container">
-          <img
-            className="home__image"
-            src={CoverPicture}
-            alt="Maison d'hôtes à Bernay-Saint-Martin"
-          />
-        </div> */}
-
       <header class="parallax-wrapper">
         <div class="parallax"></div>
       </header>
 
       <main className="page">
-        
         <div className="home__desktop-intro">
           <h1 className="heading">
             Votre maison d’hôtes vous accueille au coeur d’un domaine
@@ -55,7 +46,6 @@ function Home() {
             tristique eu id risus. Etiam luctus nisi lacus, id mattis sapien
             vestibulum ac.
           </p>
-          .
         </div>
 
         <div className="home__mobile-intro">

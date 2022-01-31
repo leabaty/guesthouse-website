@@ -4,7 +4,7 @@ import Article from "../../Article";
 import menu from "./MenuPDF/carte-restaurant.pdf";
 
 import "./Restaurant.css";
-import "../../pages/Pages.css";
+import "../../pages/_Styles.css";
 
 import {
   restaurantObj1,

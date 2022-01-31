@@ -8,7 +8,7 @@ import { AiOutlineUser } from "react-icons/ai";
 import { FiMail, FiPhone } from "react-icons/fi";
 
 import "./Contact.css";
-import "../../pages/Pages.css";
+import "../../pages/_Styles.css";
 import "./react-datepicker.css";
 
 function Contact(rooms) {
