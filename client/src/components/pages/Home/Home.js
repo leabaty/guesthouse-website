@@ -5,8 +5,9 @@ import { homeObject1, homeObject2, homeObject3 } from "../../../data/homeData";
 
 import "./Home.css";
 
-function Home() {
+import FadeInSection from "../../../utils/fadeIn.js";
 
+function Home() {
   // PARALLAX EFFECT (from codepen https://codepen.io/Prachl/pen/jjKzEy)
   const throttle = (fn, wait) => {
     var time = Date.now();
@@ -36,26 +37,38 @@ function Home() {
       </header>
 
       <main className="page">
-        <div className="home__desktop-intro">
-          <h1 className="heading">
-            Votre maison d’hôtes vous accueille au coeur d’un domaine
-            privilégié.
-          </h1>
-          <p className="article__text">
-            Pellentesque vel iaculis eros. Maecenas sed felis id dui suscipit
-            tristique eu id risus. Etiam luctus nisi lacus, id mattis sapien
-            vestibulum ac.
-          </p>
-        </div>
+        <FadeInSection>
+          <div className="home__desktop-intro">
+            <h1 className="heading">
+              Votre maison d’hôtes vous accueille au coeur d’un domaine
+              privilégié.
+            </h1>
+            <p className="article__text">
+              Vestibulum congue lacus ut congue rutrum. Maecenas commodo, sem in
+              aliquet dapibus, risus risus dignissim tellus, sit amet iaculis
+              diam eros in ligula. Proin maximus turpis mollis neque fringilla
+              accumsan. Etiam rutrum vel ex nec gravida. Etiam sodales vitae
+              diam et pellentesque. Proin vel rhoncus tellus. Aliquam sit amet
+              mauris magna. Sed pellentesque leo sit amet nibh suscipit, eu
+              fringilla ligula pretium. Praesent metus est, consequat sed
+              volutpat sed, fringilla a arcu.
+            </p>
+          </div>
+        </FadeInSection>
 
-        <div className="home__mobile-intro">
-          <Article {...homeObject1} />
-        </div>
+        <FadeInSection>
+          <div className="home__mobile-intro">
+            <Article {...homeObject1} />
+          </div>
+        </FadeInSection>
 
-        <div>
+        <FadeInSection>
           <Article {...homeObject2} />
+        </FadeInSection>
+
+        <FadeInSection>
           <Article {...homeObject3} />
-        </div>
+        </FadeInSection>
       </main>
     </>
   );

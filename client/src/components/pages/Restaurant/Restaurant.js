@@ -12,33 +12,46 @@ import {
   restaurantObj3,
 } from "../../../data/restaurantData";
 
-function Restaurant() {
+import FadeInSection from "../../../utils/fadeIn.js";
 
+function Restaurant() {
   return (
     <>
       <div className="page">
         <h1 className="heading heading--medium">Table d'hôtes</h1>
         <hr className="heading-rule" />
 
+        <FadeInSection>
         <a href={menu} target="_blank">
           <button className="btn btn--full btn--wide primary restaurant-btn">
             Voir le Menu du moment
           </button>
         </a>
-
         <p className="isolated-text">Réservation au 06 12 34 56 78</p>
+        </FadeInSection>
 
-        <Article {...restaurantObj1} />
-        <Article {...restaurantObj2} />
-        <Article {...restaurantObj3} />
+        <FadeInSection>
+          <Article {...restaurantObj1} />
+        </FadeInSection>
 
+        <FadeInSection>
+          <Article {...restaurantObj2} />
+        </FadeInSection>
+
+        <FadeInSection>
+          <Article {...restaurantObj3} />
+        </FadeInSection>
+
+        <FadeInSection>
         <a href={menu} target="_blank">
           <button className="btn btn--full btn--wide primary restaurant-btn">
             Voir le Menu du moment
           </button>
         </a>
-
         <p className="isolated-text">Réservation au 06 12 34 56 78</p>
+        </FadeInSection>
+
+
       </div>
     </>
   );

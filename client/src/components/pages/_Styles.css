@@ -38,6 +38,20 @@
   margin: 0 auto;
 }
 
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20vh);
+  visibility: hidden;
+  transition: opacity 1200ms ease-out, transform 600ms ease-out,
+    visibility 1200ms ease-out;
+  will-change: opacity, transform, visibility;
+}
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+}
+
 @media screen and (max-width: 1250px) {
   .heading {
     font-size: 2em;
@@ -57,5 +71,11 @@
     padding: 15px 0 0 0;
     text-align: center;
     margin: 0 auto;
+    max-width: 100%;
   }
+  .heading {
+    font-size: 1.5em;
+  }
+
+
 }
