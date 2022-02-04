@@ -26,8 +26,8 @@ app.post("/send_booking_request", cors(), async (req, res) => {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.GMAIL_USER || "domainedebernay@gmail.com",
-        pass: process.env.GMAIL_PASS || "HLt5zGpicPG7&M$X",
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_PASS 
       },
     });
 
@@ -77,8 +77,8 @@ app.post("/send_booking_recap", cors(), async (req, res) => {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.GMAIL_USER || "domainedebernay@gmail.com",
-        pass: process.env.GMAIL_PASS || "HLt5zGpicPG7&M$X",
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_PASS 
       },
     });
 
@@ -131,8 +131,8 @@ app.post("/send_info_request", cors(), async (req, res) => {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.GMAIL_USER || "domainedebernay@gmail.com",
-        pass: process.env.GMAIL_PASS || "HLt5zGpicPG7&M$X",
+        user: process.env.GMAIL_USER, 
+        pass: process.env.GMAIL_PASS 
       },
     });
 
@@ -177,8 +177,8 @@ app.post("/send_info_recap", cors(), async (req, res) => {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.GMAIL_USER || "domainedebernay@gmail.com",
-        pass: process.env.GMAIL_PASS || "HLt5zGpicPG7&M$X",
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_PASS 
       },
     });
 
