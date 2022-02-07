@@ -19,3 +19,16 @@
     opacity: 1
 }
 
+@media screen and (max-width: 1395px) {
+    .arrows-room {
+      font-size: 25px;
+      margin : 0 -20px;
+  }
+  }
+  
+@media screen and (max-width: 968px) {
+    .arrows-room {
+      font-size: 20px;
+      margin : 0 -30px;
+  }
+  }

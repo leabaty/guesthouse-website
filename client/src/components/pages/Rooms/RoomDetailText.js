@@ -12,48 +12,55 @@ import { BsCheck2Circle } from "react-icons/bs";
 function RoomDetailText({ targetedRoomInfo }) {
   return (
     <>
-      <div className="room-characteristics">
-        <div className="roomdetail-characteristics-item">
-          <FaChild />
-          <p className="roomdetail-characteristics-item-info">
-            {targetedRoomInfo?.max_pax_adults}
-          </p>
-        </div>
+      <div className="roomdetail-characteristics-container">
 
-        <div className="roomdetail-characteristics-item-child">
-          <FaChild />
-          <p className="roomdetail-characteristics-item-info">
-            {targetedRoomInfo?.max_pax_children}
-          </p>
-        </div>
+        <div className="roomdetail-characteristics">
+          
+          <div className="roomdetail-characteristics-item">
+            <FaChild />
+            <p className="roomdetail-characteristics-item-info">
+              {targetedRoomInfo?.max_pax_adults}
+            </p>
+          </div>
 
-        <div className="roomdetail-characteristics-item">
-          <GiResize />
-          <p className="roomdetail-characteristics-item-info">
-            {targetedRoomInfo?.square_meters}m²
-          </p>
-        </div>
+          <div className="roomdetail-characteristics-item-child">
+            <FaChild />
+            <p className="roomdetail-characteristics-item-info">
+              {targetedRoomInfo?.max_pax_children}
+            </p>
+          </div>
 
-        <div className="roomdetail-characteristics-item">
-          <BiBed />
-          <p className="roomdetail-characteristics-item-info">
-            {targetedRoomInfo?.bed_type}
-          </p>
-        </div>
+          <div className="roomdetail-characteristics-item">
+            <GiResize />
+            <p className="roomdetail-characteristics-item-info">
+              {targetedRoomInfo?.square_meters}m²
+            </p>
+          </div>
+          </div>
 
-        <div className="roomdetail-characteristics-item">
-          <FaRegCompass />
-          <p className="roomdetail-characteristics-item-info">
-            {targetedRoomInfo?.cardinalities}
-          </p>
-        </div>
+          <div className="roomdetail-characteristics">
+          <div className="roomdetail-characteristics-item">
+            <BiBed />
+            <p className="roomdetail-characteristics-item-info">
+              {targetedRoomInfo?.bed_type}
+            </p>
+          </div>
 
-        <div className="roomdetail-characteristics-item">
-          <BiLandscape />
-          <p className="roomdetail-characteristics-item-info">
-            {targetedRoomInfo?.view}
-          </p>
-        </div>
+          <div className="roomdetail-characteristics-item">
+            <FaRegCompass />
+            <p className="roomdetail-characteristics-item-info">
+              {targetedRoomInfo?.cardinalities}
+            </p>
+          </div>
+
+          <div className="roomdetail-characteristics-item">
+            <BiLandscape />
+            <p className="roomdetail-characteristics-item-info">
+              {targetedRoomInfo?.view}
+            </p>
+          </div>
+          </div>
+
       </div>
 
       <p className="roomdetail-description">{targetedRoomInfo?.description}</p>

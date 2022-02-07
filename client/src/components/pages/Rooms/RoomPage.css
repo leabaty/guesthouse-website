@@ -6,7 +6,7 @@
 .roompage-cards-container {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   flex-wrap: wrap;
   padding: 5% 10%;
   
@@ -35,7 +35,7 @@
 
 /* ROOM DETAILS */
 .roomdetails-container {
-  padding: 3% 12%;
+  padding: 3rem 3rem 4.5rem 3rem;
 }
 
 .roomdetail-name {
@@ -51,6 +51,5 @@
     bottom  : 0;
     width   : 70%; 
     border-bottom:1px solid black;
-} */
-
-
+}
+ */
