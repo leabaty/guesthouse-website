@@ -17,19 +17,19 @@
 }
 
 .--base {
-    width:480px;
+  width: 480px;
 }
 
 .--room {
-    width:520px;
+  width: 520px;
 }
 
-.--date{
-    width: 220px;
+.--date {
+  width: 220px;
 }
 
-.--pax{
-    width: 245px;
+.--pax {
+  width: 245px;
 }
 
 .--text {
@@ -46,7 +46,6 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-
 }
 
 .--second-block-element {
@@ -62,15 +61,15 @@
 }
 
 label input {
-  margin-right:5px;
+  margin-right: 5px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 769px) {
   .contact-form__row-block {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }npm 
+  }
 
   .--second-block-element {
     margin-left: 0px;
@@ -81,29 +80,32 @@ label input {
     max-width: 90%;
   }
 
-
   .--room {
-    width:350px;
-}
-
-.--date{
-    width:300px;
-}
-
-.--pax{
     width: 350px;
-}
+  }
 
-.--text {
-  width: 300px;
-  height: 150px;
-}
+  .--date {
+    width: 300px;
+  }
 
-  .--room, .--date, .--pax, .--text{
+  .--pax {
+    width: 350px;
+  }
+
+  .--text {
+    width: 300px;
+    height: 150px;
+  }
+
+  .--room,
+  .--date,
+  .--pax,
+  .--text {
     max-width: 90%;
+  }
+
+  .btn--option {
+    margin: 10px;
+  }
 }
 
-.btn--option {
-    margin: 10px;
-}
-}

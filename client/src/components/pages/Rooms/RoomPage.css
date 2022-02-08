@@ -8,7 +8,7 @@
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 5% 10%;
+  padding: 3rem;
   
 }
 
@@ -34,8 +34,18 @@
 }
 
 /* ROOM DETAILS */
+
 .roomdetails-container {
-  padding: 3rem 3rem 4.5rem 3rem;
+  padding: 0 12%
+}
+
+.roomdetails-container:after{
+  content : "";
+  position: absolute;
+  left    : 15%;
+  bottom  : 1;
+  width   : 70%; 
+  border-bottom:1px solid black;
 }
 
 .roomdetail-name {
@@ -44,12 +54,4 @@
   padding-bottom: 1rem;
 }
 
-/* .roomdetails-container:after{
-    content : "";
-    position: absolute;
-    left    : 15%;
-    bottom  : 0;
-    width   : 70%; 
-    border-bottom:1px solid black;
-}
- */
+

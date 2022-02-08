@@ -1,3 +1,7 @@
+.roomdetail-container {
+  padding:  0 3rem 3rem 3rem;
+}
+
 .roomdetail-characteristics-container {
   display: flex;
   flex-direction: row;
@@ -40,10 +44,8 @@
   padding: 15px 0 0 0;
 }
 
-.roomdetail-btn {
-  position: absolute;
-  right: 15%;
-  /* Not responsive !! haha */
+.roomdetail-btn{
+  margin-top:10px;
 }
 
 @media screen and (max-width: 768px) {
@@ -53,14 +55,15 @@
   }
 
   .roomdetail-characteristics {
-    margin:0;
+    margin: 0;
   }
 
   .roomdetail-characteristics-item {
     padding: 10px;
   }
-  
+
   .roomdetail-characteristics-item-child {
     padding: 10px;
   }
+
 }

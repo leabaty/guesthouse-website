@@ -12,6 +12,9 @@ import { BsCheck2Circle } from "react-icons/bs";
 function RoomDetailText({ targetedRoomInfo }) {
   return (
     <>
+
+    <section className="roomdetail-container">
+
       <div className="roomdetail-characteristics-container">
 
         <div className="roomdetail-characteristics">
@@ -81,10 +84,12 @@ function RoomDetailText({ targetedRoomInfo }) {
       </div>
 
       <Link to="/contact">
-        <button className="btn btn--full btn--large primary roomdetail-btn">
+        <button className="btn btn--large primary roomdetail-btn">
           Demande de réservation
         </button>
       </Link>
+
+      </section>
 
       {/*TODO : Faire l'accessibilité : Petit picto avec phrase, hidden si pas accessible, visible sinon (utiliser state)*/}
     </>

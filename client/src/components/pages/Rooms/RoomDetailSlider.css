@@ -1,34 +1,49 @@
-@import "~slick-carousel/slick/slick.css"; 
+@import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
 
-
 .room-img {
-    max-height: 500px;
+  max-height: 500px;
 }
 
-.arrows-room{
-    font-size: 30px;
+.arrows-room {
+  font-size: 30px;
+  margin: 0 20px;
 }
 
 .roomdetail-slide img {
-    margin : 0 auto;
+  margin: 0 auto;
 }
 
 .activeSlide {
-    transform: scale(1);
-    opacity: 1
+  transform: scale(1);
+  opacity: 1;
+}
+
+.slick-dots li button:before {
+  font-size: 8px;
 }
 
 @media screen and (max-width: 1395px) {
-    .arrows-room {
-      font-size: 25px;
-      margin : 0 -20px;
+  .arrows-room {
+    font-size: 25px;
+    margin: 0 -20px;
   }
-  }
-  
+}
+
 @media screen and (max-width: 968px) {
-    .arrows-room {
-      font-size: 20px;
-      margin : 0 -30px;
+  .arrows-room {
+    font-size: 20px;
+    margin: 0 -30px;
   }
+}
+
+@media screen and (max-width: 768px) {
+  .slick-dots li button:before {
+    font-size: 10px;
+    line-height: 0;
   }
+
+  .arrows-room {
+    display: none;
+  }
+}
