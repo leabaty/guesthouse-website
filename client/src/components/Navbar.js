@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaTimes } from "react-icons/fa";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
-import { GiKeyring } from "react-icons/gi";
 import { Button } from "./Button";
 import "./Navbar.css";
+
+import logo from "../assets/images/0-couette-beneze-logo.png";
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -33,13 +34,13 @@ function Navbar() {
       <div className="navbar">
         <div className="navbar-container container">
           <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-            <GiKeyring className="navbar-icon" />
-            Domaine de Bernay
+            <img src={logo}  alt="logo-couette-beneze" className="navbar-icon" />
+            La Couette Benèze
           </Link>
           <div className="menu-icon" onClick={handleClick}>
             {click ? <FaTimes /> : <HiOutlineMenuAlt3 />}
           </div>
-          
+
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-item">
               <Link
@@ -57,7 +58,7 @@ function Navbar() {
               </Link>
             </li>
 
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link
                 to="/tarifs"
                 className="nav-links"
@@ -65,11 +66,21 @@ function Navbar() {
               >
                 Tarifs et disponibilités
               </Link>
-            </li>
+            </li> */}
 
             <li className="nav-item">
               <Link to="/acces" className="nav-links" onClick={closeMobileMenu}>
                 Accès
+              </Link>
+            </li>
+
+            <li className="nav-item">
+              <Link
+                to="/a-propos"
+                className="nav-links"
+                onClick={closeMobileMenu}
+              >
+                A propos
               </Link>
             </li>
 

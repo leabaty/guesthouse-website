@@ -266,7 +266,7 @@ function Contact(rooms) {
             <p></p>
           ) : (
             <p>
-              Merci, votre demande a bien été transmise au Domaine de Bernay.{" "}
+              Merci, votre demande a bien été transmise à La Couette Benèze.{" "}
               <br />
               Une copie de votre demande vous a été adressée. <br />
               Vous recevrez une réponse sous trois jours ouvrés à l'adresse mail

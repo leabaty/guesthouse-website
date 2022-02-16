@@ -19,7 +19,7 @@
 .navbar-container {
   display: flex;
   justify-content: space-between;
-  height: 80px;
+  height: 88px;
 }
 
 .container {
@@ -47,7 +47,7 @@
 
 .navbar-icon {
   margin-right: 0.5rem;
-  font-size: 2rem;
+  height: 2.8rem;
 }
 
 .nav-menu {
@@ -60,7 +60,7 @@
 }
 
 .nav-item {
-  /* height: 100%; */
+  height: 100%;
   border-bottom: 2px solid transparent;
 }
 
