@@ -1,7 +1,6 @@
 import React from "react";
 
 import "./Contact.css";
-import "../../pages/_Styles.css";
 
 function ContactInfo({infoClicked, handleChange, formData}) {
   return (

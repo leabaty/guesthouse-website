@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./Article.css";
-import "../components/pages/_Styles.css";
+
 
 function Article({ headLine, description, img, alt, imgStart }) {
   return (

@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./Directions.css";
-import "../../pages/_Styles.css";
+
 
 import { Button } from "../../Button";
 

@@ -33,7 +33,7 @@ function Navbar() {
     <>
       <div className="navbar">
         <div className="navbar-container container">
-          <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
+          <Link to="/" className="navbar-title" onClick={closeMobileMenu}>
             <img src={logo}  alt="logo-couette-beneze" className="navbar-icon" />
             La Couette Benèze
           </Link>
@@ -95,7 +95,7 @@ function Navbar() {
                   className="btn-link"
                   onClick={closeMobileMenu}
                 >
-                  <Button buttonStyle="btn--outline" buttonSize="btn--mobile">
+                  <Button buttonStyle="btn--full" buttonSize="btn--mobile">
                     Contact
                   </Button>
                 </Link>

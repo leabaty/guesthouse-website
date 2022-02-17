@@ -3,7 +3,6 @@ import React from "react";
 import DatePicker from "react-datepicker";
 
 import "./Contact.css";
-import "../../pages/_Styles.css";
 import "./react-datepicker.css";
 
 function ContactBooking({bookingClicked, handleRoomSelect, rooms, startDate, endDate, onDateChange, handleChange, formData, adultPaxOptions, childPaxOptions}) {

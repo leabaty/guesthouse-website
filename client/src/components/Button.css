@@ -20,7 +20,6 @@
   border: 1px solid var(--secondary);
 }
 
-
 .btn--outline {
   padding: 8px 20px;
   background-color: transparent;
@@ -43,10 +42,7 @@
   padding: 14px 20px;
   font-size: 24px;
 
-  background-color: transparent;
-  color: var(--primary);
-  border: 1px solid var(--primary);
-  border-radius: 4px;
+  border-radius: 10px;
 
   text-align: center;
   text-decoration: none;

@@ -9,7 +9,6 @@ import ContactBooking from "./ContactBooking";
 import ContactInfo from "./ContactInfo";
 
 import "./Contact.css";
-import "../../pages/_Styles.css";
 import "./react-datepicker.css";
 
 function Contact(rooms) {
