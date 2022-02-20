@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from "react";
 import RoomDetailSlider from "./RoomDetailSlider";
 import RoomDetailText from "./RoomDetailText";
 import "./RoomPage.css";
-import "../../pages/_Styles.css";
+
 
 import { FaChild } from "react-icons/fa";
 import { GiResize } from "react-icons/gi";
