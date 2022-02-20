@@ -3,7 +3,7 @@
 }
 
 /* CARDS */
-.roompage-cards-container {
+.roompage__cards-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -12,7 +12,7 @@
   
 }
 
-.room-card {
+.roomcard {
   width: 300px;
   padding: 1.2rem;
   text-align: center;
@@ -22,24 +22,24 @@
   background-color: #fdfdfd;
 }
 
-.room-card-name {
+.roomcard__name {
   font-family: "Italiana", serif;
   font-size: 1.5rem;
   text-align: center;
   color: black;
 }
 
-.room-card-pricing {
+.roomcard__pricing {
   padding: 0 0 1rem 0;
 }
 
 /* ROOM DETAILS */
 
-.roomdetails-container {
+.roomdetails__container {
   padding: 0 12%
 }
 
-.roomdetails-container:after{
+.roomdetails__container:after{
   content : "";
   position: absolute;
   left    : 15%;
@@ -48,10 +48,5 @@
   border-bottom:1px solid black;
 }
 
-.roomdetail-name {
-  font-family: "Italiana", serif;
-  font-size: 2rem;
-  padding-bottom: 1rem;
-}
 
 

@@ -48,8 +48,8 @@ function RoomPage({ rooms }) {
         <div
           className={
             roomClicked
-              ? "roomdetails-container"
-              : "roomdetails-container hidden"
+              ? "roomdetails__container"
+              : "roomdetails__container hidden"
           }
         >
           <h1 className="heading heading--medium">{roomInfo?.name}</h1>
@@ -58,11 +58,11 @@ function RoomPage({ rooms }) {
           
         </div>
 
-        <div className="roompage-cards-container">
+        <div className="roompage__cards-container">
           {rooms.map((room) => {
             return (
-              <div className="room-card" key={room.id}>
-                <h1 className="room-card-name">{room.name}</h1>
+              <div className="roomcard" key={room.id}>
+                <h1 className="roomcard__name">{room.name}</h1>
                 <img
                   className="room-img"
                   src={room.imgs.img_url}
@@ -92,7 +92,7 @@ function RoomPage({ rooms }) {
                   </div>
                 </div>
 
-                <p className="room-card-pricing">
+                <p className="roomcard__pricing">
                   {room.min_price}€ à {room.max_price}€ par nuit, selon période,
                   pour deux personnes avec petit-déjeuner inclus.{" "}
                 </p>

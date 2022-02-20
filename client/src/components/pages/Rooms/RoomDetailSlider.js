@@ -45,14 +45,14 @@ function RoomDetailSlider({ targetedRoom }) {
   } else {
     return (
       <>
-        <Slider className="rooms-picture-slider" {...settings}>
+        <Slider {...settings}>
           {Object.values(targetedRoom.imgs).map((image, index) => {
             return (
               <div
                 className={
                   index === imageIndex
-                    ? "roomdetail-slide activeSlide"
-                    : "roomdetail-slide"
+                    ? "roomdetail__slide activeSlide"
+                    : "roomdetail__slide"
                 }
                 key={image.id}
               >

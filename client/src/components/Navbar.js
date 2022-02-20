@@ -32,9 +32,9 @@ function Navbar() {
   return (
     <>
       <div className="navbar">
-        <div className="navbar-container container">
-          <Link to="/" className="navbar-title" onClick={closeMobileMenu}>
-            <img src={logo}  alt="logo-couette-beneze" className="navbar-icon" />
+        <div className="navbar__container container">
+          <Link to="/" className="navbar__title" onClick={closeMobileMenu}>
+            <img src={logo}  alt="logo-couette-beneze" className="navbar__icon" />
             La Couette Benèze
           </Link>
           <div className="menu-icon" onClick={handleClick}>
