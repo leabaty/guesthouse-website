@@ -1,33 +1,40 @@
-import mongodb from "mongodb";
-const ObjectId = mongodb.ObjectID;
+// import mongodb from "mongodb";
+// const ObjectId = mongodb.ObjectID;
 
-let bookingReq;
+let bookingRequests;
 
 export default class BookingReqDAO {
   static async injectDB(conn) {
-    if (bookingReq) {
+    if (bookingRequests) {
       return;
     }
     try {
-      bookingReq = await conn
+      bookingRequests = await conn
         .db(process.env.BOOKINGREQ_NS)
-        .collection("bookingReq");
+        .collection("bookingRequests");
     } catch (e) {
       console.error(`Unable to establish collection handles in userDAO: ${e}`);
     }
   }
 
-  static async addBookingReq(restaurantId, userInfo, review, date) {
+  static async addBookingReq(requestDate, firstname, lastname, phone, email, bookingInfo) {
     try {
       const bookingReqDoc = {
-        name: user.name,
-        user_id: user._id,
-        date: date,
-        text: review,
-        restaurant_id: ObjectId(restaurantId),
+        // user_id: ObjectId(email),
+        requestDate: requestDate,
+        firstname: firstname,
+        lastname: lastname,
+        phone: phone,
+        email: email,
+        room: bookingInfo.room,
+        endDate: bookingInfo.endDate,
+        startDate: bookingInfo.startDate,
+        adults: bookingInfo.adults,
+        children: bookingInfo.children,
+        specialRequest: bookingInfo.specialRequest,
       };
 
-      return await bookingReq.insertOne(bookingReqDoc);
+      return await bookingRequests.insertOne(bookingReqDoc);
     } catch (e) {
       console.error(`Unable to post booking request: ${e}`);
       return { error: e };
