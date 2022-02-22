@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html
   lang="en"
   xmlns="http://www.w3.org/1999/xhtml"
@@ -12,7 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Italiana&family=Jost:wght@300;400&display=swap"
       rel="stylesheet"
     />
-    <title>🛈 Nouvelle demande d'information</title>
+    <title>Votre demande de réservation à La Couette Benèze</title>
     <!--[if mso]>
       <style>
         table {
@@ -38,34 +37,13 @@
       </noscript>
     <![endif]-->
     <style>
-      table,
-      td,
-      div,
-      h1,
-      p {
-        font-family: Jost, Arial, sans-serif;
-      }
-      @media screen and (max-width: 530px) {
-        .unsub {
-          display: block;
-          padding: 8px;
-          margin-top: 14px;
-          border-radius: 6px;
-          background-image: "https://i.ibb.co/dDdbCQn/0-background-paper-40p.jpg";
-          text-decoration: none !important;
-        }
-        .col-lge {
-          max-width: 100% !important;
-        }
-      }
-      @media screen and (min-width: 531px) {
-        .col-sml {
-          max-width: 27% !important;
-        }
-        .col-lge {
-          max-width: 73% !important;
-        }
-      }
+      table, td, div, h1, p { font-family: Jost, Arial, sans-serif; } @media
+      screen and (max-width: 530px) { .unsub { display: block; padding: 8px;
+      margin-top: 14px; border-radius: 6px; background-image:
+      "https://i.ibb.co/dDdbCQn/0-background-paper-40p.jpg"; text-decoration:
+      none !important; } .col-lge { max-width: 100% !important; } } @media
+      screen and (min-width: 531px) { .col-sml { max-width: 27% !important; }
+      .col-lge { max-width: 73% !important; } }
     </style>
   </head>
   <body
@@ -121,11 +99,11 @@
                   "
                 >
                   <a
-                    href="https://www.ledomainedebernay.fr/"
+                    href="https://www.lacouettebeneze.fr/"
                     style="text-decoration: none"
-                    ><img
-                      src="https://i.ibb.co/WgxDqyq/keyring.png"
-                      alt="keyring"
+                  ><img
+                      src="https://i.ibb.co/gFvMhCx/0-couette-beneze-logo.png"
+                      alt="logo-la-couette-beneze"
                       width="60"
                       alt="Logo"
                       style="
@@ -145,7 +123,7 @@
                         font-weight: bold;
                       "
                     >
-                      Le Domaine de Bernay
+                      La Couette Benèze
                     </h1>
                   </a>
                 </td>
@@ -154,79 +132,45 @@
               <tr>
                 <td
                   style="
-                    padding-top: 30px;
-                    padding-right: 30px;
-                    padding-left: 30px;
+                    padding:30px;
                     background-color: #ffffff;
                   "
                 >
-                  <p
-                    style="
-                      margin-top: 0;
-                      margin-bottom: 16px;
-                      font-size: 22px;
-                      line-height: 32px;
-                      letter-spacing: -0.02em;
-                    "
-                  >
-                    Hello Eric & Sylvie,
-                  </p>
-                  <p style="margin: 0">Vous avez une demande d'information.</p>
+                  <p>Bonjour {{firstname}},</p>
+
+                  <p>Nous vous remercions pour votre demande de réservation.</p>
 
                   <p>
-                    Voici les coordonnées de la personne ayant effectué la
-                    demande :
+                    <strong>⚠ Attention, ceci n'est pas une confirmation :
+                    </strong>Vous recevrez une confirmation de disponibilité
+                    sous trois jours ouvrés.
+                  </p>
+
+                  <p style="text-decoration: underline">
+                    Récapitulatif de votre demande :
                   </p>
 
                   <ul>
-                    <li>Nom : {{lastname}}</li>
-                    <li>Prénom : {{firstname}}</li>
-                    <li>Numéro de téléphone : {{phone}}</li>
-                    <li>Email : {{email}}</li>
+                    <li>Hébergement : {{room}}</li>
+                    <li>Date d'arrivée : {{startDate}}</li>
+                    <li>Date de départ : {{endDate}}</li>
+                    <li>Adultes : {{adults}}</li>
+                    <li>Enfants : {{children}}</li>
                   </ul>
 
-                  <p>
-                    Et voici la demande :
-                    <br />
-                    {{infoReq}}
-                  </p>
-
-                  <p style="color: darkred; font-weight: bold">
-                    Vous pouvez répondre à partir du modèle suivant, en veillant
-                    à bien supprimer le reste du mail:
-                  </p>
-
-                  <hr
-                    style="
-                      border-top: 2px dotted darkred;
-                      border-left: none;
-                      border-right: none;
-                      border-bottom: none;
-                    "
-                  />
-                </td>
-              </tr>
-
-              <tr>
-                <td style="padding: 45px 30px; background-color: #ffffff">
-                  <p style="font-size: 1.2em">Madame/Monsieur {{lastname}},</p>
-                  <p>
-                    Nous avons bien reçu votre demande, qui concernait
-                    <span class="bold" style="font-weight: bold"
-                      >[A COMPLETER]</span
-                    >.
-                  </p>
+                  <p>Demande particulière : {{bookingReq}}</p>
 
                   <p>
                     N'hésitez pas à nous contacter au
-                    <strong>06 12 34 56 78</strong> pour toute question
-                    supplémentaire ou réservation urgente.
+                    <strong>06 12 34 56 78</strong>
+                    pour toute question ou réservation urgente, ou par retour de
+                    mail pour toute modification ou annulation de votre demande
+                    de réservation.
                   </p>
 
-                  <p>Nous vous souhaitons une excellente journée.</p>
-
                   <p>
-                    Bien cordialement, <br />
+                    A très vite,
+                    <br />
                     Eric & Sylvie
                   </p>
                 </td>
@@ -244,25 +188,25 @@
                 >
                   <p style="margin: 0 0 8px 0">
                     <a
-                      href="www.ledomainedebernay.fr"
+                      href="www.lacouettebeneze.fr"
                       style="text-decoration: none"
-                      ><img
-                        src="https://i.ibb.co/3kZVwqq/keyring-w.png"
+                    ><img
+                        src="https://i.ibb.co/gFvMhCx/0-couette-beneze-logo.png"
                         width="20"
                         height="20"
                         alt="t"
                         style="display: inline-block; color: #cccccc"
-                    /></a>
+                      /></a>
 
                     <a
-                      href="www.ledomainedebernay.fr"
+                      href="www.lacouettebeneze.fr"
                       style="
                         text-decoration: none;
                         color: white;
                         font-family: Italiana, Georgia, Sans Serif;
                         font-size: 20px;
                       "
-                      >Le Domaine de Bernay
+                    >La Couette Benèze
                     </a>
                   </p>
                   <p style="font-size: 0.9em">
@@ -270,7 +214,7 @@
                     <br />17043 Bernay-Saint-Martin
                   </p>
                   <p style="margin: 0; font-size: 14px; line-height: 20px">
-                    &copy; Le Domaine de Bernay 2022
+                    &copy; La Couette Benèze 2022
                   </p>
                 </td>
               </tr>

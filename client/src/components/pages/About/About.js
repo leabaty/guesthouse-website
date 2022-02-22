@@ -14,7 +14,7 @@ function About() {
 
         <FadeInSection>
           <img
-            className="about-image"
+            className="about__image"
             src={profilePic}
             alt="eric et sylvie"
           />

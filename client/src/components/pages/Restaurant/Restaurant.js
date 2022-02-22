@@ -23,7 +23,7 @@ function Restaurant() {
 
         <FadeInSection>
         <a href={menu} target="_blank">
-          <button className="btn btn--full btn--wide primary restaurant-btn">
+          <button className="btn btn--full btn--wide primary restaurant__btn">
             Voir le Menu du moment
           </button>
         </a>
@@ -44,7 +44,7 @@ function Restaurant() {
 
         <FadeInSection>
         <a href={menu} target="_blank">
-          <button className="btn btn--full btn--wide primary restaurant-btn">
+          <button className="btn btn--full btn--wide primary restaurant__btn">
             Voir le Menu du moment
           </button>
         </a>

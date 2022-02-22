@@ -155,10 +155,10 @@ function Contact(rooms) {
   };
 
   // SENDING PARAMETERS
-  const sendEmail = async (emailURL) => {
+  const sendData = async (URL) => {
     setSent(true);
     try {
-      await axios.post(`http://localhost:5000/${emailURL}`, {
+      await axios.post(`http://localhost:5000/${URL}`, {
         formData,
       });
     } catch (error) {
@@ -172,11 +172,12 @@ function Contact(rooms) {
 
     if (Object.keys(formErrors).length === 0 && isSubmit) {
       if (bookingClicked === true) {
-        sendEmail("send_booking_request");
-        sendEmail("send_booking_recap");
+        sendData("api/v1/lacouettebeneze/send_booking_request");
+        sendData("api/v1/lacouettebeneze/send_booking_recap");
+        sendData("api/v1/lacouettebeneze/save_booking_request");
       } else {
-        sendEmail("send_info_request");
-        sendEmail("send_info_recap");
+        sendData("api/v1/lacouettebeneze/send_info_request");
+        sendData("api/v1/lacouettebeneze/send_info_recap");
       }
     }
     return () => {

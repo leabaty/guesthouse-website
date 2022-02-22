@@ -1,20 +1,20 @@
 
-.directions-container {
+.directions__container {
 display:flex;
 flex-direction: row;
 justify-content: space-around;
 flex-wrap: wrap;
 }
 
-.directions-item {
+.directions__item {
     max-width: 300px;
     margin: 30px 10px;
 }
 
-.directions-description{
+.directions__description{
     margin: 20px;
 }
 
-.directions-map{
+.directions__map{
     margin: 20px;
 }

@@ -13,52 +13,52 @@ function RoomDetailText({ targetedRoomInfo }) {
   return (
     <>
 
-    <section className="roomdetail-container">
+    <section className="roomdetail__container">
 
-      <div className="roomdetail-characteristics-container">
+      <div className="roomdetail__characteristics-container">
 
-        <div className="roomdetail-characteristics">
+        <div className="roomdetail__characteristics">
           
-          <div className="roomdetail-characteristics-item">
+          <div className="roomdetail__characteristics-item">
             <FaChild />
-            <p className="roomdetail-characteristics-item-info">
+            <p className="roomdetail__characteristics-item-info">
               {targetedRoomInfo?.max_pax_adults}
             </p>
           </div>
 
-          <div className="roomdetail-characteristics-item-child">
+          <div className="roomdetail__characteristics-item-child">
             <FaChild />
-            <p className="roomdetail-characteristics-item-info">
+            <p className="roomdetail__characteristics-item-info">
               {targetedRoomInfo?.max_pax_children}
             </p>
           </div>
 
-          <div className="roomdetail-characteristics-item">
+          <div className="roomdetail__characteristics-item">
             <GiResize />
-            <p className="roomdetail-characteristics-item-info">
+            <p className="roomdetail__characteristics-item-info">
               {targetedRoomInfo?.square_meters}m²
             </p>
           </div>
           </div>
 
-          <div className="roomdetail-characteristics">
-          <div className="roomdetail-characteristics-item">
+          <div className="roomdetail__characteristics">
+          <div className="roomdetail__characteristics-item">
             <BiBed />
-            <p className="roomdetail-characteristics-item-info">
+            <p className="roomdetail__characteristics-item-info">
               {targetedRoomInfo?.bed_type}
             </p>
           </div>
 
-          <div className="roomdetail-characteristics-item">
+          <div className="roomdetail__characteristics-item">
             <FaRegCompass />
-            <p className="roomdetail-characteristics-item-info">
+            <p className="roomdetail__characteristics-item-info">
               {targetedRoomInfo?.cardinalities}
             </p>
           </div>
 
-          <div className="roomdetail-characteristics-item">
+          <div className="roomdetail__characteristics-item">
             <BiLandscape />
-            <p className="roomdetail-characteristics-item-info">
+            <p className="roomdetail__characteristics-item-info">
               {targetedRoomInfo?.view}
             </p>
           </div>
@@ -66,25 +66,25 @@ function RoomDetailText({ targetedRoomInfo }) {
 
       </div>
 
-      <p className="roomdetail-description">{targetedRoomInfo?.description}</p>
+      <p className="roomdetail__description">{targetedRoomInfo?.description}</p>
 
-      <div className="roomdetail-characteristics-item">
+      <div className="roomdetail__characteristics-item">
         <BsCheck2Circle />
-        <p className="roomdetail-characteristics-item-info">
+        <p className="roomdetail__characteristics-item-info">
           Inclus : {targetedRoomInfo?.amenities}
         </p>
       </div>
 
-      <div className="roomdetail-characteristics-item">
+      <div className="roomdetail__characteristics-item">
         <AiOutlineEuro />
-        <p className="roomdetail-characteristics-item-info">
+        <p className="roomdetail__characteristics-item-info">
           {targetedRoomInfo?.min_price}€ à {targetedRoomInfo?.max_price}€ par
           nuit, selon période, pour deux personnes avec petit-déjeuner inclus.
         </p>
       </div>
 
       <Link to="/contact">
-        <button className="btn btn--large primary roomdetail-btn">
+        <button className="btn btn--large primary roomdetail__btn">
           Demande de réservation
         </button>
       </Link>
