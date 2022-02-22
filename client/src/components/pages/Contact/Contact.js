@@ -174,7 +174,7 @@ function Contact(rooms) {
       if (bookingClicked === true) {
         sendData("api/v1/lacouettebeneze/send_booking_request");
         sendData("api/v1/lacouettebeneze/send_booking_recap");
-        sendData("api/v1/lacouettebeneze/saveBookingReq");
+        sendData("api/v1/lacouettebeneze/save_booking_request");
       } else {
         sendData("api/v1/lacouettebeneze/send_info_request");
         sendData("api/v1/lacouettebeneze/send_info_recap");

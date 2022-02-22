@@ -2,9 +2,7 @@ import BookingReqDAO from "../dao/bookingReqDAO.js";
 
 import nodemailer from "nodemailer";
 import hbs from "nodemailer-express-handlebars";
-import { URL } from "url";
 
-const __dirname = new URL(".", import.meta.url).pathname;
 const log = console.log;
 
 export default class BookingReqController {
@@ -12,14 +10,14 @@ export default class BookingReqController {
     try {
       let { formData } = req.body;
 
-      const requestDate = new Date();
+      const requestDate = new Date().toLocaleString('fr-FR', { timeZone: 'CET' });
       const firstname = formData.firstname;
       const lastname = formData.lastname;
       const phone = formData.phone;
       const email = formData.email;
       const bookingInfo = {
         room: formData.room,
-        startDate: new Date(formData.startDate).toLocaleDateString("fr-FR", {
+        startDate: new Date(formData.startDate).toLocaleString("fr-FR", {
           day: "numeric",
           month: "long",
           year: "numeric",
@@ -65,10 +63,10 @@ export default class BookingReqController {
       const handlebarOptions = {
         viewEngine: {
           extName: ".handlebars",
-          partialsDir: path.resolve(__dirname, "views"),
+          partialsDir: "./views/layouts",
           defaultLayout: false,
         },
-        viewPath: path.resolve(__dirname, "views"),
+        viewPath: "./views/layouts",
         extName: ".handlebars",
       };
 
@@ -124,10 +122,10 @@ export default class BookingReqController {
       const handlebarOptions = {
         viewEngine: {
           extName: ".handlebars",
-          partialsDir: path.resolve(__dirname, "views"),
+          partialsDir: "./views/layouts",
           defaultLayout: false,
         },
-        viewPath: path.resolve(__dirname, "views"),
+        viewPath: "./views/layouts",
         extName: ".handlebars",
       };
 
