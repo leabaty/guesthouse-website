@@ -15,13 +15,12 @@ function Footer() {
 
             <div className="footer__links">
               <div className="footer__link__items">
-                <Link to="/">Mentions Légales</Link>
-                <Link to="/">C.G.U</Link>
+                <Link to="/mentions-legales">Mentions Légales</Link>
+                <Link to="/politique-de-confidentialite">Politique de confidentialité</Link>
               </div>
 
               <div className="footer__link__items">
-                <Link to="/">Politique de confidentialité</Link>
-                <Link to="/">Informations sur les cookies</Link>
+                <div className="website-rights">La Couette Benèze © 2022</div>
               </div>
             </div>
           </div>
@@ -55,7 +54,7 @@ function Footer() {
           </div>
         </div>
       </section>
-      <div className="website-rights">La Couette Benèze © 2022</div>
+      {/* <div className="website-rights">La Couette Benèze © 2022</div> */}
     </div>
   );
 }

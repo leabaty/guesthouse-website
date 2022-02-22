@@ -18,6 +18,8 @@ import Restaurant from "./components/pages/Restaurant/Restaurant";
 import Directions from "./components/pages/Directions/Directions";
 import About from "./components/pages/About/About";
 import Contact from "./components/pages/Contact/Contact";
+import PrivacyPolicy from "./components/pages/Footer/Legal/PrivacyPolicy";
+import LegalNotice from "./components/pages/Footer/Legal/LegalNotice";
 import NotFound from "./components/pages/NotFound/NotFound";
 
 function App() {
@@ -42,6 +44,8 @@ function App() {
           <Route path="/acces" element={<Directions />}></Route>
           <Route path="/a-propos" element={<About />}></Route>
           <Route path="/contact" element={<Contact rooms={roomData} />}></Route>
+          <Route path="/mentions-legales" element={<LegalNotice/>}></Route>
+          <Route path="/politique-de-confidentialite" element={<PrivacyPolicy/>}></Route>
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
 
