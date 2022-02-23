@@ -5,7 +5,7 @@ import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { Button } from "./Button";
 import "./Navbar.css";
 
-import logo from "../assets/images/0-couette-beneze-logo.png";
+import logo from "../assets/images/0-couette-beneze-logo.webp";
 
 function Navbar() {
   const [click, setClick] = useState(false);

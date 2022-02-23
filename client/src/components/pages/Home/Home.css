@@ -25,10 +25,10 @@
 }
 
 .parallax {
-  background-image: url("../../../assets/images/1a - house_picture - cropped.jpg");
+  background-image: url("../../../assets/images/1a-house_picture-cropped.webp");
   background-size: cover;
   background-position: center;
-  height: 80vh;
+  height: 85vh;
 }
 
 .parallax {
