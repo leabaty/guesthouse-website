@@ -14,7 +14,6 @@ const port = process.env.PORT || 8000;
 // CONNECTING DATABASE
 const uri = process.env.BOOKINGREQ_DB_URI;
 MongoClient.connect(uri, {
-  // poolSize: 50, // nombre de gens qui peuvent se connecter en même temps => DEPRECATED
   wtimeoutMS: 2500,
   useNewUrlParser: true,
 })
