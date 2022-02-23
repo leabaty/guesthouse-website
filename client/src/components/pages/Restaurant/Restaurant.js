@@ -17,7 +17,7 @@ import FadeInSection from "../../../utils/fadeIn.js";
 function Restaurant() {
   return (
     <>
-      <div className="page">
+      <body className="page">
         <h1 className="heading heading--medium">Table d'hôtes</h1>
         <hr className="heading-rule" />
 
@@ -27,7 +27,7 @@ function Restaurant() {
             Voir le Menu du moment
           </button>
         </a>
-        <p className="isolated-text">Réservation au 06 12 34 56 78</p>
+        <p className="text">Réservation au 06 12 34 56 78</p>
         </FadeInSection>
 
         <FadeInSection>
@@ -48,11 +48,11 @@ function Restaurant() {
             Voir le Menu du moment
           </button>
         </a>
-        <p className="isolated-text">Réservation au 06 12 34 56 78</p>
+        <p className="text">Réservation au 06 12 34 56 78</p>
         </FadeInSection>
 
 
-      </div>
+      </body>
     </>
   );
 }

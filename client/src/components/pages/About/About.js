@@ -8,7 +8,7 @@ import "./About.css";
 function About() {
   return (
     <>
-      <div className="page">
+      <body className="page">
         <h1 className="heading heading--medium">A propos</h1>
         <hr className="heading-rule" />
 
@@ -19,7 +19,7 @@ function About() {
             alt="eric et sylvie"
           />
           <h1 className="heading heading--small">Bienvenue chez vous !</h1>
-          <p className="isolated-text">
+          <p className="text">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
             consequat varius nunc ac blandit. Morbi semper, purus sed sagittis
             pretium, dolor quam vestibulum libero, eu blandit nisl massa id
@@ -36,7 +36,7 @@ function About() {
             aliquet nisi eget massa ullamcorper, vitae condimentum eros
             molestie. Aenean id bibendum ante.
           </p>
-          <p className="isolated-text">
+          <p className="text">
             Quisque lorem magna, sodales id fringilla eu, faucibus sed mauris.
             Nullam bibendum ultrices est, placerat pharetra nibh lobortis non.
             In sit amet dui ipsum. Praesent ex metus, congue vitae ipsum in,
@@ -45,7 +45,7 @@ function About() {
             varius orci, sed bibendum est nisl vel nibh.
           </p>
         </FadeInSection>
-      </div>
+      </body>
     </>
   );
 }

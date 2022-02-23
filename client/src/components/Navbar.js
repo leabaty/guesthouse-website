@@ -31,7 +31,7 @@ function Navbar() {
 
   return (
     <>
-      <div className="navbar">
+      <nav className="navbar">
         <div className="navbar__container container">
           <Link to="/" className="navbar__title" onClick={closeMobileMenu}>
             <img src={logo}  alt="logo-couette-beneze" className="navbar__icon" />
@@ -103,7 +103,7 @@ function Navbar() {
             </li>
           </ul>
         </div>
-      </div>
+      </nav>
     </>
   );
 }

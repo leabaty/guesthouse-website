@@ -36,7 +36,7 @@ section{
   font-size: 1.3rem;
 }
 
-.isolated-text {
+.text {
   font-size: 1.1rem;
   margin: 15px 0;
 }
@@ -51,6 +51,7 @@ section{
   max-width: 80%;
   text-align: center;
   margin: 0 auto;
+  min-height:55vh
 }
 
 .fade-in-section {

@@ -7,10 +7,12 @@ import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 
 function Footer() {
   return (
-    <div className="footer__container">
-      <section className="social__media">
+    <footer className="footer__container">
+
+      <div className="social__media">
         <div className="social__media__wrap">
-          <div className="footer__link__wrapper">
+
+          <section className="footer__link__wrapper">
             <h2 className="footer__title">A propos</h2>
 
             <div className="footer__links">
@@ -23,9 +25,9 @@ function Footer() {
                 <div className="website-rights">La Couette Benèze © 2022</div>
               </div>
             </div>
-          </div>
+          </section>
 
-          <div className="social__icons">
+          <section className="social__icons">
             <Link
               className="social__icon-link"
               to="/"
@@ -51,11 +53,11 @@ function Footer() {
             >
               <FaTwitter />
             </Link>
-          </div>
+          </section>
+
         </div>
-      </section>
-      {/* <div className="website-rights">La Couette Benèze © 2022</div> */}
-    </div>
+      </div>
+    </footer>
   );
 }
 

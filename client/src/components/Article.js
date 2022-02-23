@@ -6,7 +6,7 @@ import "./Article.css";
 function Article({ headLine, description, img, alt, imgStart }) {
   return (
     <>
-      <div className="article__container">
+      <article className="article__container">
         <div
           className="row article__row"
           style={{
@@ -14,20 +14,20 @@ function Article({ headLine, description, img, alt, imgStart }) {
             flexDirection: imgStart === "start" ? "row-reverse" : "row",
           }}
         >
-          <div className="col">
+          <section className="col">
             <div className="article__text-wrapper">
               <h1 className="heading">{headLine}</h1>
               <p className="article__text">{description}</p>
             </div>
-          </div>
+          </section>
 
-          <div className="col">
+          <section className="col">
             <div className="article__img-wrapper">
               <img src={img} alt={alt} className="article__img" />
             </div>
-          </div>
+          </section>
         </div>
-      </div>
+      </article>
     </>
   );
 }

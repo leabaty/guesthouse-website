@@ -40,12 +40,12 @@ function RoomPage({ rooms }) {
 
   return (
     <>
-      <div className="page">
+      <body className="page">
 
         <h1 className="heading heading--medium">Chambres</h1>
         <hr className="heading-rule" />
 
-        <div
+        <article
           className={
             roomClicked
               ? "roomdetails__container"
@@ -56,9 +56,9 @@ function RoomPage({ rooms }) {
           <RoomDetailSlider targetedRoom={roomInfo} />
           <RoomDetailText targetedRoomInfo={roomInfo} />
           
-        </div>
+        </article>
 
-        <div className="roompage__cards-container">
+        <section className="roompage__cards-container">
           {rooms.map((room) => {
             return (
               <div className="roomcard" key={room.id}>
@@ -109,8 +109,8 @@ function RoomPage({ rooms }) {
               </div>
             );
           })}
-        </div>
-      </div>
+        </section>
+      </body>
     </>
   );
 }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 import { registerLocale } from "react-datepicker";
 import fr from "date-fns/locale/fr";
@@ -7,6 +8,7 @@ import fr from "date-fns/locale/fr";
 import ContactBase from "./ContactBase";
 import ContactBooking from "./ContactBooking";
 import ContactInfo from "./ContactInfo";
+import { Button } from "../../Button";
 
 import "./Contact.css";
 import "./react-datepicker.css";
@@ -168,8 +170,6 @@ function Contact(rooms) {
 
   // FINALLY SENDING THIS EMAIL
   useEffect(() => {
-    console.log(formErrors);
-
     if (Object.keys(formErrors).length === 0 && isSubmit) {
       if (bookingClicked === true) {
         sendData("api/v1/lacouettebeneze/send_booking_request");
@@ -180,101 +180,113 @@ function Contact(rooms) {
         sendData("api/v1/lacouettebeneze/send_info_recap");
       }
     }
-    return () => {
-      console.log("Toto");
-    };
   }, [formErrors]);
-
- 
 
   return (
     <>
       {/*FORMULAIRE DE BASE*/}
 
-      <div className="page">
+      <body className="page">
         <h1 className="heading heading--medium">Contact</h1>
         <hr className="heading-rule" />
 
-        <p className="isolated-text">
+        <p className="text">
           Nous sommes également joignables au 06 12 34 56 78
         </p>
 
-        <form className="contact-form" onSubmit={handleSubmit}>
-
-          <ContactBase
-            handleChange={handleChange}
-            formData={formData}
-            formErrors={formErrors}
+        {!sent ? (
+          <form className="contact-form" onSubmit={handleSubmit}>
+            <ContactBase
+              handleChange={handleChange}
+              formData={formData}
+              formErrors={formErrors}
             />
 
-          <h2 className="heading heading--small"> Je souhaite faire une...</h2>
-
-          <div className="contact-form__option">
-            {/* <div className="contact-form__element"> */}
-            <div className="contact-form__row-block">
+            <h2 className="heading heading--small">
               {" "}
-              <button
-                className={
-                  bookingClicked
-                    ? "btn btn--selected btn--medium btn--option"
-                    : "btn btn--full btn--medium primary btn--option"
-                }
-                onClick={handleBookingClick}
-              >
-                Demande de réservation
-              </button>
-              <button
-                className={
-                  infoClicked
-                    ? "btn btn--selected btn--medium btn--option --second-block-element"
-                    : "btn btn--full btn--medium primary btn--option --second-block-element"
-                }
-                onClick={handleInfoClick}
-              >
-                Demande d'information
-              </button>
+              Je souhaite faire une...
+            </h2>
+
+            <div className="contact-form__option">
+              {/* <div className="contact-form__element"> */}
+              <div className="contact-form__row-block">
+                {" "}
+                <button
+                  className={
+                    bookingClicked
+                      ? "btn btn--selected btn--medium btn--option"
+                      : "btn btn--full btn--medium primary btn--option"
+                  }
+                  onClick={handleBookingClick}
+                >
+                  Demande de réservation
+                </button>
+                <button
+                  className={
+                    infoClicked
+                      ? "btn btn--selected btn--medium btn--option --second-block-element"
+                      : "btn btn--full btn--medium primary btn--option --second-block-element"
+                  }
+                  onClick={handleInfoClick}
+                >
+                  Demande d'information
+                </button>
+              </div>
             </div>
-          </div>
 
-          <ContactBooking
-            bookingClicked={bookingClicked}
-            handleRoomSelect={handleRoomSelect}
-            rooms={rooms}
-            startDate={startDate}
-            endDate={endDate}
-            onDateChange={onDateChange}
-            handleChange={handleChange}
-            formData={formData}
-            adultPaxOptions={adultPaxOptions}
-            childPaxOptions={childPaxOptions}
-          />
-          <ContactInfo
-            infoClicked={infoClicked}
-            handleChange={handleChange}
-            formData={formData}
-          />
+            <ContactBooking
+              bookingClicked={bookingClicked}
+              handleRoomSelect={handleRoomSelect}
+              rooms={rooms}
+              startDate={startDate}
+              endDate={endDate}
+              onDateChange={onDateChange}
+              handleChange={handleChange}
+              formData={formData}
+              adultPaxOptions={adultPaxOptions}
+              childPaxOptions={childPaxOptions}
+            />
+            <ContactInfo
+              infoClicked={infoClicked}
+              handleChange={handleChange}
+              formData={formData}
+            />
 
-          {/* {Object.keys(formErrors).length === 0 && isSubmit ? (
-          <div>Formulaire validé</div>
+            {Object.keys(formErrors).length !== 0 ? (
+              <p>
+                Le formulaire contient des erreurs, merci de vérifier votre
+                saisie.
+              </p>
+            ) : (
+              ""
+            )}
+
+            {/*CONDITION 1 : Le formulaire n'est pas rempli, on affiche le formulaire
+            
+            CONDITION 2 : Le formulaire contient des erreurs, on affiche un message d'erreur + le formulaire
+            
+            CONDITION 3 : Le formulaire est envoyé et ne contient pas d'erreur, on affiche un message de confirmation*/}
+          </form>
         ) : (
           <div>
-            Le formulaire contient des erreurs, merci de vérifier votre saisie.
-          </div>
-        )} */}
-
-          {!sent ? (
-            <p></p>
-          ) : (
-            <p>
+            <p className="text">
               Merci, votre demande a bien été transmise à La Couette Benèze.{" "}
               <br />
               Une copie de votre demande vous a été adressée. <br />
               Vous recevrez une réponse sous trois jours ouvrés à l'adresse mail
-              indiquée.
+              indiquée. <br /> ⚠️ Pensez à bien vérifier votre dossier de SPAMS 📧
+              !
             </p>
-          )}
-        </form>
-      </div>
+
+              <Link to="/">
+                <button className="btn btn--outline btn--large primary btn--back-to-menu">
+                  Retour à l'accueil
+                </button>
+              </Link>
+
+          </div>
+        )}
+      </body>
     </>
   );
 }

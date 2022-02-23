@@ -7,7 +7,7 @@ import { Button } from "../../Button";
 
 function NotFound() {
   return (
-    <div className="not-found__container">
+    <body className="not-found__container">
       <img
         className="not-found__img"
         src="https://i.ibb.co/4J4c7FZ/NotFound.png"
@@ -31,7 +31,7 @@ function NotFound() {
           </Link>
         </div>
       </div>
-    </div>
+    </body>
   );
 }
 
