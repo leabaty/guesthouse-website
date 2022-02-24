@@ -26,7 +26,7 @@ function RoomDetailText({ targetedRoomInfo }) {
             </p>
           </div>
 
-          <div className="roomdetail__characteristics-item-child">
+          <div className="roomdetail__characteristics-item child">
             <FaChild />
             <p className="roomdetail__characteristics-item-info">
               {targetedRoomInfo?.max_pax_children}

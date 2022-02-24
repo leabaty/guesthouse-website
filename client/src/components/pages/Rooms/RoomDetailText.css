@@ -21,11 +21,13 @@
 .roomdetail__characteristics-item {
   font-size: 1.4rem;
   padding: 16px;
+  width: 30%;
 }
 
 .roomdetail__characteristics-item-child {
   font-size: 1rem;
   padding: 16px;
+  
 }
 
 .roomdetail__characteristics-item-info {
