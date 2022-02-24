@@ -21,15 +21,15 @@ section{
 }
 
 .heading--medium {
-  font-size: 2em;
-}
-
-.heading--nano {
-  font-size: 1.3em;
+  font-size: 1.6em;
 }
 
 .heading--small {
   font-size: 1.5em;
+}
+
+.heading--nano {
+  font-size: 1.3em;
 }
 
 .undertitle {
@@ -70,7 +70,7 @@ section{
 
 @media screen and (max-width: 1250px) {
   .heading {
-    font-size: 2em;
+    font-size: 1.7em;
   }
 
   .heading--medium {
@@ -93,5 +93,9 @@ section{
     font-size: 1.5em;
   }
 
+  .text {
+    font-size: 1.1rem;
+    margin: 15px 30px;
+  }
 
 }

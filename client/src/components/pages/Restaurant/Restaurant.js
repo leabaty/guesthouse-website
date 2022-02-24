@@ -50,8 +50,6 @@ function Restaurant() {
         </a>
         <p className="text">Réservation au 06 12 34 56 78</p>
         </FadeInSection>
-
-
       </body>
     </>
   );
