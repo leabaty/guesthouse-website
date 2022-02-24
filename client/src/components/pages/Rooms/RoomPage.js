@@ -52,7 +52,7 @@ function RoomPage({ rooms }) {
               : "roomdetails__container hidden"
           }
         >
-          <h1 className="heading heading--medium">{roomInfo?.name}</h1>
+          <h1 className="heading heading--medium roompage__heading">{roomInfo?.name}</h1>
           <RoomDetailSlider targetedRoom={roomInfo} />
           <RoomDetailText targetedRoomInfo={roomInfo} />
           
