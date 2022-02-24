@@ -68,16 +68,16 @@ function RoomDetailText({ targetedRoomInfo }) {
 
       <p className="roomdetail__description">{targetedRoomInfo?.description}</p>
 
-      <div className="roomdetail__characteristics-item">
+      <div className="roomdetail__characteristics-item-info">
         <BsCheck2Circle />
-        <p className="roomdetail__characteristics-item-info">
+        <p>
           Inclus : {targetedRoomInfo?.amenities}
         </p>
       </div>
 
-      <div className="roomdetail__characteristics-item">
+      <div className="roomdetail__characteristics-item-info">
         <AiOutlineEuro />
-        <p className="roomdetail__characteristics-item-info">
+        <p>
           {targetedRoomInfo?.min_price}€ à {targetedRoomInfo?.max_price}€ par
           nuit, selon période, pour deux personnes avec petit-déjeuner inclus.
         </p>

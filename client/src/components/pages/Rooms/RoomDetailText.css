@@ -27,13 +27,12 @@
 .roomdetail__characteristics-item-child {
   font-size: 1rem;
   padding: 16px;
-  
 }
 
 .roomdetail__characteristics-item-info {
   display: inline-block;
   font-size: 1.1rem;
-  padding: 0 3px 0 8px;
+  padding: 10px 3px 0 8px;
 }
 
 .roomdetail__description {
