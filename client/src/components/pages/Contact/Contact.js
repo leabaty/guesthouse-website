@@ -160,7 +160,7 @@ function Contact(rooms) {
   const sendData = async (URL) => {
     setSent(true);
     try {
-      await axios.post(`http://localhost:5000/${URL}`, {
+      await axios.post(`https://lacouettebeneze.herokuapp.com/${URL}`, {
         formData,
       });
     } catch (error) {
