@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "./RoomDetailText.css";
 
 import { AiOutlineEuro } from "react-icons/ai";
-import { FaChild, FaAccessibleIcon, FaRegCompass } from "react-icons/fa";
+import { FaChild, FaRegCompass } from "react-icons/fa";
 import { BiBed, BiLandscape } from "react-icons/bi";
 import { GiResize } from "react-icons/gi";
 import { BsCheck2Circle } from "react-icons/bs";

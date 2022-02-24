@@ -64,6 +64,10 @@ label input {
   margin-right: 5px;
 }
 
+.btn--back-to-menu {
+  margin:20px;
+}
+
 @media screen and (max-width: 769px) {
   .contact-form__row-block {
     display: flex;
@@ -107,5 +111,7 @@ label input {
   .btn--option {
     margin: 10px;
   }
+
+
 }
 
