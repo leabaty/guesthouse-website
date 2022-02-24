@@ -26,7 +26,6 @@ function App() {
     <div className="app">
       <Router>
         <Navbar />
-
         <Routes>
           <Route path="/" exact element={<Home />}></Route>
           <Route path="/chambres" element={<Rooms rooms={roomData} />}></Route>

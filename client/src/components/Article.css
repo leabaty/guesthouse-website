@@ -5,93 +5,76 @@
 }
 
 .article__container {
-  width: 100%;
-  max-width: 1300px;
-  margin: 2rem auto;
-  padding: 0 50px;
-}
-
-.row {
-  margin: 0 -15px -15px -15px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  /* align-content: stretch; */
+  margin: 45px 30px;
 }
 
 .article__row {
-  align-items: center;
+  display: flex;
+  flex-direction: row;
 }
 
-.col {
-  margin-bottom: 15px;
-  padding: 0 15px;
-  flex: 1;
-  /* max-width: 50%;
-  flex-basis: 50%; */
+.article__row-reverse {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
+
+.article__col {
+  width: 49%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .article__text-wrapper {
-  max-width: 540px;
-  padding: 0 0 60px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.article__heading {
+  margin: 20px 35px;
+  font-size: 1.6em;
 }
 
 .article__text {
-  max-width: 90%;
-  /* margin: 0 0 35px 0; */
-  margin: 15px auto;
-  font-size: 18px;
-  line-height: 24px;
+  margin: 20px 35px;
 }
 
 .article__img-wrapper {
-  max-width: 555px;
+  max-width: 550px;
+  margin: auto;
 }
 
 img {
-  border: 0;
-  max-width: 95%;
-  padding: 15px;
-  vertical-align: middle;
-  display: inline-block;
+  border: none;
+  max-width: 100%;
 }
 
 @media screen and (max-width: 1250px) {
-  .article__container {
-    padding: 0 15px;
+  .article__heading {
+    font-size: 1.4em;
   }
 
-  .article__text{
-    font-size: 1.1em;
+  .article__col {
+    width: 100%;
   }
 
-  .article__row {
-    max-width: 100%;
+  .article__img-wrapper {
+    max-width: 1000px;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 960px) {
+
   .article__container {
-    width: 100%;
-    max-width: 1300px;
-    margin: 2rem auto;
-    padding: 0 20px;
+    margin: 0px 30px;
   }
 
-  .article__text{
-    font-size: 1em;
+  .article__row {
+    flex-direction: column;
   }
-
-  .article__text-wrapper {
-    padding: 0 0 40px 0;
-  }
-
-  .col {
-    max-width: 80%;
-    flex-basis: 100%;
-  }
-
-  .row {
-    justify-content: center;
+  
+  .article__row-reverse {
+    flex-direction: column;
   }
 }
