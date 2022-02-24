@@ -47,9 +47,8 @@ export default [
         "imgs":{
             "img_url": "https://images.unsplash.com/photo-1612152842505-f075576e6fee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
             "img_url_1": "https://images.unsplash.com/photo-1612152677874-8160b1e347f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-            "img_url_2": "https://images.unsplash.com/photo-1612152636960-edcc3ff72865?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-            "img_url_3": "https://images.unsplash.com/photo-1612152754790-92638e4667bd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-            "img_url_4": "https://images.unsplash.com/photo-1612152605347-f93296cb657d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+            "img_url_2": "https://images.unsplash.com/photo-1612152754790-92638e4667bd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+            "img_url_3": "https://images.unsplash.com/photo-1612152605347-f93296cb657d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
         },
         "description": "Phasellus vehicula odio urna, consectetur pharetra neque consequat quis. Phasellus feugiat, massa non consequat accumsan, nisl magna euismod nulla, id laoreet ipsum mauris id tortor. Integer interdum mollis venenatis.",
         "square_meters": 20,
@@ -70,9 +69,7 @@ export default [
         "imgs":{
             "img_url": "https://images.unsplash.com/photo-1532344214108-1b6d425db572?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80",
            "img_url_1": "https://images.unsplash.com/photo-1532344090165-2cb055097021?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80",
-           "img_url_2": "https://images.unsplash.com/photo-1531312541157-d77c224ca7db?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80",
-           "img_url_4": "https://images.unsplash.com/photo-1572375125504-fa78a44122f0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1567&q=80",    
-           "img_url_3": "https://images.unsplash.com/photo-1572374985879-d2a6bfd8f979?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80",
+           "img_url_2": "https://images.unsplash.com/photo-1572375125504-fa78a44122f0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1567&q=80",    
         },
         "description": "Curabitur tempor mollis egestas. Etiam condimentum euismod eros ac sodales. Praesent neque metus, pretium vel tempus id, pellentesque lobortis est. Pellentesque commodo tellus ante, non facilisis quam placerat quis. Praesent vulputate eros nec auctor sodales. Nam sed dictum sapien.",
         "square_meters": 30,

@@ -76,3 +76,39 @@
 .roompage__heading {
   margin-bottom: 20px;
 }
+
+@media screen and (max-width: 1395px) {
+  .arrows-room {
+    font-size: 25px;
+    margin: 0 -40px;
+  }
+}
+
+@media screen and (max-width: 1020px) {
+  .arrows-room {
+    font-size: 20px;
+    margin: 0 -30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  .roompage__cards-container {
+    padding: 2rem 2.5rem 0;
+  }
+
+  .roomcard {
+    margin: 0 0 3rem;
+  }
+
+  .arrows-room {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 350px) {
+
+  .roompage__cards-container {
+    padding: 2rem 1rem 0;
+  }
+}
