@@ -22,12 +22,11 @@ function Navbar() {
       setButton(true);
     }
   };
+  
   window.addEventListener("resize", showButton);
-  // Avec cette condition, on vérifie la taille du navigateur avec un useEffect (qui n'intervient qu'une fois, au démarrage du site)
   useEffect(() => {
     showButton();
   }, []);
-  // et cela va donc déterminer si le bouton doit être visible ou non en changeant sa valeur dans le state.
 
   return (
     <>
